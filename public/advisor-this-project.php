@@ -7,8 +7,7 @@
     <meta http-equiv="Content-Language" content="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Analytics Dashboard - This is an example dashboard created using build-in elements and components.</title>
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <meta name="description" content="This is an example dashboard created using build-in elements and components.">
     <meta name="msapplication-tap-highlight" content="no">
     <!--
@@ -32,8 +31,7 @@
             <div class="app-header__logo">
                 <div class="header__pane ml-auto">
                     <div>
-                        <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
-                            data-class="closed-sidebar">
+                        <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
                             <span class="hamburger-box">
                                 <span class="hamburger-inner"></span>
                             </span>
@@ -51,7 +49,7 @@
                 </div>
             </div>
             <div class="app-header__content">
-                
+
                 <div class="app-header-right">
                     <div class="header-btn-lg pr-0">
                         <div class="widget-content p-0">
@@ -59,8 +57,7 @@
                                 <div class="widget-content-left">
                                     <div class="btn-group">
                                         <div aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                                            <img width="42" class="rounded-circle" src="assets/images/avatars/2.jpg"
-                                                alt="">
+                                            <img width="42" class="rounded-circle" src="assets/images/avatars/2.jpg" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -94,11 +91,9 @@
                                     <div class="widget-content p-0">
                                         <div class="widget-content-wrapper">
                                             <div class="widget-content-left mr-3">
-                                                <div class="switch has-switch switch-container-class"
-                                                    data-class="fixed-header">
+                                                <div class="switch has-switch switch-container-class" data-class="fixed-header">
                                                     <div class="switch-animate switch-on">
-                                                        <input type="checkbox" checked data-toggle="toggle"
-                                                            data-onstyle="success">
+                                                        <input type="checkbox" checked data-toggle="toggle" data-onstyle="success">
                                                     </div>
                                                 </div>
                                             </div>
@@ -115,11 +110,9 @@
                                     <div class="widget-content p-0">
                                         <div class="widget-content-wrapper">
                                             <div class="widget-content-left mr-3">
-                                                <div class="switch has-switch switch-container-class"
-                                                    data-class="fixed-sidebar">
+                                                <div class="switch has-switch switch-container-class" data-class="fixed-sidebar">
                                                     <div class="switch-animate switch-on">
-                                                        <input type="checkbox" checked data-toggle="toggle"
-                                                            data-onstyle="success">
+                                                        <input type="checkbox" checked data-toggle="toggle" data-onstyle="success">
                                                     </div>
                                                 </div>
                                             </div>
@@ -136,11 +129,9 @@
                                     <div class="widget-content p-0">
                                         <div class="widget-content-wrapper">
                                             <div class="widget-content-left mr-3">
-                                                <div class="switch has-switch switch-container-class"
-                                                    data-class="fixed-footer">
+                                                <div class="switch has-switch switch-container-class" data-class="fixed-footer">
                                                     <div class="switch-animate switch-off">
-                                                        <input type="checkbox" data-toggle="toggle"
-                                                            data-onstyle="success">
+                                                        <input type="checkbox" data-toggle="toggle" data-onstyle="success">
                                                     </div>
                                                 </div>
                                             </div>
@@ -159,9 +150,7 @@
                             <div>
                                 Başlık Seçenekleri
                             </div>
-                            <button type="button"
-                                class="btn-pill btn-shadow btn-wide ml-auto btn btn-focus btn-sm switch-header-cs-class"
-                                data-class="">
+                            <button type="button" class="btn-pill btn-shadow btn-wide ml-auto btn btn-focus btn-sm switch-header-cs-class" data-class="">
                                 Orijinali Yükle
                             </button>
                         </h3>
@@ -171,115 +160,79 @@
                                     <h5 class="pb-2">Renk Şeması Seç
                                     </h5>
                                     <div class="theme-settings-swatches">
-                                        <div class="swatch-holder bg-primary switch-header-cs-class"
-                                            data-class="bg-primary header-text-light">
+                                        <div class="swatch-holder bg-primary switch-header-cs-class" data-class="bg-primary header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-secondary switch-header-cs-class"
-                                            data-class="bg-secondary header-text-light">
+                                        <div class="swatch-holder bg-secondary switch-header-cs-class" data-class="bg-secondary header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-success switch-header-cs-class"
-                                            data-class="bg-success header-text-dark">
+                                        <div class="swatch-holder bg-success switch-header-cs-class" data-class="bg-success header-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-info switch-header-cs-class"
-                                            data-class="bg-info header-text-dark">
+                                        <div class="swatch-holder bg-info switch-header-cs-class" data-class="bg-info header-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-warning switch-header-cs-class"
-                                            data-class="bg-warning header-text-dark">
+                                        <div class="swatch-holder bg-warning switch-header-cs-class" data-class="bg-warning header-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-danger switch-header-cs-class"
-                                            data-class="bg-danger header-text-light">
+                                        <div class="swatch-holder bg-danger switch-header-cs-class" data-class="bg-danger header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-light switch-header-cs-class"
-                                            data-class="bg-light header-text-dark">
+                                        <div class="swatch-holder bg-light switch-header-cs-class" data-class="bg-light header-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-dark switch-header-cs-class"
-                                            data-class="bg-dark header-text-light">
+                                        <div class="swatch-holder bg-dark switch-header-cs-class" data-class="bg-dark header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-focus switch-header-cs-class"
-                                            data-class="bg-focus header-text-light">
+                                        <div class="swatch-holder bg-focus switch-header-cs-class" data-class="bg-focus header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-alternate switch-header-cs-class"
-                                            data-class="bg-alternate header-text-light">
+                                        <div class="swatch-holder bg-alternate switch-header-cs-class" data-class="bg-alternate header-text-light">
                                         </div>
                                         <div class="divider">
                                         </div>
-                                        <div class="swatch-holder bg-vicious-stance switch-header-cs-class"
-                                            data-class="bg-vicious-stance header-text-light">
+                                        <div class="swatch-holder bg-vicious-stance switch-header-cs-class" data-class="bg-vicious-stance header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-midnight-bloom switch-header-cs-class"
-                                            data-class="bg-midnight-bloom header-text-light">
+                                        <div class="swatch-holder bg-midnight-bloom switch-header-cs-class" data-class="bg-midnight-bloom header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-night-sky switch-header-cs-class"
-                                            data-class="bg-night-sky header-text-light">
+                                        <div class="swatch-holder bg-night-sky switch-header-cs-class" data-class="bg-night-sky header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-slick-carbon switch-header-cs-class"
-                                            data-class="bg-slick-carbon header-text-light">
+                                        <div class="swatch-holder bg-slick-carbon switch-header-cs-class" data-class="bg-slick-carbon header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-asteroid switch-header-cs-class"
-                                            data-class="bg-asteroid header-text-light">
+                                        <div class="swatch-holder bg-asteroid switch-header-cs-class" data-class="bg-asteroid header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-royal switch-header-cs-class"
-                                            data-class="bg-royal header-text-light">
+                                        <div class="swatch-holder bg-royal switch-header-cs-class" data-class="bg-royal header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-warm-flame switch-header-cs-class"
-                                            data-class="bg-warm-flame header-text-dark">
+                                        <div class="swatch-holder bg-warm-flame switch-header-cs-class" data-class="bg-warm-flame header-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-night-fade switch-header-cs-class"
-                                            data-class="bg-night-fade header-text-dark">
+                                        <div class="swatch-holder bg-night-fade switch-header-cs-class" data-class="bg-night-fade header-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-sunny-morning switch-header-cs-class"
-                                            data-class="bg-sunny-morning header-text-dark">
+                                        <div class="swatch-holder bg-sunny-morning switch-header-cs-class" data-class="bg-sunny-morning header-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-tempting-azure switch-header-cs-class"
-                                            data-class="bg-tempting-azure header-text-dark">
+                                        <div class="swatch-holder bg-tempting-azure switch-header-cs-class" data-class="bg-tempting-azure header-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-amy-crisp switch-header-cs-class"
-                                            data-class="bg-amy-crisp header-text-dark">
+                                        <div class="swatch-holder bg-amy-crisp switch-header-cs-class" data-class="bg-amy-crisp header-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-heavy-rain switch-header-cs-class"
-                                            data-class="bg-heavy-rain header-text-dark">
+                                        <div class="swatch-holder bg-heavy-rain switch-header-cs-class" data-class="bg-heavy-rain header-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-mean-fruit switch-header-cs-class"
-                                            data-class="bg-mean-fruit header-text-dark">
+                                        <div class="swatch-holder bg-mean-fruit switch-header-cs-class" data-class="bg-mean-fruit header-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-malibu-beach switch-header-cs-class"
-                                            data-class="bg-malibu-beach header-text-light">
+                                        <div class="swatch-holder bg-malibu-beach switch-header-cs-class" data-class="bg-malibu-beach header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-deep-blue switch-header-cs-class"
-                                            data-class="bg-deep-blue header-text-dark">
+                                        <div class="swatch-holder bg-deep-blue switch-header-cs-class" data-class="bg-deep-blue header-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-ripe-malin switch-header-cs-class"
-                                            data-class="bg-ripe-malin header-text-light">
+                                        <div class="swatch-holder bg-ripe-malin switch-header-cs-class" data-class="bg-ripe-malin header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-arielle-smile switch-header-cs-class"
-                                            data-class="bg-arielle-smile header-text-light">
+                                        <div class="swatch-holder bg-arielle-smile switch-header-cs-class" data-class="bg-arielle-smile header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-plum-plate switch-header-cs-class"
-                                            data-class="bg-plum-plate header-text-light">
+                                        <div class="swatch-holder bg-plum-plate switch-header-cs-class" data-class="bg-plum-plate header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-happy-fisher switch-header-cs-class"
-                                            data-class="bg-happy-fisher header-text-dark">
+                                        <div class="swatch-holder bg-happy-fisher switch-header-cs-class" data-class="bg-happy-fisher header-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-happy-itmeo switch-header-cs-class"
-                                            data-class="bg-happy-itmeo header-text-light">
+                                        <div class="swatch-holder bg-happy-itmeo switch-header-cs-class" data-class="bg-happy-itmeo header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-mixed-hopes switch-header-cs-class"
-                                            data-class="bg-mixed-hopes header-text-light">
+                                        <div class="swatch-holder bg-mixed-hopes switch-header-cs-class" data-class="bg-mixed-hopes header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-strong-bliss switch-header-cs-class"
-                                            data-class="bg-strong-bliss header-text-light">
+                                        <div class="swatch-holder bg-strong-bliss switch-header-cs-class" data-class="bg-strong-bliss header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-grow-early switch-header-cs-class"
-                                            data-class="bg-grow-early header-text-light">
+                                        <div class="swatch-holder bg-grow-early switch-header-cs-class" data-class="bg-grow-early header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-love-kiss switch-header-cs-class"
-                                            data-class="bg-love-kiss header-text-light">
+                                        <div class="swatch-holder bg-love-kiss switch-header-cs-class" data-class="bg-love-kiss header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-premium-dark switch-header-cs-class"
-                                            data-class="bg-premium-dark header-text-light">
+                                        <div class="swatch-holder bg-premium-dark switch-header-cs-class" data-class="bg-premium-dark header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-happy-green switch-header-cs-class"
-                                            data-class="bg-happy-green header-text-light">
+                                        <div class="swatch-holder bg-happy-green switch-header-cs-class" data-class="bg-happy-green header-text-light">
                                         </div>
                                     </div>
                                 </li>
@@ -287,9 +240,7 @@
                         </div>
                         <h3 class="themeoptions-heading">
                             <div>Yan Sekme Seçenekleri</div>
-                            <button type="button"
-                                class="btn-pill btn-shadow btn-wide ml-auto btn btn-focus btn-sm switch-sidebar-cs-class"
-                                data-class="">
+                            <button type="button" class="btn-pill btn-shadow btn-wide ml-auto btn btn-focus btn-sm switch-sidebar-cs-class" data-class="">
                                 Orijinali Yükle
                             </button>
                         </h3>
@@ -299,115 +250,79 @@
                                     <h5 class="pb-2">Renk Şeması Seç
                                     </h5>
                                     <div class="theme-settings-swatches">
-                                        <div class="swatch-holder bg-primary switch-sidebar-cs-class"
-                                            data-class="bg-primary sidebar-text-light">
+                                        <div class="swatch-holder bg-primary switch-sidebar-cs-class" data-class="bg-primary sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-secondary switch-sidebar-cs-class"
-                                            data-class="bg-secondary sidebar-text-light">
+                                        <div class="swatch-holder bg-secondary switch-sidebar-cs-class" data-class="bg-secondary sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-success switch-sidebar-cs-class"
-                                            data-class="bg-success sidebar-text-dark">
+                                        <div class="swatch-holder bg-success switch-sidebar-cs-class" data-class="bg-success sidebar-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-info switch-sidebar-cs-class"
-                                            data-class="bg-info sidebar-text-dark">
+                                        <div class="swatch-holder bg-info switch-sidebar-cs-class" data-class="bg-info sidebar-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-warning switch-sidebar-cs-class"
-                                            data-class="bg-warning sidebar-text-dark">
+                                        <div class="swatch-holder bg-warning switch-sidebar-cs-class" data-class="bg-warning sidebar-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-danger switch-sidebar-cs-class"
-                                            data-class="bg-danger sidebar-text-light">
+                                        <div class="swatch-holder bg-danger switch-sidebar-cs-class" data-class="bg-danger sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-light switch-sidebar-cs-class"
-                                            data-class="bg-light sidebar-text-dark">
+                                        <div class="swatch-holder bg-light switch-sidebar-cs-class" data-class="bg-light sidebar-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-dark switch-sidebar-cs-class"
-                                            data-class="bg-dark sidebar-text-light">
+                                        <div class="swatch-holder bg-dark switch-sidebar-cs-class" data-class="bg-dark sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-focus switch-sidebar-cs-class"
-                                            data-class="bg-focus sidebar-text-light">
+                                        <div class="swatch-holder bg-focus switch-sidebar-cs-class" data-class="bg-focus sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-alternate switch-sidebar-cs-class"
-                                            data-class="bg-alternate sidebar-text-light">
+                                        <div class="swatch-holder bg-alternate switch-sidebar-cs-class" data-class="bg-alternate sidebar-text-light">
                                         </div>
                                         <div class="divider">
                                         </div>
-                                        <div class="swatch-holder bg-vicious-stance switch-sidebar-cs-class"
-                                            data-class="bg-vicious-stance sidebar-text-light">
+                                        <div class="swatch-holder bg-vicious-stance switch-sidebar-cs-class" data-class="bg-vicious-stance sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-midnight-bloom switch-sidebar-cs-class"
-                                            data-class="bg-midnight-bloom sidebar-text-light">
+                                        <div class="swatch-holder bg-midnight-bloom switch-sidebar-cs-class" data-class="bg-midnight-bloom sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-night-sky switch-sidebar-cs-class"
-                                            data-class="bg-night-sky sidebar-text-light">
+                                        <div class="swatch-holder bg-night-sky switch-sidebar-cs-class" data-class="bg-night-sky sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-slick-carbon switch-sidebar-cs-class"
-                                            data-class="bg-slick-carbon sidebar-text-light">
+                                        <div class="swatch-holder bg-slick-carbon switch-sidebar-cs-class" data-class="bg-slick-carbon sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-asteroid switch-sidebar-cs-class"
-                                            data-class="bg-asteroid sidebar-text-light">
+                                        <div class="swatch-holder bg-asteroid switch-sidebar-cs-class" data-class="bg-asteroid sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-royal switch-sidebar-cs-class"
-                                            data-class="bg-royal sidebar-text-light">
+                                        <div class="swatch-holder bg-royal switch-sidebar-cs-class" data-class="bg-royal sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-warm-flame switch-sidebar-cs-class"
-                                            data-class="bg-warm-flame sidebar-text-dark">
+                                        <div class="swatch-holder bg-warm-flame switch-sidebar-cs-class" data-class="bg-warm-flame sidebar-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-night-fade switch-sidebar-cs-class"
-                                            data-class="bg-night-fade sidebar-text-dark">
+                                        <div class="swatch-holder bg-night-fade switch-sidebar-cs-class" data-class="bg-night-fade sidebar-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-sunny-morning switch-sidebar-cs-class"
-                                            data-class="bg-sunny-morning sidebar-text-dark">
+                                        <div class="swatch-holder bg-sunny-morning switch-sidebar-cs-class" data-class="bg-sunny-morning sidebar-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-tempting-azure switch-sidebar-cs-class"
-                                            data-class="bg-tempting-azure sidebar-text-dark">
+                                        <div class="swatch-holder bg-tempting-azure switch-sidebar-cs-class" data-class="bg-tempting-azure sidebar-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-amy-crisp switch-sidebar-cs-class"
-                                            data-class="bg-amy-crisp sidebar-text-dark">
+                                        <div class="swatch-holder bg-amy-crisp switch-sidebar-cs-class" data-class="bg-amy-crisp sidebar-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-heavy-rain switch-sidebar-cs-class"
-                                            data-class="bg-heavy-rain sidebar-text-dark">
+                                        <div class="swatch-holder bg-heavy-rain switch-sidebar-cs-class" data-class="bg-heavy-rain sidebar-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-mean-fruit switch-sidebar-cs-class"
-                                            data-class="bg-mean-fruit sidebar-text-dark">
+                                        <div class="swatch-holder bg-mean-fruit switch-sidebar-cs-class" data-class="bg-mean-fruit sidebar-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-malibu-beach switch-sidebar-cs-class"
-                                            data-class="bg-malibu-beach sidebar-text-light">
+                                        <div class="swatch-holder bg-malibu-beach switch-sidebar-cs-class" data-class="bg-malibu-beach sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-deep-blue switch-sidebar-cs-class"
-                                            data-class="bg-deep-blue sidebar-text-dark">
+                                        <div class="swatch-holder bg-deep-blue switch-sidebar-cs-class" data-class="bg-deep-blue sidebar-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-ripe-malin switch-sidebar-cs-class"
-                                            data-class="bg-ripe-malin sidebar-text-light">
+                                        <div class="swatch-holder bg-ripe-malin switch-sidebar-cs-class" data-class="bg-ripe-malin sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-arielle-smile switch-sidebar-cs-class"
-                                            data-class="bg-arielle-smile sidebar-text-light">
+                                        <div class="swatch-holder bg-arielle-smile switch-sidebar-cs-class" data-class="bg-arielle-smile sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-plum-plate switch-sidebar-cs-class"
-                                            data-class="bg-plum-plate sidebar-text-light">
+                                        <div class="swatch-holder bg-plum-plate switch-sidebar-cs-class" data-class="bg-plum-plate sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-happy-fisher switch-sidebar-cs-class"
-                                            data-class="bg-happy-fisher sidebar-text-dark">
+                                        <div class="swatch-holder bg-happy-fisher switch-sidebar-cs-class" data-class="bg-happy-fisher sidebar-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-happy-itmeo switch-sidebar-cs-class"
-                                            data-class="bg-happy-itmeo sidebar-text-light">
+                                        <div class="swatch-holder bg-happy-itmeo switch-sidebar-cs-class" data-class="bg-happy-itmeo sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-mixed-hopes switch-sidebar-cs-class"
-                                            data-class="bg-mixed-hopes sidebar-text-light">
+                                        <div class="swatch-holder bg-mixed-hopes switch-sidebar-cs-class" data-class="bg-mixed-hopes sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-strong-bliss switch-sidebar-cs-class"
-                                            data-class="bg-strong-bliss sidebar-text-light">
+                                        <div class="swatch-holder bg-strong-bliss switch-sidebar-cs-class" data-class="bg-strong-bliss sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-grow-early switch-sidebar-cs-class"
-                                            data-class="bg-grow-early sidebar-text-light">
+                                        <div class="swatch-holder bg-grow-early switch-sidebar-cs-class" data-class="bg-grow-early sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-love-kiss switch-sidebar-cs-class"
-                                            data-class="bg-love-kiss sidebar-text-light">
+                                        <div class="swatch-holder bg-love-kiss switch-sidebar-cs-class" data-class="bg-love-kiss sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-premium-dark switch-sidebar-cs-class"
-                                            data-class="bg-premium-dark sidebar-text-light">
+                                        <div class="swatch-holder bg-premium-dark switch-sidebar-cs-class" data-class="bg-premium-dark sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-happy-green switch-sidebar-cs-class"
-                                            data-class="bg-happy-green sidebar-text-light">
+                                        <div class="swatch-holder bg-happy-green switch-sidebar-cs-class" data-class="bg-happy-green sidebar-text-light">
                                         </div>
                                     </div>
                                 </li>
@@ -424,8 +339,7 @@
                     <div class="logo-src"></div>
                     <div class="header__pane ml-auto">
                         <div>
-                            <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
-                                data-class="closed-sidebar">
+                            <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
                                 <span class="hamburger-box">
                                     <span class="hamburger-inner"></span>
                                 </span>
@@ -444,8 +358,7 @@
                 </div>
                 <div class="app-header__menu">
                     <span>
-                        <button type="button"
-                            class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                        <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
                             <span class="btn-icon-wrapper">
                                 <i class="fa fa-ellipsis-v fa-w-6"></i>
                             </span>
@@ -501,187 +414,279 @@
                 <div class="app-main__inner">
                     <!--PAGE CONTENT-->
                     <div class="row">
-                        <!--Student Info-->
-                        <div class="col-xl-8">
-                            <div class="text-center">
-                                <h4><b>Öğrenci Bilgileri</b></h4>
-                            </div>
-                            <div class="divider">
-                            </div>
-                            <div class="col-md-12 main-card mb-3 card">
-                                <div class="card-body">
-                                    <h5 class="card-title">ÖĞRENCİ BİLGİSİ</h5>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="widget-content ">
-                                                <div class="widget-content-wrapper row mr-5">
+                        <!--FIRST COLUMN-->
+                        <div class="col-md-4">
+                            <!--Project Details-->
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="col-md-12 main-card mb-3 card widget-content">
+                                        <div class="widget-content-wrapper">
+                                            <div class="col-md-12">
+                                                <div class="widget-content-wrapper">
+                                                    <h5 class="card-title">PROJE</h5>
+                                                </div>
+                                                <div class="widget-content-wrapper">
                                                     <div class="widget-content-left">
-                                                        <h6>Numara:</h6>
+                                                        <h6>Proje Adı</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6>211307097</h6>
+                                                        <h6 class="text-dark">Görüntü ve Video İşleme</h6>
                                                     </div>
                                                 </div>
                                                 <br>
-                                                <div class="widget-content-wrapper row mr-5">
+                                                <div class="widget-content-wrapper">
                                                     <div class="widget-content-left">
-                                                        <h6>Öğrenci:</h6>
+                                                        <h6>Proje Alım Tarihi</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6>Sirac Arapoğlu</h6>
+                                                        <h6 class="text-dark">28.02.2022</h6>
                                                     </div>
                                                 </div>
                                                 <br>
-                                                <div class="widget-content-wrapper row mr-5">
+                                                <div class="widget-content-wrapper">
                                                     <div class="widget-content-left">
-                                                        <h6>Danışman:</h6>
+                                                        <h6>Proje Danışmanı</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6>Dr. Öğr. Üyesi Önder YAKUT</h6>
+                                                        <h6 class="text-dark">Dr. Öğr. Üyesi Önder YAKUT</h6>
                                                     </div>
                                                 </div>
                                                 <br>
-                                                <div class="widget-content-wrapper row mr-5">
+                                                <div class="widget-content-wrapper">
                                                     <div class="widget-content-left">
-                                                        <h6>Fakülte:</h6>
+                                                        <h6>Proje Durumu</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6>Teknoloji Fakültesi</h6>
+                                                        <h6 class="text-dark">Tez Hazırlama</h6>
                                                     </div>
                                                 </div>
-                                                <br>
-                                                <div class="widget-content-wrapper row mr-5">
-                                                    <div class="widget-content-left">
-                                                        <h6>Bölüm:</h6>
-                                                    </div>
-                                                    <div class="widget-content-right">
-                                                        <h6>Bilişim Sistemleri Mühendisliği</h6>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="widget-content-wrapper row mr-5">
-                                                    <div class="widget-content-left">
-                                                        <h6>Sınıf:</h6>
-                                                    </div>
-                                                    <div class="widget-content-right">
-                                                        <h6>3. Sınıf</h6>
-                                                    </div>
-                                                </div>
-                                                </li>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="widget-content">
-                                                <div class="widget-content-wrapper row mr-5">
-                                                    <div class="widget-content-left">
-                                                        <h6>İl:</h6>
-                                                    </div>
-                                                    <div class="widget-content-right">
-                                                        <h6>İstanbul</h6>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="widget-content-wrapper row mr-5">
-                                                    <div class="widget-content-left">
-                                                        <h6>İlçe:</h6>
-                                                    </div>
-                                                    <div class="widget-content-right">
-                                                        <h6>Kartal</h6>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="widget-content-wrapper row mr-5">
-                                                    <div class="widget-content-left">
-                                                        <h6>Cep Telefonu:</h6>
-                                                    </div>
-                                                    <div class="widget-content-right">
-                                                        <h6>0553 305 41 99</h6>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="widget-content-wrapper row mr-5">
-                                                    <div class="widget-content-left">
-                                                        <h6>E-Posta:</h6>
-                                                    </div>
-                                                    <div class="widget-content-right">
-                                                        <h6>arapoglusirac@gmail.com</h6>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="widget-content-wrapper row mr-5">
-                                                    <div class="widget-content-left">
-                                                        <h6>Ev Telefonu:</h6>
-                                                    </div>
-                                                    <div class="widget-content-right">
-                                                        <h6>0216 597 68 98</h6>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="widget-content-wrapper row mr-5">
-                                                    <div class="widget-content-left">
-                                                        <h6>TC No:</h6>
-                                                    </div>
-                                                    <div class="widget-content-right">
-                                                        <h6>1869872564</h6>
-                                                    </div>
-                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
+                            </div>
+                            <!--Accept and Decline-->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-12 mb-3 main-card card widget-content">
+                                        <div class="col-md-12">
+                                            <div class="widget-content-wrapper">
+                                                <h5 class="card-title">Onay ve Ret</h5>
+                                            </div>
+                                            <div class="widget-content-wrapper">
+                                                <div class="widget-content-left">
+                                                    <h6>Gönderim Türü</h6>
+                                                </div>
+                                                <div class="widget-content-right">
+                                                    <h6 class="text-dark">Tez</h6>
+                                                </div>
+                                            </div>
+                                            <div class="widget-content-wrapper">
+                                                <div class="widget-content-left">
+                                                    <h6>Gönderim Linki</h6>
+                                                </div>
+                                                <div class="widget-content-right">
+                                                    <h6 class="text-dark"><a href="" style="text-decoration: none; color: black;">
+                                                            Gönderilen Tezin İsmi
+                                                        </a></h6>
+                                                </div>
+                                            </div>
+                                            <div class="position-relative form-group"><label for="exampleText" class="">Gönderimi reddetmeden önce,
+                                                    reddedilme sebebini yazınız.
+                                                    (Onaylanan gönderimler için boş bırakabilirsiniz.)
+                                                </label><textarea name="text" id="exampleText" class="form-control"></textarea></div>
+                                            <div class="row widget-content-wrapper">
+                                                <div class="widget-content-left">
+                                                    <button class="mt-1 ml-5 btn btn-success">Onayla</button>
+                                                </div>
+                                                <div class="widget-content-right">
+                                                    <button class="mt-1 mr-5 btn btn-danger">Reddet</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
-                        <!--Student Projects-->
-                        <div class="col-xl-4">
-                            <div class="text-center">
-                                <h4><b>Öğrenci Projeleri</b></h4>
-                            </div>
-                            <div class="divider">
-                            </div>
-                            <a href="advisor-this-project.html" style="text-decoration: none; color: black;"
-                                class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">ROBOTİK SİSTEMLER</h5>
-                                    <br>
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Tarih:</b></h6>
-                                            <h6 class="card-subtitle ml-3">28.02.2022 18:44</h6>
+
+                        <!--SECOND COLUMN-->
+                        <div class="col-md-8">
+                            <!--Project Subject and Materials-->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-12 mb-3 main-card card">
+                                        <div class="card-header">
+                                            <ul class="nav nav-justified">
+                                                <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-0" class="nav-link">Proje Konusu</a></li>
+                                                <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-1" class="nav-link active show">Proje
+                                                        Yöntemleri</a>
+                                                </li>
+                                            </ul>
                                         </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Öğrenci:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Sirac ARAPOĞLU</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Durum:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Proje Onayı Bekleniyor</h6>
+                                        <div class="card-body">
+                                            <div class="tab-content">
+                                                <div class="tab-pane" id="tab-eg7-0" role="tabpanel">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ut
+                                                        ipsum id nisl tristique ultricies. Maecenas eu
+                                                        pulvinar libero. Donec pellentesque facilisis volutpat. Sed
+                                                        ultrices
+                                                        metus vitae lacus gravida aliquam. Integer
+                                                        convallis in orci ut semper. Nam viverra scelerisque est. Nulla
+                                                        a
+                                                        libero et lectus luctus consequat. Vestibulum ante
+                                                        ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+                                                        curae; Proin eget efficitur lorem. Nam pretium viverra
+                                                        mauris, ac facilisis augue elementum pharetra. Maecenas pharetra
+                                                        lacus a erat rutrum porttitor.
+
+                                                        Praesent luctus facilisis elit ac malesuada. In hac habitasse
+                                                        platea
+                                                        dictumst. Aenean aliquam, mauris ac placerat
+                                                        sagittis, urna nunc convallis diam, at luctus elit dui semper
+                                                        purus.
+                                                        Mauris auctor mi quis sem consequat, mollis cursus
+                                                        purus fermentum. Curabitur et mi nisi. Aliquam scelerisque risus
+                                                        scelerisque est venenatis tempor. Aenean faucibus, leo
+                                                        vitae sagittis porttitor, libero lectus euismod ex, quis
+                                                        pulvinar
+                                                        nisl neque a mi. Duis quis nisl tortor. Nullam id
+                                                        euismod diam, quis fringilla neque. Quisque finibus malesuada
+                                                        enim,
+                                                        ac tempus nunc sagittis sed. Nulla imperdiet purus
+                                                        in ante consectetur, et consectetur ligula egestas. Mauris
+                                                        ultrices
+                                                        lobortis pellentesque. Vivamus sed tempus leo.
+
+                                                        Nunc tempor, dui sed dignissim fermentum, dui velit porttitor
+                                                        felis,
+                                                        in facilisis nunc lorem nec nisl. Fusce eu urna
+                                                        ultrices, gravida nulla vitae, posuere lacus. Pellentesque
+                                                        finibus
+                                                        pharetra massa. Donec dapibus turpis eget ipsum
+                                                        tincidunt, et aliquet dolor tincidunt. Fusce ac ullamcorper
+                                                        elit,
+                                                        nec vehicula neque. Quisque dapibus commodo libero, ut
+                                                        sollicitudin risus. Nulla felis lectus, vulputate at egestas ut,
+                                                        auctor ac nisi. Nullam dapibus lobortis eros, sit.</p>
+                                                </div>
+                                                <div class="tab-pane active show" id="tab-eg7-1" role="tabpanel">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut
+                                                        nisl
+                                                        est. Donec id tellus rutrum, aliquam nulla vitae,
+                                                        eleifend odio. Donec id ipsum ut felis tempus viverra. Orci
+                                                        varius
+                                                        natoque penatibus et magnis dis parturient montes,
+                                                        nascetur ridiculus mus. Fusce bibendum est fermentum ipsum
+                                                        eleifend,
+                                                        eu aliquam mauris mollis. Ut tempus tristique
+                                                        congue. Nulla non lacus risus. In hac habitasse platea dictumst.
+                                                        Ut
+                                                        sollicitudin quam nec porta laoreet. Duis in ipsum
+                                                        neque. Donec dictum risus a mollis sodales. Duis luctus euismod
+                                                        erat, id hendrerit purus fermentum ornare. Phasellus
+                                                        pulvinar quis felis id cursus. Nullam ut maximus mi.
+
+                                                        Integer eget porttitor elit. Morbi tincidunt sagittis nunc, vel
+                                                        pharetra nunc interdum ac. Praesent mattis elit id
+                                                        mauris eleifend, et fermentum turpis pulvinar. Ut consectetur
+                                                        tempus
+                                                        eleifend. Quisque risus leo, laoreet ut viverra
+                                                        efficitur, efficitur vel libero. Sed rutrum, eros ac congue
+                                                        vestibulum, mi purus semper lacus, a ultricies ipsum diam eu
+                                                        dolor. Maecenas faucibus, nisi quis porttitor rutrum, risus erat
+                                                        scelerisque velit, sit amet pretium ante sem in quam.
+                                                        Ut sed ullamcorper eros, ut egestas lectus. Morbi tempor, neque
+                                                        et
+                                                        tempus mollis, mauris metus tempus augue, ac rutrum
+                                                        lacus diam in risus. Ut tempus accumsan convallis. Duis
+                                                        sollicitudin
+                                                        erat eu mollis lacinia.
+
+                                                        Donec condimentum ac velit id hendrerit. Nam feugiat, lorem id
+                                                        faucibus commodo, dolor lorem egestas arcu, non feugiat
+                                                        tellus purus vitae libero. Etiam suscipit, nisi at venenatis
+                                                        pulvinar, felis ex vestibulum neque, sed feugiat ex metus
+                                                        ac lacus. Quisque blandit ligula enim, et maximus metus
+                                                        pellentesque
+                                                        id. Ut consectetur vestibulum velit ut maximus.
+                                                        Vestibulum nulla magna, facilisis ac vehicula at, pretium quis
+                                                        erat.
+                                                        Donec porttitor venenatis mi et finibus. Donec
+                                                        maximus eleifend est, a condimentum velit rutrum ut. Donec
+                                                        pulvinar
+                                                        nibh in nisi efficitur tempus. Curabitur vel rutrum
+                                                        metus. Nunc neque elit, tempor non urna et, maximus porttitor
+                                                        mauris. Phasellus dictum elit tempor leo dictum, ac
+                                                        convallis nunc laoreet. Suspendisse vehicula nisl nec dolor
+                                                        efficitur viverra. Nunc vehicula, enim eget faucibus
+                                                        facilisis, urna nisl ultricies felis, in maximus ex risus nec
+                                                        justo.
+                                                        Sed vehicula justo a mauris malesuada pharetra.
+                                                        Suspendisse fermentum porta ipsum in lobortis. Maecenas vitae
+                                                        tristique arcu.</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </a>
-                            <a href="advisor-this-project.html" style="text-decoration: none; color: black;"
-                                class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">PROJE ADI BULAMADIM</h5>
-                                    <br>
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Tarih:</b></h6>
-                                            <h6 class="card-subtitle ml-3">15.12.2021 12:31</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Öğrenci:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Sirac ARAPOĞLU</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Durum:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Proje Tamamlandı</h6>
+
+                            </div>
+
+                            <!--Sent Files-->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="col-md-12 main-card mb-3 card widget-content">
+                                        <div class="col-md-6">
+                                            <h5 class="card-title">Onaylanan Belgeler</h5>
+                                            <a href="" style="text-decoration: none; color: black;">
+                                                <h6>Birinci Rapor</h6>
+                                            </a>
+                                            <a href="" style="text-decoration: none; color: black;">
+                                                <h6>İkinci Rapor</h6>
+                                            </a>
+                                            <a href="" style="text-decoration: none; color: black;">
+                                                <h6>Üçüncü Rapor</h6>
+                                            </a>
+                                            <a href="" style="text-decoration: none; color: black;">
+                                                <h6>"Tez Gönderimi Yok"</h6>
+                                            </a>
+                                            <a href="" style="text-decoration: none; color: black;">
+                                                <h6>"Tez Gönderimi Yok"</h6>
+                                            </a>
+                                            <a href="" style="text-decoration: none; color: black;">
+                                                <h6>"Tez Gönderimi Yok"</h6>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
-                            </a>
+                                <div class="col-md-6">
+                                    <div class="col-md-12 main-card mb-3  card widget-content">
+                                        <div class="col-md-6">
+                                            <h5 class="card-title">Reddedilen Belgeler</h5>
+                                            <a href="" style="text-decoration: none; color: black;">
+                                                <h6>Kötü Rapor</h6>
+                                            </a>
+                                            <a href="" style="text-decoration: none; color: black;">
+                                                <h6>Kötü Rapor</h6>
+                                            </a>
+                                            <a href="" style="text-decoration: none; color: black;">
+                                                <h6>Kötü Rapor</h6>
+                                            </a>
+                                            <a href="" style="text-decoration: none; color: black;">
+                                                <h6>Kötü Rapor</h6>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
+
                 </div>
                 <!--FOOTER-->
                 <div class="app-wrapper-footer">

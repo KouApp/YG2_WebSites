@@ -465,34 +465,34 @@
                         <ul class="vertical-nav-menu">
                             <li class="app-sidebar__heading">GENEL</li>
                             <li>
-                                <a href="advisor-homepage.html">
+                                <a href="advisor-homepage.php">
                                     <i class="metismenu-icon bi bi-house-fill"></i>
                                     Ana Sayfa
                                 </a>
                             </li>
                             <li class="app-sidebar__heading">PROJE YÖNETİMİ</li>
                             <li>
-                                <a href="advisor-students.html" class="mm-active">
+                                <a href="advisor-students.php" class="mm-active">
                                     <i class="metismenu-icon bi bi-people-fill"></i>
                                     Öğrenciler
                                 </a>
                             </li>
                             <li>
-                                <a href="advisor-projects.html">
+                                <a href="advisor-projects.php">
                                     <i class="metismenu-icon bi bi-folder-fill"></i>
                                     Projeler
                                 </a>
                             </li>
                             <li class="app-sidebar__heading">DANIŞMAN</li>
                             <li>
-                                <a href="advisor-profile.html">
+                                <a href="advisor-profile.php">
                                     <i class="metismenu-icon bi bi-person-fill">
                                     </i>Profilim
                                 </a>
                             </li>
                             <li class="app-sidebar__heading">HESAP</li>
                             <li>
-                                <a href="advisor-password.html">
+                                <a href="advisor-password.php">
                                     <i class="metismenu-icon bi bi-person-lines-fill">
                                     </i>Şifre Değiştir
                                 </a>
@@ -527,7 +527,7 @@
                                     <tbody>
                                         <tr>
                                             <th scope="row">1</th>
-                                            <td><a href="advisor-student-profile.html"
+                                            <td><a href="advisor-student-profile.php"
                                                     style="text-decoration: none; color: black;">Sirac</a></td>
                                             <td>ARAPOĞLU</td>
                                             <td>211307097</td>
@@ -536,7 +536,7 @@
                                         </tr>
                                         <tr>
                                             <th scope="row">2</th>
-                                            <td><a href="advisor-student-profile.html"
+                                            <td><a href="advisor-student-profile.php"
                                                     style="text-decoration: none; color: black;">Abdullah Ali</a>
                                                 <div class="ml-1 badge badge-success">YENİ</div>
                                             </td>
@@ -547,7 +547,7 @@
                                         </tr>
                                         <tr>
                                             <th scope="row">3</th>
-                                            <td><a href="advisor-student-profile.html"
+                                            <td><a href="advisor-student-profile.php"
                                                     style="text-decoration: none; color: black;">Yasin</a></td>
                                             <td>ŞAHİN</td>
                                             <td>211307034</td>
@@ -556,7 +556,7 @@
                                         </tr>
                                         <tr>
                                             <th scope="row">4</th>
-                                            <td><a href="advisor-student-profile.html"
+                                            <td><a href="advisor-student-profile.php"
                                                     style="text-decoration: none; color: black;">Emre</a></td>
                                             <td>ÇETİNDEMİR</td>
                                             <td>211307036</td>
@@ -565,7 +565,7 @@
                                         </tr>
                                         <tr>
                                             <th scope="row">5</th>
-                                            <td><a href="advisor-student-profile.html"
+                                            <td><a href="advisor-student-profile.php"
                                                     style="text-decoration: none; color: black;">Merve</a></td>
                                             <td>TEKİN</td>
                                             <td>211307045</td>
@@ -574,7 +574,7 @@
                                         </tr>
                                         <tr>
                                             <th scope="row">6</th>
-                                            <td><a href="advisor-student-profile.html"
+                                            <td><a href="advisor-student-profile.php"
                                                     style="text-decoration: none; color: black;">Harun</a></td>
                                             <td>CAN</td>
                                             <td>211307049</td>
@@ -583,7 +583,7 @@
                                         </tr>
                                         <tr>
                                             <th scope="row">7</th>
-                                            <td><a href="advisor-student-profile.html"
+                                            <td><a href="advisor-student-profile.php"
                                                     style="text-decoration: none; color: black;">Meryem</a>
                                                 <div class="ml-1 badge badge-success">YENİ</div>
                                             </td>
@@ -594,7 +594,7 @@
                                         </tr>
                                         <tr>
                                             <th scope="row">8</th>
-                                            <td><a href="advisor-student-profile.html"
+                                            <td><a href="advisor-student-profile.php"
                                                     style="text-decoration: none; color: black;">Sıla</a></td>
                                             <td>KARA</td>
                                             <td>211307071</td>
@@ -603,7 +603,7 @@
                                         </tr>
                                         <tr>
                                             <th scope="row">9</th>
-                                            <td><a href="advisor-student-profile.html"
+                                            <td><a href="advisor-student-profile.php"
                                                     style="text-decoration: none; color: black;">Metin</a></td>
                                             <td>ÖZTÜRK</td>
                                             <td>211307079</td>
@@ -612,7 +612,7 @@
                                         </tr>
                                         <tr>
                                             <th scope="row">10</th>
-                                            <td><a href="advisor-student-profile.html"
+                                            <td><a href="advisor-student-profile.php"
                                                     style="text-decoration: none; color: black;">Rıza</a></td>
                                             <td>BOSTANCI</td>
                                             <td>211307087</td>

@@ -448,7 +448,7 @@
                         <ul class="vertical-nav-menu">
                             <li class="app-sidebar__heading">Genel</li>
                             <li>
-                                <a href="admin-homepage.html" class="mm-active">
+                                <a href="admin-homepage.php" class="mm-active">
                                     <i class="metismenu-icon bi bi-house-fill"></i>
                                     Ana Sayfa
                                 </a>
@@ -456,13 +456,13 @@
 
                             <li class="app-sidebar__heading">KULLANICI YÖNETİMİ</li>
                             <li>
-                                <a href="admin-advisors.html">
+                                <a href="admin-advisors.php">
                                     <i class="metismenu-icon bi bi-people-fill"></i>
                                     Danışmanlar
                                 </a>
                             </li>
                             <li>
-                                <a href="admin-students.html">
+                                <a href="admin-students.php">
                                     <i class="metismenu-icon bi bi-people-fill"></i>
                                     Öğrenciler
                                 </a>
@@ -470,7 +470,7 @@
 
                             <li class="app-sidebar__heading">PROJE YÖNETİMİ</li>
                             <li>
-                                <a href="admin-projects.html">
+                                <a href="admin-projects.php">
                                     <i class="metismenu-icon bi bi-folder-fill">
                                     </i>Projeler
                                 </a>
@@ -478,7 +478,7 @@
 
                             <li class="app-sidebar__heading">SİSTEM</li>
                             <li>
-                                <a href="admin-management.html">
+                                <a href="admin-management.php">
                                     <i class="metismenu-icon bi bi-chevron-double-up">
                                     </i>Yönetim
                                 </a>
@@ -486,7 +486,7 @@
 
                             <li class="app-sidebar__heading">YÖNETİCİ</li>
                             <li>
-                                <a href="admin-profile.html">
+                                <a href="admin-profile.php">
                                     <i class="metismenu-icon bi bi-person-fill">
                                     </i>Profil
                                 </a>
@@ -494,7 +494,7 @@
 
                             <li class="app-sidebar__heading">Hesap</li>
                             <li>
-                                <a href="admin-password.html">
+                                <a href="admin-password.php">
                                     <i class="metismenu-icon bi bi-person-lines-fill">
                                     </i>Şifre Değiştir
                                 </a>
@@ -518,7 +518,7 @@
                             </div>
                             <div class="divider">
                             </div>
-                            <a href="admin-this-project.html" style="text-decoration: none; color: black;"
+                            <a href="admin-this-project.php" style="text-decoration: none; color: black;"
                                 class="main-card mb-3 card">
                                 <div class="card card-body">
                                     <h5 class="card-title">ROBOTİK SİSTEMLER</h5>
@@ -540,7 +540,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="admin-this-project.html" style="text-decoration: none; color: black;" class="main-card mb-3 card">
+                            <a href="admin-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
                                 <div class="card card-body">
                                     <h5 class="card-title">ROBOTİK SİSTEMLER</h5>
                                     <div class="row col-md-12">
@@ -561,7 +561,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="admin-this-project.html" style="text-decoration: none; color: black;" class="main-card mb-3 card">
+                            <a href="admin-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
                                 <div class="card card-body">
                                     <h5 class="card-title">ROBOTİK SİSTEMLER</h5>
                                     <div class="row col-md-12">
@@ -582,7 +582,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="admin-this-project.html" style="text-decoration: none; color: black;" class="main-card mb-3 card">
+                            <a href="admin-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
                                 <div class="card card-body">
                                     <h5 class="card-title">ROBOTİK SİSTEMLER</h5>
                                     <div class="row col-md-12">
@@ -603,7 +603,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="admin-this-project.html" style="text-decoration: none; color: black;" class="main-card mb-3 card">
+                            <a href="admin-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
                                 <div class="card card-body">
                                     <h5 class="card-title">ROBOTİK SİSTEMLER</h5>
                                     <div class="row col-md-12">

@@ -448,7 +448,7 @@
                         <ul class="vertical-nav-menu">
                             <li class="app-sidebar__heading">Genel</li>
                             <li>
-                                <a href="admin-homepage.html">
+                                <a href="admin-homepage.php">
                                     <i class="metismenu-icon bi bi-house-fill"></i>
                                     Ana Sayfa
                                 </a>
@@ -456,13 +456,13 @@
 
                             <li class="app-sidebar__heading">KULLANICI YÖNETİMİ</li>
                             <li>
-                                <a href="admin-advisors.html">
+                                <a href="admin-advisors.php">
                                     <i class="metismenu-icon bi bi-people-fill"></i>
                                     Danışmanlar
                                 </a>
                             </li>
                             <li>
-                                <a href="admin-students.html">
+                                <a href="admin-students.php">
                                     <i class="metismenu-icon bi bi-people-fill"></i>
                                     Öğrenciler
                                 </a>
@@ -470,7 +470,7 @@
 
                             <li class="app-sidebar__heading">PROJE YÖNETİMİ</li>
                             <li>
-                                <a href="admin-projects.html">
+                                <a href="admin-projects.php">
                                     <i class="metismenu-icon bi bi-folder-fill">
                                     </i>Projeler
                                 </a>
@@ -478,7 +478,7 @@
 
                             <li class="app-sidebar__heading">SİSTEM</li>
                             <li>
-                                <a href="admin-management.html">
+                                <a href="admin-management.php">
                                     <i class="metismenu-icon bi bi-chevron-double-up">
                                     </i>Yönetim
                                 </a>
@@ -486,7 +486,7 @@
 
                             <li class="app-sidebar__heading">YÖNETİCİ</li>
                             <li>
-                                <a href="admin-profile.html">
+                                <a href="admin-profile.php">
                                     <i class="metismenu-icon bi bi-person-fill">
                                     </i>Profil
                                 </a>
@@ -494,7 +494,7 @@
 
                             <li class="app-sidebar__heading">Hesap</li>
                             <li>
-                                <a href="admin-password.html">
+                                <a href="admin-password.php">
                                     <i class="metismenu-icon bi bi-person-lines-fill">
                                     </i>Şifre Değiştir
                                 </a>
@@ -557,12 +557,12 @@
                                                         <h6 class="text-dark">Tez Hazırlama</h6>
                                                     </div>
                                                 </div>
-                    
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                    
+
                             </div>
                             <!--Project History-->
                             <div class="row">
@@ -619,7 +619,7 @@
                                 </div>
                             </div>
                         </div>
-                    
+
                         <!--SECOND COLUMN-->
                         <div class="col-md-8">
                             <!--Project Subject and Materials-->
@@ -651,7 +651,7 @@
                                                         curae; Proin eget efficitur lorem. Nam pretium viverra
                                                         mauris, ac facilisis augue elementum pharetra. Maecenas pharetra
                                                         lacus a erat rutrum porttitor.
-                    
+
                                                         Praesent luctus facilisis elit ac malesuada. In hac habitasse
                                                         platea
                                                         dictumst. Aenean aliquam, mauris ac placerat
@@ -669,7 +669,7 @@
                                                         in ante consectetur, et consectetur ligula egestas. Mauris
                                                         ultrices
                                                         lobortis pellentesque. Vivamus sed tempus leo.
-                    
+
                                                         Nunc tempor, dui sed dignissim fermentum, dui velit porttitor
                                                         felis,
                                                         in facilisis nunc lorem nec nisl. Fusce eu urna
@@ -698,7 +698,7 @@
                                                         neque. Donec dictum risus a mollis sodales. Duis luctus euismod
                                                         erat, id hendrerit purus fermentum ornare. Phasellus
                                                         pulvinar quis felis id cursus. Nullam ut maximus mi.
-                    
+
                                                         Integer eget porttitor elit. Morbi tincidunt sagittis nunc, vel
                                                         pharetra nunc interdum ac. Praesent mattis elit id
                                                         mauris eleifend, et fermentum turpis pulvinar. Ut consectetur
@@ -714,7 +714,7 @@
                                                         lacus diam in risus. Ut tempus accumsan convallis. Duis
                                                         sollicitudin
                                                         erat eu mollis lacinia.
-                    
+
                                                         Donec condimentum ac velit id hendrerit. Nam feugiat, lorem id
                                                         faucibus commodo, dolor lorem egestas arcu, non feugiat
                                                         tellus purus vitae libero. Etiam suscipit, nisi at venenatis
@@ -742,9 +742,9 @@
                                         </div>
                                     </div>
                                 </div>
-                    
+
                             </div>
-                    
+
                             <!--Sent Files-->
                             <div class="row">
                                 <div class="col-md-6">
@@ -791,7 +791,7 @@
                                         </div>
                                     </div>
                                 </div>
-                    
+
                             </div>
                         </div>
                     </div>

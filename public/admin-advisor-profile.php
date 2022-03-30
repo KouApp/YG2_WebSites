@@ -448,7 +448,7 @@
                         <ul class="vertical-nav-menu">
                             <li class="app-sidebar__heading">Genel</li>
                             <li>
-                                <a href="admin-homepage.html">
+                                <a href="admin-homepage.php">
                                     <i class="metismenu-icon bi bi-house-fill"></i>
                                     Ana Sayfa
                                 </a>
@@ -456,13 +456,13 @@
 
                             <li class="app-sidebar__heading">KULLANICI YÖNETİMİ</li>
                             <li>
-                                <a href="admin-advisors.html">
+                                <a href="admin-advisors.php">
                                     <i class="metismenu-icon bi bi-people-fill"></i>
                                     Danışmanlar
                                 </a>
                             </li>
                             <li>
-                                <a href="admin-students.html">
+                                <a href="admin-students.php">
                                     <i class="metismenu-icon bi bi-people-fill"></i>
                                     Öğrenciler
                                 </a>
@@ -470,7 +470,7 @@
 
                             <li class="app-sidebar__heading">PROJE YÖNETİMİ</li>
                             <li>
-                                <a href="admin-projects.html">
+                                <a href="admin-projects.php">
                                     <i class="metismenu-icon bi bi-folder-fill">
                                     </i>Projeler
                                 </a>
@@ -478,7 +478,7 @@
 
                             <li class="app-sidebar__heading">SİSTEM</li>
                             <li>
-                                <a href="admin-management.html">
+                                <a href="admin-management.php">
                                     <i class="metismenu-icon bi bi-chevron-double-up">
                                     </i>Yönetim
                                 </a>
@@ -486,7 +486,7 @@
 
                             <li class="app-sidebar__heading">YÖNETİCİ</li>
                             <li>
-                                <a href="admin-profile.html">
+                                <a href="admin-profile.php">
                                     <i class="metismenu-icon bi bi-person-fill">
                                     </i>Profil
                                 </a>
@@ -494,7 +494,7 @@
 
                             <li class="app-sidebar__heading">Hesap</li>
                             <li>
-                                <a href="admin-password.html">
+                                <a href="admin-password.php">
                                     <i class="metismenu-icon bi bi-person-lines-fill">
                                     </i>Şifre Değiştir
                                 </a>
@@ -518,7 +518,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="widget-content ">
-                    
+
                                                 <div class="widget-content-wrapper row">
                                                     <div class="widget-content-left">
                                                         <h6>İsim:</h6>
@@ -557,7 +557,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -581,7 +581,7 @@
                                         <tbody>
                                             <tr>
                                                 <th scope="row">1</th>
-                                                <td><a href="admin-student-profile.html"
+                                                <td><a href="admin-student-profile.php"
                                                         style="text-decoration: none; color: black;">Sirac</a></td>
                                                 <td>ARAPOĞLU</td>
                                                 <td>211307097</td>
@@ -590,7 +590,7 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row">2</th>
-                                                <td><a href="admin-student-profile.html" style="text-decoration: none; color: black;">Abdullah
+                                                <td><a href="admin-student-profile.php" style="text-decoration: none; color: black;">Abdullah
                                                         Ali</a>
                                                 </td>
                                                 <td>GÜN</td>
@@ -600,7 +600,7 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row">3</th>
-                                                <td><a href="admin-student-profile.html"
+                                                <td><a href="admin-student-profile.php"
                                                         style="text-decoration: none; color: black;">Yasin</a></td>
                                                 <td>ŞAHİN</td>
                                                 <td>211307034</td>
@@ -609,7 +609,7 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row">4</th>
-                                                <td><a href="admin-student-profile.html" style="text-decoration: none; color: black;">Emre</a>
+                                                <td><a href="admin-student-profile.php" style="text-decoration: none; color: black;">Emre</a>
                                                 </td>
                                                 <td>ÇETİNDEMİR</td>
                                                 <td>211307036</td>
@@ -618,7 +618,7 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row">5</th>
-                                                <td><a href="admin-student-profile.html"
+                                                <td><a href="admin-student-profile.php"
                                                         style="text-decoration: none; color: black;">Merve</a></td>
                                                 <td>TEKİN</td>
                                                 <td>211307045</td>
@@ -627,7 +627,7 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row">6</th>
-                                                <td><a href="admin-student-profile.html"
+                                                <td><a href="admin-student-profile.php"
                                                         style="text-decoration: none; color: black;">Harun</a></td>
                                                 <td>CAN</td>
                                                 <td>211307049</td>
@@ -636,7 +636,7 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row">7</th>
-                                                <td><a href="admin-student-profile.html"
+                                                <td><a href="admin-student-profile.php"
                                                         style="text-decoration: none; color: black;">Meryem</a>
                                                 </td>
                                                 <td>YILMAZ</td>
@@ -646,7 +646,7 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row">8</th>
-                                                <td><a href="admin-student-profile.html" style="text-decoration: none; color: black;">Sıla</a>
+                                                <td><a href="admin-student-profile.php" style="text-decoration: none; color: black;">Sıla</a>
                                                 </td>
                                                 <td>KARA</td>
                                                 <td>211307071</td>
@@ -655,7 +655,7 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row">9</th>
-                                                <td><a href="admin-student-profile.html"
+                                                <td><a href="admin-student-profile.php"
                                                         style="text-decoration: none; color: black;">Metin</a></td>
                                                 <td>ÖZTÜRK</td>
                                                 <td>211307079</td>
@@ -664,7 +664,7 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row">10</th>
-                                                <td><a href="admin-student-profile.html" style="text-decoration: none; color: black;">Rıza</a>
+                                                <td><a href="admin-student-profile.php" style="text-decoration: none; color: black;">Rıza</a>
                                                 </td>
                                                 <td>BOSTANCI</td>
                                                 <td>211307087</td>

@@ -450,34 +450,34 @@
                         <ul class="vertical-nav-menu">
                             <li class="app-sidebar__heading">Genel</li>
                             <li>
-                                <a href="student-homepage.html">
+                                <a href="student-homepage.php">
                                     <i class="metismenu-icon bi bi-house-fill"></i>
                                     Ana Sayfa
                                 </a>
                             </li>
                             <li class="app-sidebar__heading">Proje Yönetimi</li>
                             <li>
-                                <a href="student-projects.html">
+                                <a href="student-projects.php">
                                     <i class="metismenu-icon bi bi-folder-fill"></i>
                                     Projelerim
                                 </a>
                             </li>
                             <li>
-                                <a href="student-new-project.html">
+                                <a href="student-new-project.php">
                                     <i class="metismenu-icon bi bi-file-earmark-plus-fill"></i>
                                     Yeni Proje Oluştur
                                 </a>
                             </li>
                             <li class="app-sidebar__heading">Öğrenci</li>
                             <li>
-                                <a href="student-profile.html">
+                                <a href="student-profile.php">
                                     <i class="metismenu-icon bi bi-person-fill">
                                     </i>Profilim
                                 </a>
                             </li>
                             <li class="app-sidebar__heading">Hesap</li>
                             <li>
-                                <a href="student-password.html">
+                                <a href="student-password.php">
                                     <i class="metismenu-icon bi bi-person-lines-fill">
                                     </i>Şifre Değiştir
                                 </a>

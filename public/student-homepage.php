@@ -450,34 +450,34 @@
                         <ul class="vertical-nav-menu">
                             <li class="app-sidebar__heading">Genel</li>
                             <li>
-                                <a href="student-homepage.html"  class="mm-active">
+                                <a href="student-homepage.php"  class="mm-active">
                                     <i class="metismenu-icon bi bi-house-fill"></i>
                                     Ana Sayfa
                                 </a>
                             </li>
                             <li class="app-sidebar__heading">Proje Yönetimi</li>
                             <li>
-                                <a href="student-projects.html">
+                                <a href="student-projects.php">
                                     <i class="metismenu-icon bi bi-folder-fill"></i>
                                     Projelerim
                                 </a>
                             </li>
                             <li>
-                                <a href="student-new-project.html">
+                                <a href="student-new-project.php">
                                     <i class="metismenu-icon bi bi-file-earmark-plus-fill"></i>
                                     Yeni Proje Oluştur
                                 </a>
                             </li>
                             <li class="app-sidebar__heading">Öğrenci</li>
                             <li>
-                                <a href="student-profile.html">
+                                <a href="student-profile.php">
                                     <i class="metismenu-icon bi bi-person-fill">
                                     </i>Profilim
                                 </a>
                             </li>
                             <li class="app-sidebar__heading">Hesap</li>
                             <li>
-                                <a href="student-password.html">
+                                <a href="student-password.php">
                                     <i class="metismenu-icon bi bi-person-lines-fill">
                                     </i>Şifre Değiştir
                                 </a>
@@ -501,7 +501,7 @@
                             </div>
                             <div class="divider">
                             </div>
-                            <a href="student-this-project.html" style="text-decoration: none; color: black;" class="main-card mb-3 card">
+                            <a href="student-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
                                 <div class="card card-body">
                                     <h5 class="card-title">ROBOTİK SİSTEMLER
                                         <div class="mb-2 mr-2 badge badge-pill badge-info">
@@ -513,7 +513,7 @@
                                     <p>"Robotik Sistemler" projesi onaylandı.</p>
                                 </div>
                             </a>
-                            <a href="student-this-project.html" style="text-decoration: none; color: black;" class="main-card mb-3 card">
+                            <a href="student-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
                                 <div class="card card-body">
                                     <h5 class="card-title">GÖRÜNTÜ VE VIDEO İŞLEME
                                         <div class="mb-2 mr-2 badge badge-pill badge-warning">
@@ -526,7 +526,7 @@
                                         yapım sürecinin raporu eklendi.</p>
                                 </div>
                             </a>
-                            <a href="student-this-project.html" style="text-decoration: none; color: black;" class="main-card mb-3 card">
+                            <a href="student-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
                                 <div class="card card-body">
                                     <h5 class="card-title">GÖRÜNTÜ VE VIDEO İŞLEME
                                         <div class="mb-2 mr-2 badge badge-pill badge-warning">
@@ -538,7 +538,7 @@
                                     <p>"Görüntü ve Video İşleme" projesinin raporu onaylandı.</p>
                                 </div>
                             </a>
-                            <a href="student-this-project.html" style="text-decoration: none; color: black;" class="main-card mb-3 card">
+                            <a href="student-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
                                 <div class="card card-body">
                                     <h5 class="card-title">GÖRÜNTÜ VE VIDEO İŞLEME
                                         <div class="mb-2 mr-2 badge badge-pill badge-warning">
@@ -551,7 +551,7 @@
                                         raporu eklendi. </p>
                                 </div>
                             </a>
-                            <a href="student-this-project.html" style="text-decoration: none; color: black;" class="main-card mb-3 card">
+                            <a href="student-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
                                 <div class="card card-body">
                                     <h5 class="card-title">GÖRÜNTÜ VE VIDEO İŞLEME
                                         <div class="mb-2 mr-2 badge badge-pill badge-info">
@@ -570,7 +570,7 @@
                                 <h4><b>Duyurular</b></h4>
                             </div>
                             <div class="divider">
-                            </div>                           
+                            </div>
                             <div class="mb-3 card card-body">
                                 <h5 class="card-title">Lorem İpsum </h5>
                                 <h6 class="card-subtitle">28.02.2022 18:44</h6>

@@ -453,34 +453,34 @@
                         <ul class="vertical-nav-menu">
                             <li class="app-sidebar__heading">GENEL</li>
                             <li>
-                                <a href="advisor-homepage.html" class="mm-active">
+                                <a href="advisor-homepage.php" class="mm-active">
                                     <i class="metismenu-icon bi bi-house-fill"></i>
                                     Ana Sayfa
                                 </a>
                             </li>
                             <li class="app-sidebar__heading">PROJE YÖNETİMİ</li>
                             <li>
-                                <a href="advisor-students.html">
+                                <a href="advisor-students.php">
                                     <i class="metismenu-icon bi bi-people-fill"></i>
                                     Öğrenciler
                                 </a>
                             </li>
                             <li>
-                                <a href="advisor-projects.html">
+                                <a href="advisor-projects.php">
                                     <i class="metismenu-icon bi bi-folder-fill"></i>
                                     Projeler
                                 </a>
                             </li>
                             <li class="app-sidebar__heading">DANIŞMAN</li>
                             <li>
-                                <a href="advisor-profile.html">
+                                <a href="advisor-profile.php">
                                     <i class="metismenu-icon bi bi-person-fill">
                                     </i>Profilim
                                 </a>
                             </li>
                             <li class="app-sidebar__heading">HESAP</li>
                             <li>
-                                <a href="advisor-password.html">
+                                <a href="advisor-password.php">
                                     <i class="metismenu-icon bi bi-person-lines-fill">
                                     </i>Şifre Değiştir
                                 </a>
@@ -505,7 +505,7 @@
                             <div class="divider">
                             </div>
                             <!-- <div class="text-center header-text-dark"><b>ONAY BEKLEYEN BİR GÖNDERİM YOK...</b></div>-->
-                            <a href="advisor-this-project.html" style="text-decoration: none; color: black;"
+                            <a href="advisor-this-project.php" style="text-decoration: none; color: black;"
                                 class="main-card mb-3 card">
                                 <div class="card card-body">
                                     <h5 class="card-title">ROBOTİK SİSTEMLER</h5>
@@ -526,7 +526,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="advisor-this-project.html" style="text-decoration: none; color: black;"
+                            <a href="advisor-this-project.php" style="text-decoration: none; color: black;"
                                 class="main-card mb-3 card">
                                 <div class="card card-body">
                                     <h5 class="card-title">SİNYAL İŞLEME KURAMI</h5>
@@ -547,7 +547,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="advisor-this-project.html" style="text-decoration: none; color: black;"
+                            <a href="advisor-this-project.php" style="text-decoration: none; color: black;"
                                 class="main-card mb-3 card">
                                 <div class="card card-body">
                                     <h5 class="card-title">BİLGİ GİZLEME</h5>
@@ -568,7 +568,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="advisor-this-project.html" style="text-decoration: none; color: black;"
+                            <a href="advisor-this-project.php" style="text-decoration: none; color: black;"
                                 class="main-card mb-3 card">
                                 <div class="card card-body">
                                     <h5 class="card-title">BİLGİSAYARLA GÖRME</h5>
@@ -589,7 +589,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="advisor-this-project.html" style="text-decoration: none; color: black;"
+                            <a href="advisor-this-project.php" style="text-decoration: none; color: black;"
                                 class="main-card mb-3 card">
                                 <div class="card card-body">
                                     <h5 class="card-title">GÖRÜNTÜ VE VİDEO İŞLEME</h5>

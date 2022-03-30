@@ -448,7 +448,7 @@
                         <ul class="vertical-nav-menu">
                             <li class="app-sidebar__heading">Genel</li>
                             <li>
-                                <a href="admin-homepage.html">
+                                <a href="admin-homepage.php">
                                     <i class="metismenu-icon bi bi-house-fill"></i>
                                     Ana Sayfa
                                 </a>
@@ -456,13 +456,13 @@
 
                             <li class="app-sidebar__heading">KULLANICI YÖNETİMİ</li>
                             <li>
-                                <a href="admin-advisors.html">
+                                <a href="admin-advisors.php">
                                     <i class="metismenu-icon bi bi-people-fill"></i>
                                     Danışmanlar
                                 </a>
                             </li>
                             <li>
-                                <a href="admin-students.html">
+                                <a href="admin-students.php">
                                     <i class="metismenu-icon bi bi-people-fill"></i>
                                     Öğrenciler
                                 </a>
@@ -470,7 +470,7 @@
 
                             <li class="app-sidebar__heading">PROJE YÖNETİMİ</li>
                             <li>
-                                <a href="admin-projects.html">
+                                <a href="admin-projects.php">
                                     <i class="metismenu-icon bi bi-folder-fill">
                                     </i>Projeler
                                 </a>
@@ -478,7 +478,7 @@
 
                             <li class="app-sidebar__heading">SİSTEM</li>
                             <li>
-                                <a href="admin-management.html">
+                                <a href="admin-management.php">
                                     <i class="metismenu-icon bi bi-chevron-double-up">
                                     </i>Yönetim
                                 </a>
@@ -486,7 +486,7 @@
 
                             <li class="app-sidebar__heading">YÖNETİCİ</li>
                             <li>
-                                <a href="admin-profile.html">
+                                <a href="admin-profile.php">
                                     <i class="metismenu-icon bi bi-person-fill">
                                     </i>Profil
                                 </a>
@@ -494,7 +494,7 @@
 
                             <li class="app-sidebar__heading">Hesap</li>
                             <li>
-                                <a href="admin-password.html" class="mm-active">
+                                <a href="admin-password.php" class="mm-active">
                                     <i class="metismenu-icon bi bi-person-lines-fill">
                                     </i>Şifre Değiştir
                                 </a>
@@ -520,22 +520,22 @@
                                             <label for="examplePassword" class="">Şifre</label>
                                             <input name="password" id="examplePassword" placeholder="" type="password"
                                                 class="form-control mb-3">
-                    
+
                                             <label for="examplePassword" class="">Yeni Şifre</label>
                                             <input name="password" id="examplePassword" placeholder="" type="password"
                                                 class="form-control mb-3">
-                    
+
                                             <label for="examplePassword" class="">Yeni Şifreyi Doğrula</label>
                                             <input name="password" id="examplePassword" placeholder="" type="password"
                                                 class="form-control mb-3">
-                    
+
                                             <button class="mt-1 btn btn-primary">Şifreni Değiştir</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    
+
                     </div>
                 </div>
                 <!--FOOTER-->

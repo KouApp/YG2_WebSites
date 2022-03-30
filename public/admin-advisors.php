@@ -448,53 +448,53 @@
                         <ul class="vertical-nav-menu">
                             <li class="app-sidebar__heading">Genel</li>
                             <li>
-                                <a href="admin-homepage.html">
+                                <a href="admin-homepage.php">
                                     <i class="metismenu-icon bi bi-house-fill"></i>
                                     Ana Sayfa
                                 </a>
                             </li>
-                
+
                             <li class="app-sidebar__heading">KULLANICI YÖNETİMİ</li>
                             <li>
-                                <a href="admin-advisors.html"  class="mm-active">
+                                <a href="admin-advisors.php"  class="mm-active">
                                     <i class="metismenu-icon bi bi-people-fill"></i>
                                     Danışmanlar
                                 </a>
                             </li>
                             <li>
-                                <a href="admin-students.html">
+                                <a href="admin-students.php">
                                     <i class="metismenu-icon bi bi-people-fill"></i>
                                     Öğrenciler
                                 </a>
                             </li>
-                
+
                             <li class="app-sidebar__heading">PROJE YÖNETİMİ</li>
                             <li>
-                                <a href="admin-projects.html">
+                                <a href="admin-projects.php">
                                     <i class="metismenu-icon bi bi-folder-fill">
                                     </i>Projeler
                                 </a>
                             </li>
-                
+
                             <li class="app-sidebar__heading">SİSTEM</li>
                             <li>
-                                <a href="admin-management.html">
+                                <a href="admin-management.php">
                                     <i class="metismenu-icon bi bi-chevron-double-up">
                                     </i>Yönetim
                                 </a>
                             </li>
-                
+
                             <li class="app-sidebar__heading">YÖNETİCİ</li>
                             <li>
-                                <a href="admin-profile.html">
+                                <a href="admin-profile.php">
                                     <i class="metismenu-icon bi bi-person-fill">
                                     </i>Profil
                                 </a>
                             </li>
-                
+
                             <li class="app-sidebar__heading">Hesap</li>
                             <li>
-                                <a href="admin-password.html">
+                                <a href="admin-password.php">
                                     <i class="metismenu-icon bi bi-person-lines-fill">
                                     </i>Şifre Değiştir
                                 </a>
@@ -528,7 +528,7 @@
                                     <tbody>
                                         <tr>
                                             <th scope="row">1</th>
-                                            <td><a href="admin-advisor-profile.html"
+                                            <td><a href="admin-advisor-profile.php"
                                                     style="text-decoration: none; color: black;">Önder</a></td>
                                             <td>YAKUT</td>
                                             <td>Dr. Öğr. Üyesi</td>
@@ -536,28 +536,28 @@
                                         </tr>
                                         <tr>
                                             <th scope="row">2</th>
-                                            <td><a href="admin-advisor-profile.html" style="text-decoration: none; color: black;">Hikmet Hakan</a></td>
+                                            <td><a href="admin-advisor-profile.php" style="text-decoration: none; color: black;">Hikmet Hakan</a></td>
                                             <td>GÜREL</td>
                                             <td>Prof. Dr.</td>
                                             <td>eposta@gmail.com</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">3</th>
-                                            <td><a href="admin-advisor-profile.html" style="text-decoration: none; color: black;">Serdar</a></td>
+                                            <td><a href="admin-advisor-profile.php" style="text-decoration: none; color: black;">Serdar</a></td>
                                             <td>SOLAK</td>
                                             <td>Doç. Dr.</td>
                                             <td>eposta@gmail.com</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">4</th>
-                                            <td><a href="admin-advisor-profile.html" style="text-decoration: none; color: black;">Halil</a></td>
+                                            <td><a href="admin-advisor-profile.php" style="text-decoration: none; color: black;">Halil</a></td>
                                             <td>YİĞİT</td>
                                             <td>Doç. Dr.</td>
                                             <td>eposta@gmail.com</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">5</th>
-                                            <td><a href="admin-advisor-profile.html" style="text-decoration: none; color: black;">Mehmet</a></td>
+                                            <td><a href="admin-advisor-profile.php" style="text-decoration: none; color: black;">Mehmet</a></td>
                                             <td>YILDIRIM</td>
                                             <td>Prof. Dr.</td>
                                             <td>eposta@gmail.com</td>

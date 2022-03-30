@@ -457,34 +457,34 @@
                         <ul class="vertical-nav-menu">
                             <li class="app-sidebar__heading">GENEL</li>
                             <li>
-                                <a href="advisor-homepage.html">
+                                <a href="advisor-homepage.php">
                                     <i class="metismenu-icon bi bi-house-fill"></i>
                                     Ana Sayfa
                                 </a>
                             </li>
                             <li class="app-sidebar__heading">PROJE YÖNETİMİ</li>
                             <li>
-                                <a href="advisor-students.html">
+                                <a href="advisor-students.php">
                                     <i class="metismenu-icon bi bi-people-fill"></i>
                                     Öğrenciler
                                 </a>
                             </li>
                             <li>
-                                <a href="advisor-projects.html">
+                                <a href="advisor-projects.php">
                                     <i class="metismenu-icon bi bi-folder-fill"></i>
                                     Projeler
                                 </a>
                             </li>
                             <li class="app-sidebar__heading">DANIŞMAN</li>
                             <li>
-                                <a href="advisor-profile.html"  class="mm-active">
+                                <a href="advisor-profile.php"  class="mm-active">
                                     <i class="metismenu-icon bi bi-person-fill">
                                     </i>Profilim
                                 </a>
                             </li>
                             <li class="app-sidebar__heading">HESAP</li>
                             <li>
-                                <a href="advisor-password.html">
+                                <a href="advisor-password.php">
                                     <i class="metismenu-icon bi bi-person-lines-fill">
                                     </i>Şifre Değiştir
                                 </a>
@@ -508,7 +508,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="widget-content ">
-                                                
+
                                                 <div class="widget-content-wrapper row mr-5">
                                                     <div class="widget-content-left">
                                                         <h6>İsim:</h6>
@@ -531,7 +531,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="widget-content">
-                                                
+
                                                 <div class="widget-content-wrapper row mr-5">
                                                     <div class="widget-content-left">
                                                         <h6>Telefon:</h6>
@@ -564,7 +564,7 @@
                                                 da yanlışlıkları (200 kelimeyi
                                                 geçmeyecek şekilde) bu alanı doldurarak yetkiliye iletebilirsin.
                                             </label><textarea name="text" id="exampleText" class="form-control"></textarea></div>
-                    
+
                                         <button class="mt-1 btn btn-primary">Gönder</button>
                                     </form>
                                 </div>

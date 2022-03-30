@@ -286,19 +286,19 @@
         <div class="app-main">
             <div class="app-main__inner">
                 <div class="col-xl-1">
-                    <a href="student-homepage.html" class="mt-1 btn btn-primary">Öğrenci Anasayfa</a>
-                    <a href="student-new-project.html" class="mt-1 btn btn-primary">Öğrenci Yeni Proje</a>
-                    <a href="student-password.html" class="mt-1 btn btn-primary">Öğrenci Şifre Yenileme</a>
-                    <a href="student-profile.html" class="mt-1 btn btn-primary">Öğrenci Profil</a>
-                    <a href="student-projects.html" class="mt-1 btn btn-primary">Öğrenci Projeler</a>
-                    <a href="student-this-project.html" class="mt-1 btn btn-primary">Öğrenci Mevcut Proje</a>
-                    <a href="advisor-homepage.html" class="mt-1 btn btn-primary">Danışman Anasayfa</a>
-                    <a href="advisor-student-profile.html" class="mt-1 btn btn-primary">Danışman Öğrenci Profili</a>
-                    <a href="advisor-students.html" class="mt-1 btn btn-primary">Danışman Öğrencileri</a>
-                    <a href="advisor-this-project.html" class="mt-1 btn btn-primary">Danışman Mevcut Proje</a>
-                    <a href="advisor-password.html" class="mt-1 btn btn-primary">Danışman Şifre Yenileme</a>
-                    <a href="advisor-profile.html" class="mt-1 btn btn-primary">Danışman Profil</a>
-                    <a href="advisor-projects.html" class="mt-1 btn btn-primary">Danışman Tüm Projeler</a>
+                    <a href="student-homepage.php" class="mt-1 btn btn-primary">Öğrenci Anasayfa</a>
+                    <a href="student-new-project.php" class="mt-1 btn btn-primary">Öğrenci Yeni Proje</a>
+                    <a href="student-password.php" class="mt-1 btn btn-primary">Öğrenci Şifre Yenileme</a>
+                    <a href="student-profile.php" class="mt-1 btn btn-primary">Öğrenci Profil</a>
+                    <a href="student-projects.php" class="mt-1 btn btn-primary">Öğrenci Projeler</a>
+                    <a href="student-this-project.php" class="mt-1 btn btn-primary">Öğrenci Mevcut Proje</a>
+                    <a href="advisor-homepage.php" class="mt-1 btn btn-primary">Danışman Anasayfa</a>
+                    <a href="advisor-student-profile.php" class="mt-1 btn btn-primary">Danışman Öğrenci Profili</a>
+                    <a href="advisor-students.php" class="mt-1 btn btn-primary">Danışman Öğrencileri</a>
+                    <a href="advisor-this-project.php" class="mt-1 btn btn-primary">Danışman Mevcut Proje</a>
+                    <a href="advisor-password.php" class="mt-1 btn btn-primary">Danışman Şifre Yenileme</a>
+                    <a href="advisor-profile.php" class="mt-1 btn btn-primary">Danışman Profil</a>
+                    <a href="advisor-projects.php" class="mt-1 btn btn-primary">Danışman Tüm Projeler</a>
                 </div>
             </div>
             <script src="http://maps.google.com/maps/api/js?sensor=true"></script>

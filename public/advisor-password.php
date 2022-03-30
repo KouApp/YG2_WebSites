@@ -457,34 +457,34 @@
                         <ul class="vertical-nav-menu">
                             <li class="app-sidebar__heading">GENEL</li>
                             <li>
-                                <a href="advisor-homepage.html">
+                                <a href="advisor-homepage.php">
                                     <i class="metismenu-icon bi bi-house-fill"></i>
                                     Ana Sayfa
                                 </a>
                             </li>
                             <li class="app-sidebar__heading">PROJE YÖNETİMİ</li>
                             <li>
-                                <a href="advisor-students.html">
+                                <a href="advisor-students.php">
                                     <i class="metismenu-icon bi bi-people-fill"></i>
                                     Öğrenciler
                                 </a>
                             </li>
                             <li>
-                                <a href="advisor-projects.html">
+                                <a href="advisor-projects.php">
                                     <i class="metismenu-icon bi bi-folder-fill"></i>
                                     Projeler
                                 </a>
                             </li>
                             <li class="app-sidebar__heading">DANIŞMAN</li>
                             <li>
-                                <a href="advisor-profile.html">
+                                <a href="advisor-profile.php">
                                     <i class="metismenu-icon bi bi-person-fill">
                                     </i>Profilim
                                 </a>
                             </li>
                             <li class="app-sidebar__heading">HESAP</li>
                             <li>
-                                <a href="advisor-password.html" class="mm-active">
+                                <a href="advisor-password.php" class="mm-active">
                                     <i class="metismenu-icon bi bi-person-lines-fill">
                                     </i>Şifre Değiştir
                                 </a>
@@ -510,22 +510,22 @@
                                             <label for="examplePassword" class="">Şifre</label>
                                             <input name="password" id="examplePassword" placeholder="" type="password"
                                                 class="form-control mb-3">
-                    
+
                                             <label for="examplePassword" class="">Yeni Şifre</label>
                                             <input name="password" id="examplePassword" placeholder="" type="password"
                                                 class="form-control mb-3">
-                    
+
                                             <label for="examplePassword" class="">Yeni Şifreyi Doğrula</label>
                                             <input name="password" id="examplePassword" placeholder="" type="password"
                                                 class="form-control mb-3">
-                    
+
                                             <button class="mt-1 btn btn-primary">Şifreni Değiştir</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    
+
                     </div>
                 </div>
                 <!--FOOTER-->

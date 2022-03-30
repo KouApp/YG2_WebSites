@@ -1,3 +1,9 @@
+<?php
+session_start();
+if($_SESSION['Permisson'] != 'advisor'){
+    header("location: ./404.php");
+}
+?>
 <!doctype html>
 <html lang="en">
 

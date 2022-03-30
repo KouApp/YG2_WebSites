@@ -1,5 +1,8 @@
 <?php
-
+session_start();
+if($_SESSION['Permisson'] != 'student'){
+    header("location: ./404.php");
+}
 $curl = curl_init();
 
 curl_setopt_array($curl, array(

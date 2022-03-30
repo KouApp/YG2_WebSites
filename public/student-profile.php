@@ -14,7 +14,7 @@ curl_setopt_array($curl, array(
     CURLOPT_FOLLOWLOCATION => true,
     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
     CURLOPT_CUSTOMREQUEST => 'POST',
-    CURLOPT_POSTFIELDS => array('id' => '111'),
+    CURLOPT_POSTFIELDS => array('id' => $_SESSION['Id']),
 ));
 
 $response = curl_exec($curl);

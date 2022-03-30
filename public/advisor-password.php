@@ -1,3 +1,10 @@
+<?php
+session_start();
+if($_SESSION['Permisson'] != 'student'){
+    header("location: ./404.php");
+}
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -507,19 +514,19 @@
                                     <h5 class="card-title">ŞİFRE DEĞİŞTİR</h5>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <label for="examplePassword" class="">Şifre</label>
-                                            <input name="password" id="examplePassword" placeholder="" type="password"
-                                                class="form-control mb-3">
+                                            <form name="passwordChange" method="post" action="advisor-password.php">
+                                            <label for="oldPassword" class="">Şifre</label>
+                                                <input class="form-control mb-3" type="text" required="required" placeholder=""  name="oldPassword">
 
-                                            <label for="examplePassword" class="">Yeni Şifre</label>
-                                            <input name="password" id="examplePassword" placeholder="" type="password"
-                                                class="form-control mb-3">
+                                            <label for="newPassword" class="">Yeni Şifre</label>
+                                                <input class="form-control mb-3" type="text" required="required" placeholder=""  name="newPassword">
 
-                                            <label for="examplePassword" class="">Yeni Şifreyi Doğrula</label>
-                                            <input name="password" id="examplePassword" placeholder="" type="password"
-                                                class="form-control mb-3">
+                                            <label for="newPassword2" class="">Yeni Şifreyi Doğrula</label>
+                                            <input class="form-control mb-3" type="text" required="required" placeholder=""  name="newPassword2">
 
-                                            <button class="mt-1 btn btn-primary">Şifreni Değiştir</button>
+
+                                            <input class="mt-1 btn btn-primary" type="submit" name="password" value="Şifreni Değiştir">
+                                            </form>
                                         </div>
                                     </div>
                                 </div>

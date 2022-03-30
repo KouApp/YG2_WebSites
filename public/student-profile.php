@@ -91,7 +91,7 @@ $json = json_decode($response, true);
                                         <?php print $json["name"]?>
                                     </div>
                                     <div class="widget-subheading text-center">
-                                        211307097
+                                        <?php print $json["studentID"]?>
                                     </div>
                                 </div>
                             </div>
@@ -531,7 +531,7 @@ $json = json_decode($response, true);
                                                         <h6>Numara:</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6>211307097</h6>
+                                                        <h6><?php print $json["studentID"]?></h6>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -540,7 +540,7 @@ $json = json_decode($response, true);
                                                         <h6>Öğrenci:</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6>Sirac Arapoğlu</h6>
+                                                        <h6><?php print $json["name"]." ".$json["surname"]?></h6>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -549,7 +549,7 @@ $json = json_decode($response, true);
                                                         <h6>Danışman:</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6>Dr. Öğr. Üyesi Önder YAKUT</h6>
+                                                        <h6><?php print $json["advisorID"]?></h6>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -558,7 +558,7 @@ $json = json_decode($response, true);
                                                         <h6>Fakülte:</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6>Teknoloji Fakültesi</h6>
+                                                        <h6><?php print $json["facultyID"]?></h6>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -567,7 +567,7 @@ $json = json_decode($response, true);
                                                         <h6>Bölüm:</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6>Bilişim Sistemleri Mühendisliği</h6>
+                                                        <h6><?php print $json["departmentID"]?></h6>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -576,7 +576,7 @@ $json = json_decode($response, true);
                                                         <h6>Sınıf:</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6>3. Sınıf</h6>
+                                                        <h6><?php print $json["class"]?></h6>
                                                     </div>
                                                 </div>
                                                 </li>
@@ -607,7 +607,7 @@ $json = json_decode($response, true);
                                                         <h6>Cep Telefonu:</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6>0553 305 41 99</h6>
+                                                        <h6><?php print $json["class"]?></h6>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -616,7 +616,7 @@ $json = json_decode($response, true);
                                                         <h6>E-Posta:</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6>arapoglusirac@gmail.com</h6>
+                                                        <h6><?php print $json["mail"]?></h6>
                                                     </div>
                                                 </div>
                                                 <br>

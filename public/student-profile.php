@@ -1,7 +1,7 @@
 <?php
 session_start();
 if($_SESSION['Permisson'] != 'student'){
-    header("location: ./404.php");
+    echo'<meta http-equiv="refresh" content="0;URL=404.ph">';
 }
 $curl = curl_init();
 

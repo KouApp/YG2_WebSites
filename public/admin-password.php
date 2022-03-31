@@ -437,6 +437,47 @@ if ($_SESSION['Permisson'] != 'admin') {
                                     <h5 class="card-title">ŞİFRE DEĞİŞTİR</h5>
                                     <div class="row">
                                         <div class="col-md-12">
+                                            <?php
+                                            if(isset($_POST['submit'])){
+                                                $old_password = $_POST['oldPassword'];
+                                                $new_password = $_POST['newPassword'];
+                                                $new_password_again = $_POST['newPassword2'];
+
+                                                if($new_password == $new_password_again){
+                                                    $curl = curl_init();
+
+                                                    curl_setopt_array($curl, array(
+                                                        CURLOPT_URL => 'http://172.105.73.62:5000/passwordChange',
+                                                        CURLOPT_RETURNTRANSFER => true,
+                                                        CURLOPT_ENCODING => '',
+                                                        CURLOPT_MAXREDIRS => 10,
+                                                        CURLOPT_TIMEOUT => 0,
+                                                        CURLOPT_FOLLOWLOCATION => true,
+                                                        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                                                        CURLOPT_CUSTOMREQUEST => 'POST',
+                                                        CURLOPT_POSTFIELDS => array('no' => $_SESSION['Id'], 'old_pass ' => $_POST['OldPassword'], 'new_pass' => $_POST['newPassword']),
+                                                    ));
+
+                                                    $adminPassword = curl_exec($curl);
+
+                                                    curl_close($curl);
+                                                    $json = json_decode($adminPassword, true);
+                                                    if($json['status'] == 'success'){
+                                                        echo '<div class="alert alert-success" role="alert">
+                                                            <strong>Başarılı!</strong> Şifreniz başarıyla değiştirildi.
+                                                            </div>';}
+                                                    else{
+                                                        echo '<div class="alert alert-danger" role="alert">
+                                                            <strong>Hata!</strong> Şifreniz değiştirilirken bir hata oluştu.
+                                                            </div>';
+                                                    }
+                                                }else{
+                                                    echo '<div class="alert alert-danger" role="alert">Yeni şifreler uyuşmuyor.</div>';
+                                                }
+
+                                            }
+
+                                            ?>
                                             <form name="adminPassword" method="post" action="admin-password.php">
                                                 <label for="oldPassword" class="">Şifre</label>
                                                 <input name="oldPassword" placeholder="" type="password" class="form-control mb-3">

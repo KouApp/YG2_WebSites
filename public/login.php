@@ -19,7 +19,7 @@ $response = curl_exec($curl);
 */
 curl_close($curl);
 $_SESSION['Id']="111";
-$_SESSION['Permisson']="admin";
+$_SESSION['Permisson']="student";
 //$_POST['login'];
 
 ?>

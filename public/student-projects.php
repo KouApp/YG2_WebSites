@@ -73,7 +73,6 @@ if($_SESSION['Permisson'] != 'student'){
                                         Sirac ARAPOĞLU
                                     </div>
                                     <div class="widget-subheading text-center">
-                                        211307097
                                     </div>
                                 </div>
                             </div>
@@ -505,6 +504,26 @@ if($_SESSION['Permisson'] != 'student'){
                 <div class="app-main__inner">
                     <!--PAGE CONTENT-->
                     <div class="row">
+                        <?php
+                        $curl = curl_init();
+
+                        curl_setopt_array($curl, array(
+                            CURLOPT_URL => 'http://172.105.73.62:5000/studentProject',
+                            CURLOPT_RETURNTRANSFER => true,
+                            CURLOPT_ENCODING => '',
+                            CURLOPT_MAXREDIRS => 10,
+                            CURLOPT_TIMEOUT => 0,
+                            CURLOPT_FOLLOWLOCATION => true,
+                            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                            CURLOPT_CUSTOMREQUEST => 'POST',
+                            CURLOPT_POSTFIELDS => array('no' => $_SESSION['Id']),
+                        ));
+
+                        $response= curl_exec($curl);
+
+                        curl_close($curl);
+                        $json = json_decode($response, true);
+                        ?>
                         <!--All Projects-->
                         <div class="col-md-12 col-lg-3">
                             <div class="text-center">

@@ -425,43 +425,40 @@ if ($_SESSION['Permisson'] != 'student') {
                                     <div class="row">
                                         <div class="col-md-12">
                                             <?php
-                                            if(isset($_POST['submit'])){
+                                            if(isset($_POST['changePassword'])){
                                                 $old_password = $_POST['studentOldPassword'];
                                                 $new_password = $_POST['studentNewPassword1'];
                                                 $new_password_again = $_POST['studentNewPassword2'];
 
-                                                    if($new_password == $new_password_again){
-                                                        $curl = curl_init();
+                                                if($new_password == $new_password_again){
 
-                                                        curl_setopt_array($curl, array(
-                                                            CURLOPT_URL => 'http://172.105.73.62:5000/passwordChange',
-                                                            CURLOPT_RETURNTRANSFER => true,
-                                                            CURLOPT_ENCODING => '',
-                                                            CURLOPT_MAXREDIRS => 10,
-                                                            CURLOPT_TIMEOUT => 0,
-                                                            CURLOPT_FOLLOWLOCATION => true,
-                                                            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                                                            CURLOPT_CUSTOMREQUEST => 'POST',
-                                                            CURLOPT_POSTFIELDS => array('no' => $_SESSION['Id'], 'old_pass ' => $_POST['studentOldPassword'], 'new_pass' => $_POST['studentNewPassword1']),
-                                                        ));
+                                                    $curl = curl_init();
+                                                    curl_setopt_array($curl, array(
+                                                        CURLOPT_URL => 'http://172.105.73.62:5000/passwordChange',
+                                                        CURLOPT_RETURNTRANSFER => true,
+                                                        CURLOPT_ENCODING => '',
+                                                        CURLOPT_MAXREDIRS => 10,
+                                                        CURLOPT_TIMEOUT => 0,
+                                                        CURLOPT_FOLLOWLOCATION => true,
+                                                        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                                                        CURLOPT_CUSTOMREQUEST => 'POST',
+                                                        CURLOPT_POSTFIELDS => array('no' => $_SESSION['Id'], 'old_pass' => $_POST['studentOldPassword'], 'new_pass' => $_POST['studentNewPassword1']),
+                                                    ));
 
-                                                        $studentNewPassword = curl_exec($curl);
-
-                                                        curl_close($curl);
-                                                        $json = json_decode($studentNewPassword, true);
-                                                        if($json['status'] == 'success'){
-                                                            echo '<div class="alert alert-success" role="alert">
+                                                    $studentNewPassword = curl_exec($curl);
+                                                    curl_close($curl);
+                                                    if($studentNewPassword != 'False'){
+                                                        echo '<div class="alert alert-success" role="alert">
                                                             <strong>Başarılı!</strong> Şifreniz başarıyla değiştirildi.
                                                             </div>';}
-                                                        else{
-                                                            echo '<div class="alert alert-danger" role="alert">
+                                                    else{
+                                                        echo '<div class="alert alert-danger" role="alert">
                                                             <strong>Hata!</strong> Şifreniz değiştirilirken bir hata oluştu.
                                                             </div>';
-                                                        }
-                                                    }else{
-                                                        echo '<div class="alert alert-danger" role="alert">Yeni şifreler uyuşmuyor.</div>';
                                                     }
-
+                                                }else{
+                                                    echo '<div class="alert alert-danger" role="alert">Yeni şifreler uyuşmuyor.</div>';
+                                                }
                                             }
 
                                             ?>

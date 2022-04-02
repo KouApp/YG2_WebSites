@@ -1,20 +1,22 @@
 <?php
 session_start();
 
-$_SESSION['0'] = '<div class="mb-2 mr-2 badge badge-pill badge-info">TEST</div>';
-$_SESSION['1'] = '<div class="mb-2 mr-2 badge badge-pill badge-info">Gönderildi</div>';
-$_SESSION['2'] = '<div class="mb-2 mr-2 badge badge-pill badge-info">Görüldü</div>';
+$_SESSION[0] = '<div class="mb-2 mr-2 badge badge-pill badge-info">TEST</div>';
+$_SESSION[1] = '<div class="mb-2 mr-2 badge badge-pill badge-info">Gönderildi</div>';
+$_SESSION[2] = '<div class="mb-2 mr-2 badge badge-pill badge-info">Görüldü</div>';
 $_SESSION['3'] = '<div class="mb-2 mr-2 badge badge-pill badge-info">İndirildi</div>';
 $_SESSION['4'] = '<div class="mb-2 mr-2 badge badge-pill badge-info">Kabul Edildi</div>';
 $_SESSION['5'] = '<div class="mb-2 mr-2 badge badge-pill badge-info">Red Edildi</div>';
 $_SESSION['6'] = '<div class="mb-2 mr-2 badge badge-pill badge-info">Revize Edildi</div>';
 $_SESSION['7'] = '<div class="mb-2 mr-2 badge badge-pill badge-info">Tamamlandı</div>';
 
-$curl = curl_init();
+
 $_SESSION['Permisson'] = "";
 if(isset($_POST['submit'])){
+
+    $curl = curl_init();
     curl_setopt_array($curl, array(
-        CURLOPT_URL => 'http://194.195.246.167:5000/loginQuery',
+        CURLOPT_URL => 'http://172.105.73.62:5000/loginQuery',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -22,7 +24,7 @@ if(isset($_POST['submit'])){
         CURLOPT_FOLLOWLOCATION => true,
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         CURLOPT_CUSTOMREQUEST => 'POST',
-        CURLOPT_POSTFIELDS => array('Id' => $_POST['login'],'Password' => $_POST['password']),
+        CURLOPT_POSTFIELDS => array('no' => $_POST['login'],'password' => $_POST['password']),
     ));
     $response = curl_exec($curl);
     $_SESSION['Id'] = $_POST['login'];
@@ -142,7 +144,7 @@ else if ($_SESSION['Permisson'] == "admin") {
                         }
                         ?>
                         <div class="form-group">
-                            <input type="login" name="ID" class="form-control" placeholder="Giriş ID" required="required">
+                            <input type="text" name="login" class="form-control" placeholder="Giriş ID" required="required">
                         </div>
                         <div class="form-group">
                             <input type="password"  name = "password" class="form-control" placeholder="Şifre" required="required">

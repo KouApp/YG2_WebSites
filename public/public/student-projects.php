@@ -539,11 +539,7 @@ if($_SESSION['Permisson'] != 'student'){
                                     echo '<a href="student-this-project.php" style="text-decoration: none; color: black;"
                                 class="main-card mb-3 card">
                                 <div class="card card-body">
-                                    <h5 class="card-title">'.$project["headline"].'
-                                        <div class="mb-2 mr-2 badge badge-pill badge-info">
-                                            '.$project["status"].'
-                                        </div>
-                                    </h5>
+                                    <h5 class="card-title">'.$project["headline"].$_SESSION[(string)$project["status"]].'</h5>
                                     <div class="row ml-0">
                                         <h6 class="card-subtitle"><b>Teslim Tarihi:</b></h6>
                                         <h6 class="card-subtitle ml-2">'.$project["instertionDate"].'</h6>

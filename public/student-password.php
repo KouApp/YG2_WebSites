@@ -464,13 +464,13 @@ if ($_SESSION['Permisson'] != 'student') {
                                             ?>
                                             <form name="studentNewPassword" method="post" action="student-password.php">
                                                 <label for="studentOldPassword" class="">Şifre</label>
-                                                <input name="studentOldPassword" placeholder="" type="password" class="form-control mb-3">
+                                                <input required name="studentOldPassword" placeholder="" type="password" class="form-control mb-3">
 
                                                 <label for="studentNewPassword1" class="">Yeni Şifre</label>
-                                                <input name="studentNewPassword1" placeholder="" type="password" class="form-control mb-3">
+                                                <input required name="studentNewPassword1" placeholder="" type="password" class="form-control mb-3">
 
                                                 <label for="studentNewPassword2" class="">Yeni Şifreyi Doğrula</label>
-                                                <input name="studentNewPassword2" placeholder="" type="password" class="form-control mb-3">
+                                                <input required name="studentNewPassword2" placeholder="" type="password" class="form-control mb-3">
 
                                                 <input class="mt-1 btn btn-primary" type="submit" name="changePassword" value="Şifreni Değiştir">
                                             </form>

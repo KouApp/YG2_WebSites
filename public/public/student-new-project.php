@@ -1,7 +1,7 @@
 <?php
 session_start();
 if ($_SESSION['Permisson'] != 'student') {
-    echo'<meta http-equiv="refresh" content="0;URL=404.php">';
+    //echo'<meta http-equiv="refresh" content="0;URL=404.php">';
 }
 ?>
 <!doctype html>
@@ -470,7 +470,7 @@ if ($_SESSION['Permisson'] != 'student') {
                                     }
                                     ?>
                                     <label for="content" class="">Projenin önemi, kapsamı ve amacı (en az 200 kelime.)</label>
-                                    <input required name="content" type="text" value='<?php echo $contentt ?>'  class="form-control"></input>
+                                    <textarea required name="content" type="text" value='<?php echo $contentt ?>'  class="form-control"></textarea>
                                 </div>
 
                                 <div class="position-relative form-group">
@@ -483,7 +483,7 @@ if ($_SESSION['Permisson'] != 'student') {
                                     }
                                     ?>
                                     <label for="matter" class="">Projenin materyalleri, yöntemleri ve araştırma olanakları (en az 300 kelime.)</label>
-                                    <input required name="matter" type="text" value='<?php echo $matter ?>' class="form-control"></input>
+                                    <textarea required name="matter" type="text" value='<?php echo $matter ?>' class="form-control"></textarea>
                                 </div>
 
                                 <div class="position-relative form-group">
@@ -500,42 +500,7 @@ if ($_SESSION['Permisson'] != 'student') {
                                     <label for="keywords" class="">Anahtar Kelimeler (Tam 5 adet anahtar kelimeyi virgüllere ayırarak girin.)</label>
                                     <input required name="keywords" placeholder="" type="text" value='<?php echo $keyword ?>' class="form-control">
                                 </div>
-                                <div class="position-relative form-group">
-                                    <?php
-                                    ## if $metariel less than 300 word error
-                                    if(str_word_count($metariel) < 300) {
-                                        echo '<div class="alert alert-danger" role="alert">
-                                                <strong>Hata!</strong> İçerik 300 kelime veya daha fazla olmalıdır.
-                                            </div>';
-                                    }
-                                    ?>
-                                    <label for="metariel" class="">Material</label>
-                                    <input required name="metariel" placeholder="" type="text" value='<?php echo $metariel ?>' class="form-control">
-                                </div>
-                                <div class="position-relative form-group">
-                                    <?php
-                                    ## if $methodology less than 300 word error
-                                    if(str_word_count($methodology) < 300) {
-                                        echo '<div class="alert alert-danger" role="alert">
-                                                <strong>Hata!</strong> İçerik 300 kelime veya daha fazla olmalıdır.
-                                            </div>';
-                                    }
-                                    ?>
-                                    <label for="methodology" class="">methodology</label>
-                                    <input required name="methodology" placeholder="" type="text" value='<?php echo $methodology ?>' class="form-control">
-                                </div>
-                                <div class="position-relative form-group">
-                                    <?php
-                                    ## if $methodology less than 300 word error
-                                    if(str_word_count($possibility) < 300) {
-                                        echo '<div class="alert alert-danger" role="alert">
-                                                <strong>Hata!</strong> İçerik 300 kelime veya daha fazla olmalıdır.
-                                            </div>';
-                                    }
-                                    ?>
-                                    <label for="possibility" class="">possibility</label>
-                                    <input required name="possibility" placeholder="" type="text"value='<?php echo $possibility ?>' class="form-control">
-                                </div>
+                             
                                 <input class="mt-1 btn btn-primary" type="submit" name="registerProject" value="Proje Kayıt">
                             </form>
                         </div>

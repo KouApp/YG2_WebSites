@@ -67,7 +67,7 @@ if ($_SESSION['Permisson'] != 'student') {
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
-                                        <?php print $_SESSION['fullname']?>
+                                        <?php print $_SESSION['fullname'] ?>
                                     </div>
                                     <div class="widget-subheading text-center">
                                         <?php print $_SESSION['Id'] ?>
@@ -417,7 +417,7 @@ if ($_SESSION['Permisson'] != 'student') {
             <div class="app-main__outer">
                 <div class="app-main__inner">
                     <?php
-                    if(isset($_POST['registerProject'])){
+                    if (isset($_POST['registerProject'])) {
                         //id,number,version,headline,matter,cont,purpose,keyword,metariel,method,poss,status,descr,maxplag,semeterid,studentid,insertiondate,updatedate
                         $pid = "";
                         $pnumber = "";
@@ -452,7 +452,7 @@ if ($_SESSION['Permisson'] != 'student') {
                             CURLOPT_POSTFIELDS => array('no' => $_SESSION['Id']),
                         ));
 
-                        $response= curl_exec($curl);
+                        $response = curl_exec($curl);
 
                         curl_close($curl);
                         $projects = json_decode($response, true);
@@ -471,34 +471,87 @@ if ($_SESSION['Permisson'] != 'student') {
                                 <div class="position-relative form-group">
                                     <?php
                                     ## if content less than 200 word error
-                                    if(str_word_count($contentt) < 200) {
+                                    if (str_word_count($purpose) < 200) {
                                         echo '<div class="alert alert-danger" role="alert">
-                                                <strong>Hata!</strong> İçerik 200 kelime veya daha fazla olmalıdır.
+                                                <strong>Hata!</strong> Projenin amacı 200 kelime veya daha fazla olmalıdır.
                                             </div>';
                                     }
                                     ?>
-                                    <label for="content" class="">Projenin önemi, kapsamı ve amacı (en az 200 kelime.)</label>
-                                    <textarea required name="content" type="text" value='<?php echo $contentt ?>'  class="form-control"></textarea>
+                                    <label for="purpose" class="">Projenin amacı (en az 200 kelime.)</label>
+                                    <textarea required name="purpose" type="text" value='<?php echo $contentt ?>' class="form-control"></textarea>
+                                </div>
+
+                                <div class="position-relative form-group">
+                                    <?php
+                                    ## if content less than 200 word error
+                                    if (str_word_count($matter) < 200) {
+                                        echo '<div class="alert alert-danger" role="alert">
+                                                <strong>Hata!</strong> Projenin önemi 200 kelime veya daha fazla olmalıdır.
+                                            </div>';
+                                    }
+                                    ?>
+                                    <label for="matter" class="">Projenin önemi (en az 200 kelime.)</label>
+                                    <textarea required name="matter" type="text" value='<?php echo $contentt ?>' class="form-control"></textarea>
+                                </div>
+
+                                <div class="position-relative form-group">
+                                    <?php
+                                    ## if content less than 200 word error
+                                    if (str_word_count($contentt) < 200) {
+                                        echo '<div class="alert alert-danger" role="alert">
+                                                <strong>Hata!</strong> Projenin kapsamı 200 kelime veya daha fazla olmalıdır.
+                                            </div>';
+                                    }
+                                    ?>
+                                    <label for="content" class="">Projenin kapsamı (en az 200 kelime.)</label>
+                                    <textarea required name="content" type="text" value='<?php echo $contentt ?>' class="form-control"></textarea>
+                                </div>
+
+
+                                <div class="position-relative form-group">
+                                    <?php
+                                    ## if matter less than 300 word error
+                                    if (str_word_count($metariel) < 300) {
+                                        echo '<div class="alert alert-danger" role="alert">
+                                                <strong>Hata!</strong> Projenin materyalleri 300 kelime veya daha fazla olmalıdır.
+                                            </div>';
+                                    }
+                                    ?>
+                                    <label for="metariel" class="">Projenin materyalleri (en az 300 kelime.)</label>
+                                    <textarea required name="metariel" type="text" value='<?php echo $matter ?>' class="form-control"></textarea>
                                 </div>
 
                                 <div class="position-relative form-group">
                                     <?php
                                     ## if matter less than 300 word error
-                                    if(str_word_count($matter) < 300) {
+                                    if (str_word_count($methodology) < 300) {
                                         echo '<div class="alert alert-danger" role="alert">
-                                                <strong>Hata!</strong> İçerik 300 kelime veya daha fazla olmalıdır.
+                                                <strong>Hata!</strong> Projenin yöntemini 300 kelime veya daha fazla olmalıdır.
                                             </div>';
                                     }
                                     ?>
-                                    <label for="matter" class="">Projenin materyalleri, yöntemleri ve araştırma olanakları (en az 300 kelime.)</label>
-                                    <textarea required name="matter" type="text" value='<?php echo $matter ?>' class="form-control"></textarea>
+                                    <label for="methodology" class="">Projenin yöntemi (en az 300 kelime.)</label>
+                                    <textarea required name="methodology" type="text" value='<?php echo $matter ?>' class="form-control"></textarea>
+                                </div>
+
+                                <div class="position-relative form-group">
+                                    <?php
+                                    ## if matter less than 300 word error
+                                    if (str_word_count($possibility) < 300) {
+                                        echo '<div class="alert alert-danger" role="alert">
+                                                <strong>Hata!</strong> Projenin araştırma olanakları 300 kelime veya daha fazla olmalıdır.
+                                            </div>';
+                                    }
+                                    ?>
+                                    <label for="possibility" class="">Projenin araştırma olanakları (en az 300 kelime.)</label>
+                                    <textarea required name="possibility" type="text" value='<?php echo $matter ?>' class="form-control"></textarea>
                                 </div>
 
                                 <div class="position-relative form-group">
                                     <?php
                                     #keywords split ',' to array, if array len < 5 then error
                                     $keywords = explode(',', $keyword);
-                                    if(count($keywords) < 5) {
+                                    if (count($keywords) < 5) {
                                         echo '<div class="alert alert-danger" role="alert">
                                     <strong>Hata!</strong> Anahtar kelimelerin sayısı 5ten az olamaz.
                                     </div>';

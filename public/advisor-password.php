@@ -515,7 +515,7 @@ if($_SESSION['Permisson'] != 'advisor'){
                                     <div class="row">
                                         <div class="col-md-12">
                                             <?php
-                                            if(isset($_POST['adminPasswordChange'])){
+                                            if(isset($_POST['AdvisorChangePassword'])){
                                                 $old_password = $_POST['oldPassword'];
                                                 $new_password = $_POST['newPassword'];
                                                 $new_password_again = $_POST['newPassword2'];
@@ -535,9 +535,9 @@ if($_SESSION['Permisson'] != 'advisor'){
                                                         CURLOPT_POSTFIELDS => array('no' => $_SESSION['Id'], 'old_pass' => $old_password, 'new_pass' => $new_password),
                                                     ));
 
-                                                    $studentNewPassword = curl_exec($curl);
+                                                    $advisorNewPassword = curl_exec($curl);
                                                     curl_close($curl);
-                                                    if($studentNewPassword != 'False'){
+                                                    if($advisorNewPassword != 'False'){
                                                         echo '<div class="alert alert-success" role="alert">
                                                             <strong>Başarılı!</strong> Şifreniz başarıyla değiştirildi.
                                                             </div>';}

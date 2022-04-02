@@ -1,7 +1,7 @@
 <?php
 session_start();
-if($_SESSION['Permisson'] != 'advisor'){
-    echo'<meta http-equiv="refresh" content="0;URL=404.php">';
+if ($_SESSION['Permisson'] != 'advisor') {
+    //echo'<meta http-equiv="refresh" content="0;URL=404.php">';
 }
 ?>
 <!doctype html>
@@ -685,6 +685,73 @@ if($_SESSION['Permisson'] != 'advisor'){
                                             <a href="" style="text-decoration: none; color: black;">
                                                 <h6>Kötü Rapor</h6>
                                             </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!--Plaguarism??? Table-->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-12 main-card mb-3 card widget-content">
+                                        <div class="col-md-12">
+                                            <h5 class="card-title">BENZER PROJELER</h5>
+                                            <h7>Proje adına tıklayarak projeyi inceleyebilirsiniz.</h7>
+                                            <table class="mb-0 mt-3 table table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Öğrenci</th>
+                                                        <th>Proje Başlığı</th>
+                                                        <th>Danışman</th>
+                                                        <th>Konu İntihal Oranı</th>
+                                                        <th>Yöntem İntihal Oranı</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>Ad SOYAD</td>
+                                                        <td><a href="advisor-student-profile.html" style="text-decoration: none; color: black;">Proje Adı</a></td>
+                                                        <td>Danışman Adı</td>
+                                                        <td>%45</td>
+                                                        <td>%22</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>Ad SOYAD</td>
+                                                        <td><a href="advisor-student-profile.html" style="text-decoration: none; color: black;">Proje Adı</a></td>
+                                                        <td>Danışman Adı</td>
+                                                        <td>%45</td>
+                                                        <td>%22</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>Ad SOYAD</td>
+                                                        <td><a href="advisor-student-profile.html" style="text-decoration: none; color: black;">Proje Adı</a></td>
+                                                        <td>Danışman Adı</td>
+                                                        <td>%45</td>
+                                                        <td>%22</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>Ad SOYAD</td>
+                                                        <td><a href="advisor-student-profile.html" style="text-decoration: none; color: black;">Proje Adı</a></td>
+                                                        <td>Danışman Adı</td>
+                                                        <td>%45</td>
+                                                        <td>%22</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>Ad SOYAD</td>
+                                                        <td><a href="advisor-student-profile.html" style="text-decoration: none; color: black;">Proje Adı</a></td>
+                                                        <td>Danışman Adı</td>
+                                                        <td>%45</td>
+                                                        <td>%22</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>

@@ -91,10 +91,10 @@ $json = json_decode($response, true);
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
-                                        <?php print $json["name"]?>
+                                        <?php print $_SESSION['fullname']?>
                                     </div>
                                     <div class="widget-subheading text-center">
-                                        <?php print $json["studentID"]?>
+                                        <?php print $_SESSION['Id'] ?>
                                     </div>
                                 </div>
                             </div>

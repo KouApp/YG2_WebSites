@@ -20,7 +20,46 @@ $response = curl_exec($curl);
 curl_close($curl);
 $_SESSION['Id']="111";
 $_SESSION['Permisson']="student";
-//$_POST['login'];
+
+if($_SESSION['Permisson']=="student"){
+    $curl = curl_init();
+    curl_setopt_array($curl, array(
+        CURLOPT_URL => 'http://172.105.73.62:5000/studentQuery',
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => '',
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => 'POST',
+        CURLOPT_POSTFIELDS => array('id' => $_SESSION['Id']),
+    ));
+
+    $response = curl_exec($curl);
+    curl_close($curl);
+    $student = json_decode($response, true);
+    $_SESSION["fullname"]=$student["name"]." ".$student["surname"];
+
+    $_SESSION["advisorID"]=$student["advisorID"];
+    $curl = curl_init();
+    curl_setopt_array($curl, array(
+        CURLOPT_URL => 'http://172.105.73.62:5000/advisorQuery',
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => '',
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => 'POST',
+        CURLOPT_POSTFIELDS => array('id' => $_SESSION['Id']),
+    ));
+    $response = curl_exec($curl);
+
+    curl_close($curl);
+    $advisor = json_decode($response, true);
+    $_SESSION["advisorFullName"]=$advisor["name"]." ".$advisor['"surname'];
+
+}
 
 ?>
 <!doctype html>

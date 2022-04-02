@@ -1,7 +1,7 @@
 <?php
 session_start();
 if ($_SESSION['Permisson'] != 'student') {
-    echo'<meta http-equiv="refresh" content="0;URL=404.ph">';
+    echo'<meta http-equiv="refresh" content="0;URL=404.php">';
 }
 ?>
 <!doctype html>
@@ -67,10 +67,10 @@ if ($_SESSION['Permisson'] != 'student') {
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
-                                        Sirac ARAPOĞLU
+                                        <?php print $_SESSION['fullname']?>
                                     </div>
                                     <div class="widget-subheading text-center">
-                                        211307097
+                                        <?php print $_SESSION['Id'] ?>
                                     </div>
                                 </div>
                             </div>

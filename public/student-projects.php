@@ -1,7 +1,7 @@
 <?php
 session_start();
 if($_SESSION['Permisson'] != 'student'){
-    echo'<meta http-equiv="refresh" content="0;URL=404.ph">';
+    echo'<meta http-equiv="refresh" content="0;URL=404.php">';
 }
 ?>
 <!doctype html>
@@ -69,10 +69,13 @@ if($_SESSION['Permisson'] != 'student'){
                                     </div>
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
-                                    <div class="widget-heading">
-                                        Sirac ARAPOĞLU
-                                    </div>
-                                    <div class="widget-subheading text-center">
+                                    <div class="widget-content-left  ml-3 header-user-info">
+                                        <div class="widget-heading">
+                                            <?php print $_SESSION['fullname']?>
+                                        </div>
+                                        <div class="widget-subheading text-center">
+                                            <?php print $_SESSION['Id'] ?>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -522,7 +525,7 @@ if($_SESSION['Permisson'] != 'student'){
                         $response= curl_exec($curl);
 
                         curl_close($curl);
-                        $json = json_decode($response, true);
+                        $projects = json_decode($response, true);
                         ?>
                         <!--All Projects-->
                         <div class="col-md-12 col-lg-3">
@@ -531,136 +534,33 @@ if($_SESSION['Permisson'] != 'student'){
                             </div>
                             <div class="divider">
                             </div>
-                            <a href="student-this-project.php" style="text-decoration: none; color: black;"
+                            <?php
+                                foreach($projects as $project){
+                                    echo '<a href="student-this-project.php" style="text-decoration: none; color: black;"
                                 class="main-card mb-3 card">
                                 <div class="card card-body">
-                                    <h5 class="card-title">ROBOTİK SİSTEMLER
+                                    <h5 class="card-title">'.$project["headline"].'
                                         <div class="mb-2 mr-2 badge badge-pill badge-info">
-                                            Onaylandı
+                                            '.$project["status"].'
                                         </div>
                                     </h5>
                                     <div class="row ml-0">
-                                        <h6 class="card-subtitle"><b>Alım Tarihi:</b></h6>
-                                        <h6 class="card-subtitle ml-2">09.03.2022</h6>
-                                    </div>
-                                    <div class="row ml-0">
                                         <h6 class="card-subtitle"><b>Teslim Tarihi:</b></h6>
-                                        <h6 class="card-subtitle ml-2">-</h6>
+                                        <h6 class="card-subtitle ml-2">'.$project["instertionDate"].'</h6>
                                     </div>
                                     <div class="row ml-0">
                                         <h6 class="card-subtitle"><b>Danışman:</b></h6>
-                                        <h6 class="card-subtitle ml-2">Dr. Öğr. Üyesi Önder YAKUT</h6>
+                                        <h6 class="card-subtitle ml-2">'.$_SESSION["advisorFullName"].'</h6>
                                     </div>
                                     <div class="row ml-0">
                                         <h6 class="card-subtitle"><b>Son Güncelleme:</b></h6>
-                                        <h6 class="card-subtitle ml-2">09.03.2022</h6>
+                                        <h6 class="card-subtitle ml-2">'.$project["updateDate"].'</h6>
                                     </div>
                                 </div>
-                            </a>
-                            <a href="student-this-project.php" style="text-decoration: none; color: black;"
-                                class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">GÖRÜNTÜ VE VIDEO İŞLEME
-                                        <div class="mb-2 mr-2 badge badge-pill badge-warning">
-                                            Rapor
-                                        </div>
-                                    </h5>
-                                    <div class="row ml-0">
-                                        <h6 class="card-subtitle"><b>Alım Tarihi:</b></h6>
-                                        <h6 class="card-subtitle ml-2">28.02.2022</h6>
-                                    </div>
-                                    <div class="row ml-0">
-                                        <h6 class="card-subtitle"><b>Teslim Tarihi:</b></h6>
-                                        <h6 class="card-subtitle ml-2">06.04.2022</h6>
-                                    </div>
-                                    <div class="row ml-0">
-                                        <h6 class="card-subtitle"><b>Danışman:</b></h6>
-                                        <h6 class="card-subtitle ml-2">Dr. Öğr. Üyesi Önder YAKUT</h6>
-                                    </div>
-                                    <div class="row ml-0">
-                                        <h6 class="card-subtitle"><b>Son Güncelleme:</b></h6>
-                                        <h6 class="card-subtitle ml-2">09.03.2022</h6>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="student-this-project.php" style="text-decoration: none; color: black;"
-                                class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">SİNYAL İŞLEME KURAMI
-                                        <div class="mb-2 mr-2 badge badge-pill badge-success">
-                                            Tamamlandı
-                                        </div>
-                                    </h5>
-                                    <div class="row ml-0">
-                                        <h6 class="card-subtitle"><b>Alım Tarihi:</b></h6>
-                                        <h6 class="card-subtitle ml-2">03.01.2022</h6>
-                                    </div>
-                                    <div class="row ml-0">
-                                        <h6 class="card-subtitle"><b>Teslim Tarihi:</b></h6>
-                                        <h6 class="card-subtitle ml-2">11.03.2022</h6>
-                                    </div>
-                                    <div class="row ml-0">
-                                        <h6 class="card-subtitle"><b>Danışman:</b></h6>
-                                        <h6 class="card-subtitle ml-2">Dr. Öğr. Üyesi Önder YAKUT</h6>
-                                    </div>
-                                    <div class="row ml-0">
-                                        <h6 class="card-subtitle"><b>Son Güncelleme:</b></h6>
-                                        <h6 class="card-subtitle ml-2">08.03.2022</h6>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="student-this-project.php" style="text-decoration: none; color: black;"
-                                class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">BİLGİ GİZLEME
-                                        <div class="mb-2 mr-2 badge badge-pill badge-danger">
-                                            Teslim Edilmedi
-                                        </div>
-                                    </h5>
-                                    <div class="row ml-0">
-                                        <h6 class="card-subtitle"><b>Alım Tarihi:</b></h6>
-                                        <h6 class="card-subtitle ml-2">27.12.2021</h6>
-                                    </div>
-                                    <div class="row ml-0">
-                                        <h6 class="card-subtitle"><b>Teslim Tarihi:</b></h6>
-                                        <h6 class="card-subtitle ml-2">18.01.2022</h6>
-                                    </div>
-                                    <div class="row ml-0">
-                                        <h6 class="card-subtitle"><b>Danışman:</b></h6>
-                                        <h6 class="card-subtitle ml-2">Dr. Öğr. Üyesi Önder YAKUT</h6>
-                                    </div>
-                                    <div class="row ml-0">
-                                        <h6 class="card-subtitle"><b>Son Güncelleme:</b></h6>
-                                        <h6 class="card-subtitle ml-2">10.01.2022</h6>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="student-this-project.php" style="text-decoration: none; color: black;"
-                                class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">BİLGİSAYARLA GÖRME
-                                        <div class="mb-2 mr-2 badge badge-pill badge-success">
-                                            Tamamlandı
-                                        </div>
-                                    </h5>
-                                    <div class="row ml-0">
-                                        <h6 class="card-subtitle"><b>Alım Tarihi:</b></h6>
-                                        <h6 class="card-subtitle ml-2">15.12.2021</h6>
-                                    </div>
-                                    <div class="row ml-0">
-                                        <h6 class="card-subtitle"><b>Teslim Tarihi:</b></h6>
-                                        <h6 class="card-subtitle ml-2">24.01.2022</h6>
-                                    </div>
-                                    <div class="row ml-0">
-                                        <h6 class="card-subtitle"><b>Danışman:</b></h6>
-                                        <h6 class="card-subtitle ml-2">Dr. Öğr. Üyesi Önder YAKUT</h6>
-                                    </div>
-                                    <div class="row ml-0">
-                                        <h6 class="card-subtitle"><b>Son Güncelleme:</b></h6>
-                                        <h6 class="card-subtitle ml-2">21.01.2022</h6>
-                                    </div>
-                                </div>
-                            </a>
+                            </a>';
+                                }
+                            ?>
+
                         </div>
                         <!--Notes-->
                         <div class="col-md-12 col-lg-9">

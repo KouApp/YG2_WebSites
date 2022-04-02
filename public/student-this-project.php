@@ -1,7 +1,7 @@
 <?php
 session_start();
 if ($_SESSION['Permisson'] != 'student') {
-    echo'<meta http-equiv="refresh" content="0;URL=404.ph">';
+    echo'<meta http-equiv="refresh" content="0;URL=404.php">';
 }
 ?>
 <!doctype html>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 if ($_SESSION['Permisson'] != 'student') {
-    echo'<meta http-equiv="refresh" content="0;URL=404.ph">';
+    echo'<meta http-equiv="refresh" content="0;URL=404.php">';
 }
 ?>
 <!doctype html>
@@ -67,10 +67,10 @@ if ($_SESSION['Permisson'] != 'student') {
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
-                                        Sirac ARAPOĞLU
+                                        <?php print $_SESSION['fullname']?>
                                     </div>
                                     <div class="widget-subheading text-center">
-                                        211307097
+                                        <?php print $_SESSION['Id'] ?>
                                     </div>
                                 </div>
                             </div>
@@ -416,6 +416,26 @@ if ($_SESSION['Permisson'] != 'student') {
             </div>
             <div class="app-main__outer">
                 <div class="app-main__inner">
+                    <?php
+                    if(isset($_POST['registerProject'])){
+                        $title = $_POST['title'];
+                        $description = $_POST['description'];
+                        $start_date = $_POST['start_date'];
+                        $end_date = $_POST['end_date'];
+                        $student_id = $_SESSION['student_id'];
+                        $sql = "INSERT INTO project (title, description, start_date, end_date, student_id) VALUES ('$title', '$description', '$start_date', '$end_date', '$student_id')";
+                        $result = mysqli_query($conn, $sql);
+                        if($result){
+                            echo '<div class="alert alert-success" role="alert">
+                            Proje başarıyla oluşturuldu.
+                            </div>';
+                        }else{
+                            echo '<div class="alert alert-danger" role="alert">
+                            Proje oluşturulurken bir hata oluştu.
+                            </div>';
+                        }
+                    }
+                    ?>
                     <!--PAGE CONTENT-->
                     <div class="main-card mb-3 card">
                         <div class="card-body">

@@ -418,22 +418,36 @@ if ($_SESSION['Permisson'] != 'student') {
                 <div class="app-main__inner">
                     <?php
                     if(isset($_POST['registerProject'])){
-                        $title = $_POST['title'];
-                        $description = $_POST['description'];
-                        $start_date = $_POST['start_date'];
-                        $end_date = $_POST['end_date'];
-                        $student_id = $_SESSION['student_id'];
-                        $sql = "INSERT INTO project (title, description, start_date, end_date, student_id) VALUES ('$title', '$description', '$start_date', '$end_date', '$student_id')";
-                        $result = mysqli_query($conn, $sql);
-                        if($result){
-                            echo '<div class="alert alert-success" role="alert">
-                            Proje başarıyla oluşturuldu.
-                            </div>';
-                        }else{
-                            echo '<div class="alert alert-danger" role="alert">
-                            Proje oluşturulurken bir hata oluştu.
-                            </div>';
-                        }
+                        $pid = "";
+                        $pnumber = "";
+                        $pversiyon = "";
+                        $headline = $_POST['headline'];
+                        $contentt = $_POST['$content'];
+                        $matter = $_POST['matter'];
+                        $purpose = $_POST['purpose'];
+                        $keyword = $_POST['keywords'];
+                        $metariel = $_POST['metariel'];
+                        $methodology = $_POST['methodology'];
+                        $possibility = $_POST['possibility'];
+
+                        $curl = curl_init();
+                        ## if $metariel,
+                        curl_setopt_array($curl, array(
+                            CURLOPT_URL => 'http://172.105.73.62:5000/studentProject',
+                            CURLOPT_RETURNTRANSFER => true,
+                            CURLOPT_ENCODING => '',
+                            CURLOPT_MAXREDIRS => 10,
+                            CURLOPT_TIMEOUT => 0,
+                            CURLOPT_FOLLOWLOCATION => true,
+                            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                            CURLOPT_CUSTOMREQUEST => 'POST',
+                            CURLOPT_POSTFIELDS => array('no' => $_SESSION['Id']),
+                        ));
+
+                        $response= curl_exec($curl);
+
+                        curl_close($curl);
+                        $projects = json_decode($response, true);
                     }
                     ?>
                     <!--PAGE CONTENT-->
@@ -442,25 +456,86 @@ if ($_SESSION['Permisson'] != 'student') {
                             <h5 class="card-title">Proje Kayıt</h5>
                             <form name="studentNewProject" method="post" action="student-new-project.php">
                                 <div class="position-relative form-group">
-                                    <label for="projectTitle" class="">Proje Başlığı</label>
-                                    <input name="projectTitle" placeholder="" type="email" class="form-control">
+                                    <label for="headline" class="">Proje Başlığı</label>
+                                    <input required name="headline" required placeholder="" type="text" value='<?php echo $headline ?>' class="form-control">
                                 </div>
 
                                 <div class="position-relative form-group">
-                                    <label for="projectContent" class="">Projenin önemi, kapsamı ve amacı (en az 200 kelime.)</label>
-                                    <textarea name="projectContent" class="form-control"></textarea>
+                                    <?php
+                                    ## if content less than 200 word error
+                                    if(str_word_count($contentt) < 200) {
+                                        echo '<div class="alert alert-danger" role="alert">
+                                                <strong>Hata!</strong> İçerik 200 kelime veya daha fazla olmalıdır.
+                                            </div>';
+                                    }
+                                    ?>
+                                    <label for="content" class="">Projenin önemi, kapsamı ve amacı (en az 200 kelime.)</label>
+                                    <input required name="content" type="text" value='<?php echo $contentt ?>'  class="form-control"></input>
                                 </div>
 
                                 <div class="position-relative form-group">
-                                    <label for="projectMaterial" class="">Projenin materyalleri, yöntemleri ve araştırma olanakları (en az 300 kelime.)</label>
-                                    <textarea name="projectMaterial" class="form-control"></textarea>
+                                    <?php
+                                    ## if matter less than 300 word error
+                                    if(str_word_count($matter) < 300) {
+                                        echo '<div class="alert alert-danger" role="alert">
+                                                <strong>Hata!</strong> İçerik 300 kelime veya daha fazla olmalıdır.
+                                            </div>';
+                                    }
+                                    ?>
+                                    <label for="matter" class="">Projenin materyalleri, yöntemleri ve araştırma olanakları (en az 300 kelime.)</label>
+                                    <input required name="matter" type="text" value='<?php echo $matter ?>' class="form-control"></input>
                                 </div>
 
                                 <div class="position-relative form-group">
-                                    <label for="projectKeywords" class="">Anahtar Kelimeler (Tam 5 adet anahtar kelimeyi virgüllere ayırarak girin.)</label>
-                                    <input name="projectKeywords" placeholder="" type="email" class="form-control">
-                                </div>
+                                    <?php
+                                    #keywords split ',' to array, if array len < 5 then error
+                                    $keywords = explode(',', $keyword);
+                                    if(count($keywords) < 5) {
+                                        echo '<div class="alert alert-danger" role="alert">
+                                    <strong>Hata!</strong> Anahtar kelimelerin sayısı 5ten az olamaz.
+                                    </div>';
+                                    }
 
+                                    ?>
+                                    <label for="keywords" class="">Anahtar Kelimeler (Tam 5 adet anahtar kelimeyi virgüllere ayırarak girin.)</label>
+                                    <input required name="keywords" placeholder="" type="text" value='<?php echo $keyword ?>' class="form-control">
+                                </div>
+                                <div class="position-relative form-group">
+                                    <?php
+                                    ## if $metariel less than 300 word error
+                                    if(str_word_count($metariel) < 300) {
+                                        echo '<div class="alert alert-danger" role="alert">
+                                                <strong>Hata!</strong> İçerik 300 kelime veya daha fazla olmalıdır.
+                                            </div>';
+                                    }
+                                    ?>
+                                    <label for="metariel" class="">Material</label>
+                                    <input required name="metariel" placeholder="" type="text" value='<?php echo $metariel ?>' class="form-control">
+                                </div>
+                                <div class="position-relative form-group">
+                                    <?php
+                                    ## if $methodology less than 300 word error
+                                    if(str_word_count($methodology) < 300) {
+                                        echo '<div class="alert alert-danger" role="alert">
+                                                <strong>Hata!</strong> İçerik 300 kelime veya daha fazla olmalıdır.
+                                            </div>';
+                                    }
+                                    ?>
+                                    <label for="methodology" class="">methodology</label>
+                                    <input required name="methodology" placeholder="" type="text" value='<?php echo $methodology ?>' class="form-control">
+                                </div>
+                                <div class="position-relative form-group">
+                                    <?php
+                                    ## if $methodology less than 300 word error
+                                    if(str_word_count($possibility) < 300) {
+                                        echo '<div class="alert alert-danger" role="alert">
+                                                <strong>Hata!</strong> İçerik 300 kelime veya daha fazla olmalıdır.
+                                            </div>';
+                                    }
+                                    ?>
+                                    <label for="possibility" class="">possibility</label>
+                                    <input required name="possibility" placeholder="" type="text"value='<?php echo $possibility ?>' class="form-control">
+                                </div>
                                 <input class="mt-1 btn btn-primary" type="submit" name="registerProject" value="Proje Kayıt">
                             </form>
                         </div>

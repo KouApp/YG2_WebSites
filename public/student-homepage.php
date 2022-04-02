@@ -522,70 +522,55 @@ $project = json_decode($response, true);
                             <div class="text-center">
                                 <h4><b>Son Güncellemeler</b></h4>
                             </div>
+                            <?php
+                            $curl = curl_init();
+
+                            curl_setopt_array($curl, array(
+                                CURLOPT_URL => 'http://172.105.73.62:5000/studentProject',
+                                CURLOPT_RETURNTRANSFER => true,
+                                CURLOPT_ENCODING => '',
+                                CURLOPT_MAXREDIRS => 10,
+                                CURLOPT_TIMEOUT => 0,
+                                CURLOPT_FOLLOWLOCATION => true,
+                                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                                CURLOPT_CUSTOMREQUEST => 'POST',
+                                CURLOPT_POSTFIELDS => array('no' => $_SESSION['Id']),
+                            ));
+
+                            $response= curl_exec($curl);
+
+                            curl_close($curl);
+                            $projects = json_decode($response, true);
+                            ?>
                             <div class="divider">
                             </div>
-                            <a href="student-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
+                            <?php
+                            foreach($projects as $project){
+                                echo '<a href="student-this-project.php" style="text-decoration: none; color: black;"
+                                class="main-card mb-3 card">
                                 <div class="card card-body">
-                                    <h5 class="card-title">ROBOTİK SİSTEMLER
+                                    <h5 class="card-title">'.$project["headline"].'
                                         <div class="mb-2 mr-2 badge badge-pill badge-info">
-                                            Onaylandı
+                                            '.$project["status"].'
                                         </div>
                                     </h5>
-                                    <h6 class="card-subtitle">28.02.2022 18:44</h6>
-                                    <h6 class="card-subtitle">Dr. Öğr. Üyesi Önder YAKUT</h6>
-                                    <p>"Robotik Sistemler" projesi onaylandı.</p>
+                                    <div class="row ml-0">
+                                        <h6 class="card-subtitle"><b>Teslim Tarihi:</b></h6>
+                                        <h6 class="card-subtitle ml-2">'.$project["instertionDate"].'</h6>
+                                    </div>
+                                    <div class="row ml-0">
+                                        <h6 class="card-subtitle"><b>Danışman:</b></h6>
+                                        <h6 class="card-subtitle ml-2">'.$_SESSION["advisorFullName"].'</h6>
+                                    </div>
+                                    <div class="row ml-0">
+                                        <h6 class="card-subtitle"><b>Son Güncelleme:</b></h6>
+                                        <h6 class="card-subtitle ml-2">'.$project["updateDate"].'</h6>
+                                    </div>
                                 </div>
-                            </a>
-                            <a href="student-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">GÖRÜNTÜ VE VIDEO İŞLEME
-                                        <div class="mb-2 mr-2 badge badge-pill badge-warning">
-                                            Rapor
-                                        </div>
-                                    </h5>
-                                    <h6 class="card-subtitle">09.03.2022 16:32</h6>
-                                    <h6 class="card-subtitle">Dr. Öğr. Üyesi Önder YAKUT</h6>
-                                    <p>Projenin devamında yapılacak çalışmaları desteklemek için tasarlanan zeminin
-                                        yapım sürecinin raporu eklendi.</p>
-                                </div>
-                            </a>
-                            <a href="student-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">GÖRÜNTÜ VE VIDEO İŞLEME
-                                        <div class="mb-2 mr-2 badge badge-pill badge-warning">
-                                            Rapor
-                                        </div>
-                                    </h5>
-                                    <h6 class="card-subtitle">06.03.2022 13:42</h6>
-                                    <h6 class="card-subtitle">Dr. Öğr. Üyesi Önder YAKUT</h6>
-                                    <p>"Görüntü ve Video İşleme" projesinin raporu onaylandı.</p>
-                                </div>
-                            </a>
-                            <a href="student-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">GÖRÜNTÜ VE VIDEO İŞLEME
-                                        <div class="mb-2 mr-2 badge badge-pill badge-warning">
-                                            Rapor
-                                        </div>
-                                    </h5>
-                                    <h6 class="card-subtitle">04.03.2022 12:25</h6>
-                                    <h6 class="card-subtitle">Dr. Öğr. Üyesi Önder YAKUT</h6>
-                                    <p>Projenin ana hatlarının oluşturulup ilgili araştırmaların yapıldığı sürecin
-                                        raporu eklendi. </p>
-                                </div>
-                            </a>
-                            <a href="student-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">GÖRÜNTÜ VE VIDEO İŞLEME
-                                        <div class="mb-2 mr-2 badge badge-pill badge-info">
-                                            Onaylandı
-                                        </div>
-                                    </h5>
-                                    <h6 class="card-subtitle">28.02.2022 14:52</h6>
-                                    <h6 class="card-subtitle">Dr. Öğr. Üyesi Önder YAKUT</h6>
-                                    <p>"Görüntü ve Video İşleme" projesi onaylandı.</p>
-                                </div>
-                            </a>
+                            </a>';
+                            }
+                            ?>
+
                         </div>
                         <!--Announcements-->
                         <div class="col-md-12 col-lg-6">

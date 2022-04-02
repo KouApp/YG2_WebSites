@@ -21,7 +21,7 @@ if($_SESSION['Permisson'] != 'admin'){
     =========================================================
     * ArchitectUI HTML Theme Dashboard - v1.0.0
     =========================================================
-    * Product Page: https://dashboardpack.coma
+    * Product Page: https://dashboardpack.com
     * Copyright 2019 DashboardPack (https://dashboardpack.com)
     * Licensed under MIT (https://github.com/DashboardPack/architectui-html-theme-free/blob/master/LICENSE)
     =========================================================

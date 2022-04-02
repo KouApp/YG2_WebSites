@@ -1,25 +1,35 @@
 <?php
 session_start();
 
+$_SESSION['0'] = '<div class="mb-2 mr-2 badge badge-pill badge-info">TEST</div>';
+$_SESSION['1'] = '<div class="mb-2 mr-2 badge badge-pill badge-info">Gönderildi</div>';
+$_SESSION['2'] = '<div class="mb-2 mr-2 badge badge-pill badge-info">Görüldü</div>';
+$_SESSION['3'] = '<div class="mb-2 mr-2 badge badge-pill badge-info">İndirildi</div>';
+$_SESSION['4'] = '<div class="mb-2 mr-2 badge badge-pill badge-info">Kabul Edildi</div>';
+$_SESSION['5'] = '<div class="mb-2 mr-2 badge badge-pill badge-info">Red Edildi</div>';
+$_SESSION['6'] = '<div class="mb-2 mr-2 badge badge-pill badge-info">Revize Edildi</div>';
+$_SESSION['7'] = '<div class="mb-2 mr-2 badge badge-pill badge-info">Tamamlandı</div>';
+
 $curl = curl_init();
+$_SESSION['Permisson'] = "";
+if(isset($_POST['submit'])){
+    curl_setopt_array($curl, array(
+        CURLOPT_URL => 'http://194.195.246.167:5000/loginQuery',
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => '',
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => 'POST',
+        CURLOPT_POSTFIELDS => array('Id' => $_POST['login'],'Password' => $_POST['password']),
+    ));
+    $response = curl_exec($curl);
+    $_SESSION['Id'] = $_POST['login'];
+    $_SESSION['Permisson'] = $response;
+    curl_close($curl);
+}
 
-/*curl_setopt_array($curl, array(
-    CURLOPT_URL => 'http://194.195.246.167:5000/DatabaseLogin',
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_ENCODING => '',
-    CURLOPT_MAXREDIRS => 10,
-    CURLOPT_TIMEOUT => 0,
-    CURLOPT_FOLLOWLOCATION => true,
-    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-    CURLOPT_CUSTOMREQUEST => 'POST',
-    CURLOPT_POSTFIELDS => array('Id' => $_POST['login'],'Password' => $_POST['password']),
-));
-
-$response = curl_exec($curl);
-*/
-curl_close($curl);
-$_SESSION['Id'] = "pys@abudllahaligun.com";
-$_SESSION['Permisson'] = "admin";
 
 if ($_SESSION['Permisson'] == "student") {
     $curl = curl_init();
@@ -57,9 +67,33 @@ if ($_SESSION['Permisson'] == "student") {
 
     curl_close($curl);
     $advisor = json_decode($response, true);
-    $_SESSION["advisorFullName"] = $advisor["name"] . " " . $advisor['"surname'];
+    $_SESSION["advisorFullName"] = $advisor["name"] . " " . $advisor['surname'];
+    echo'<meta http-equiv="refresh" content="0;URL=student-homepage.php">';
 }
+else if ($_SESSION['Permisson'] == "advisor") {
+    $curl = curl_init();
+    curl_setopt_array($curl, array(
+        CURLOPT_URL => 'http://172.105.73.62:5000/advisorQuery',
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => '',
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => 'POST',
+        CURLOPT_POSTFIELDS => array('id' => $_SESSION['Id']),
+    ));
+    $response = curl_exec($curl);
 
+    curl_close($curl);
+    $advisor = json_decode($response, true);
+    $_SESSION["advisorFullName"] = $advisor["name"] . " " . $advisor['surname'];
+    $_SESSION["title"] = $advisor["title"];
+    echo'<meta http-equiv="refresh" content="0;URL=advisor-homepage.php">';
+}
+else if ($_SESSION['Permisson'] == "admin") {
+    echo'<meta http-equiv="refresh" content="0;URL=admin-homepage.php">';
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -93,20 +127,28 @@ if ($_SESSION['Permisson'] == "student") {
 </head>
 
 <body>
-    <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">        
+    <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
         <div class="thing-center">
             <div class="">
                 <div class="login-form col-xl-12">
-                    <form action="/examples/actions/confirmation.php" method="post">
+                    <form action="login.php" method="post">
                         <h2 class="text-center">GİRİŞ</h2>
+                        <?php
+                         // if permission is Bulunamadi print kullanıcı adı ve şifre yanlış
+                        if ($_SESSION['Permisson'] == "Bulunamadi") {
+                            echo '<div class="alert alert-danger" role="alert">
+                            Kullanıcı adı veya şifre yanlış.
+                            </div>';
+                        }
+                        ?>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Giriş ID" required="required">
+                            <input type="login" name="ID" class="form-control" placeholder="Giriş ID" required="required">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Şifre" required="required">
+                            <input type="password"  name = "password" class="form-control" placeholder="Şifre" required="required">
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-block">Giriş Yap</button>
+                            <input type="submit" name="submit" class="btn btn-primary btn-block">Giriş Yap</input>
                         </div>
                         <div class="clearfix">
                             <label class="float-left form-check-label"><input type="checkbox"> Beni Hatırla</label>

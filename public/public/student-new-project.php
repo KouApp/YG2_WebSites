@@ -418,20 +418,28 @@ if ($_SESSION['Permisson'] != 'student') {
                 <div class="app-main__inner">
                     <?php
                     if(isset($_POST['registerProject'])){
+                        //id,number,version,headline,matter,cont,purpose,keyword,metariel,method,poss,status,descr,maxplag,semeterid,studentid,insertiondate,updatedate
                         $pid = "";
                         $pnumber = "";
                         $pversiyon = "";
                         $headline = $_POST['headline'];
                         $contentt = $_POST['$content'];
-                        $matter = $_POST['matter'];
-                        $purpose = $_POST['purpose'];
                         $keyword = $_POST['keywords'];
-                        $metariel = $_POST['metariel'];
-                        $methodology = $_POST['methodology'];
-                        $possibility = $_POST['possibility'];
 
+                        $matter = "";
+                        $purpose = "";
+                        $metariel = "";
+                        $methodology = "";
+                        $possibility = "";
+                        $status = "";
+                        $description = "";
+                        $maxplag = "";
+                        $semeterid = "";
+                        $studentid = $_SESSION['Id'];
+                        $insertiondate = date("d-m-Y H:i:s");
+                        $updatedate = date("d-m-Y H:i:s");
                         $curl = curl_init();
-                        ## if $metariel,
+
                         curl_setopt_array($curl, array(
                             CURLOPT_URL => 'http://172.105.73.62:5000/studentProject',
                             CURLOPT_RETURNTRANSFER => true,
@@ -500,7 +508,7 @@ if ($_SESSION['Permisson'] != 'student') {
                                     <label for="keywords" class="">Anahtar Kelimeler (Tam 5 adet anahtar kelimeyi virgüllere ayırarak girin.)</label>
                                     <input required name="keywords" placeholder="" type="text" value='<?php echo $keyword ?>' class="form-control">
                                 </div>
-                             
+
                                 <input class="mt-1 btn btn-primary" type="submit" name="registerProject" value="Proje Kayıt">
                             </form>
                         </div>

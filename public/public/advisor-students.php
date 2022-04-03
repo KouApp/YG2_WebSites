@@ -97,10 +97,10 @@ $students = json_decode($response, true);
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
-                                        Önder YAKUT
+                                        <?php echo $_SESSION["advisorFullName"] ?>
                                     </div>
                                     <div class="widget-subheading text-center">
-                                        Dr. Öğr. Üyesi
+                                        <?php echo $_SESSION["title"] ?>
                                     </div>
                                 </div>
                             </div>

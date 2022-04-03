@@ -1,13 +1,32 @@
 <?php
 session_start();
-if($_SESSION['Permisson'] != 'advisor'){
-    echo'<meta http-equiv="refresh" content="0;URL=404.php">';
+$id = $_GET['id']; //get id from url
+echo $id;
 
-
+if($_SESSION['Permisson'] != 'advisor' ||!isset($id) || empty($id) ) {
+    echo '<meta http-equiv="refresh" content="0;URL=404.php">';
 }
-    //print params id
-    $id = $_GET['id']; //get id from url
-    echo $id;
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+        CURLOPT_URL => 'http://172.105.73.62:5000/studentQuery',
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => '',
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => 'POST',
+        CURLOPT_POSTFIELDS => array('id' => $id),
+    ));
+
+    $response = curl_exec($curl);
+
+    curl_close($curl);
+    $json = json_decode($response, true);
+
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -535,77 +554,19 @@ if($_SESSION['Permisson'] != 'advisor'){
                                             <div class="widget-content ">
                                                 <div class="widget-content-wrapper row mr-5">
                                                     <div class="widget-content-left">
-                                                        <h6>Numara:</h6>
-                                                    </div>
-                                                    <div class="widget-content-right">
-                                                        <h6><?php echo $id ?></h6>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="widget-content-wrapper row mr-5">
-                                                    <div class="widget-content-left">
                                                         <h6>Öğrenci:</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6>Sirac Arapoğlu</h6>
+                                                        <h6><?php print $json["name"] . " " . $json["surname"] ?></h6>
                                                     </div>
                                                 </div>
                                                 <br>
                                                 <div class="widget-content-wrapper row mr-5">
                                                     <div class="widget-content-left">
-                                                        <h6>Danışman:</h6>
+                                                        <h6>Numara:</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6>Dr. Öğr. Üyesi Önder YAKUT</h6>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="widget-content-wrapper row mr-5">
-                                                    <div class="widget-content-left">
-                                                        <h6>Fakülte:</h6>
-                                                    </div>
-                                                    <div class="widget-content-right">
-                                                        <h6>Teknoloji Fakültesi</h6>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="widget-content-wrapper row mr-5">
-                                                    <div class="widget-content-left">
-                                                        <h6>Bölüm:</h6>
-                                                    </div>
-                                                    <div class="widget-content-right">
-                                                        <h6>Bilişim Sistemleri Mühendisliği</h6>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="widget-content-wrapper row mr-5">
-                                                    <div class="widget-content-left">
-                                                        <h6>Sınıf:</h6>
-                                                    </div>
-                                                    <div class="widget-content-right">
-                                                        <h6>3. Sınıf</h6>
-                                                    </div>
-                                                </div>
-                                                </li>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="widget-content">
-                                                <div class="widget-content-wrapper row mr-5">
-                                                    <div class="widget-content-left">
-                                                        <h6>İl:</h6>
-                                                    </div>
-                                                    <div class="widget-content-right">
-                                                        <h6>İstanbul</h6>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="widget-content-wrapper row mr-5">
-                                                    <div class="widget-content-left">
-                                                        <h6>İlçe:</h6>
-                                                    </div>
-                                                    <div class="widget-content-right">
-                                                        <h6>Kartal</h6>
+                                                        <h6><?php print $json["studentID"] ?></h6>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -614,7 +575,7 @@ if($_SESSION['Permisson'] != 'advisor'){
                                                         <h6>Cep Telefonu:</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6>0553 305 41 99</h6>
+                                                        <h6><?php print $json["class"] ?></h6>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -623,27 +584,49 @@ if($_SESSION['Permisson'] != 'advisor'){
                                                         <h6>E-Posta:</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6>arapoglusirac@gmail.com</h6>
+                                                        <h6><?php print $json["mail"] ?></h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="widget-content">
+                                                <div class="widget-content-wrapper row mr-5">
+                                                    <div class="widget-content-left">
+                                                        <h6>Danışman:</h6>
+                                                    </div>
+                                                    <div class="widget-content-right">
+                                                        <h6><?php print $json["advisorID"] ?></h6>
                                                     </div>
                                                 </div>
                                                 <br>
                                                 <div class="widget-content-wrapper row mr-5">
                                                     <div class="widget-content-left">
-                                                        <h6>Ev Telefonu:</h6>
+                                                        <h6>Fakülte:</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6>0216 597 68 98</h6>
+                                                        <h6><?php print $json["facultyID"] ?></h6>
                                                     </div>
                                                 </div>
                                                 <br>
                                                 <div class="widget-content-wrapper row mr-5">
                                                     <div class="widget-content-left">
-                                                        <h6>TC No:</h6>
+                                                        <h6>Bölüm:</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6>1869872564</h6>
+                                                        <h6><?php print $json["departmentID"] ?></h6>
                                                     </div>
                                                 </div>
+                                                <br>
+                                                <div class="widget-content-wrapper row mr-5">
+                                                    <div class="widget-content-left">
+                                                        <h6>Sınıf:</h6>
+                                                    </div>
+                                                    <div class="widget-content-right">
+                                                        <h6><?php print $json["class"] ?></h6>
+                                                    </div>
+                                                </div>
+                                                </li>
                                             </div>
                                         </div>
                                     </div>
@@ -651,53 +634,58 @@ if($_SESSION['Permisson'] != 'advisor'){
                             </div>
                         </div>
                         <!--Student Projects-->
-                        <div class="col-xl-4">
-                            <div class="text-center">
-                                <h4><b>Öğrenci Projeleri</b></h4>
-                            </div>
-                            <div class="divider">
-                            </div>
-                            <a href="advisor-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
+                        <div class="row">
+                            <?php
+                            $curl = curl_init();
+
+                            curl_setopt_array($curl, array(
+                                CURLOPT_URL => 'http://172.105.73.62:5000/studentProject',
+                                CURLOPT_RETURNTRANSFER => true,
+                                CURLOPT_ENCODING => '',
+                                CURLOPT_MAXREDIRS => 10,
+                                CURLOPT_TIMEOUT => 0,
+                                CURLOPT_FOLLOWLOCATION => true,
+                                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                                CURLOPT_CUSTOMREQUEST => 'POST',
+                                CURLOPT_POSTFIELDS => array('no' => $id),
+                            ));
+
+                            $response = curl_exec($curl);
+
+                            curl_close($curl);
+                            $projects = json_decode($response, true);
+                            ?>
+                            <!--All Projects-->
+                            <div class="col-md-12 col-lg-3">
+                                <div class="text-center">
+                                    <h4><b>Bütün Projeler</b></h4>
+                                </div>
+                                <div class="divider">
+                                </div>
+                                <?php
+                                foreach ($projects as $project) {
+                                    echo '<a href="student-this-project.php" style="text-decoration: none; color: black;"
+                                class="main-card mb-3 card">
                                 <div class="card card-body">
-                                    <h5 class="card-title">ROBOTİK SİSTEMLER</h5>
-                                    <br>
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Tarih:</b></h6>
-                                            <h6 class="card-subtitle ml-3">28.02.2022 18:44</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Öğrenci:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Sirac ARAPOĞLU</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Durum:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Proje Onayı Bekleniyor</h6>
-                                        </div>
+                                    <h5 class="card-title">' . $project["headline"] . $_SESSION[(string)$project["status"]] . '</h5>
+                                    <div class="row ml-0">
+                                        <h6 class="card-subtitle"><b>Teslim Tarihi:</b></h6>
+                                        <h6 class="card-subtitle ml-2">' . $project["instertionDate"] . '</h6>
+                                    </div>
+                                    <div class="row ml-0">
+                                        <h6 class="card-subtitle"><b>Danışman:</b></h6>
+                                        <h6 class="card-subtitle ml-2">' . $_SESSION["advisorFullName"] . '</h6>
+                                    </div>
+                                    <div class="row ml-0">
+                                        <h6 class="card-subtitle"><b>Son Güncelleme:</b></h6>
+                                        <h6 class="card-subtitle ml-2">' . $project["updateDate"] . '</h6>
                                     </div>
                                 </div>
-                            </a>
-                            <a href="advisor-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">PROJE ADI BULAMADIM</h5>
-                                    <br>
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Tarih:</b></h6>
-                                            <h6 class="card-subtitle ml-3">15.12.2021 12:31</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Öğrenci:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Sirac ARAPOĞLU</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Durum:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Proje Tamamlandı</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                            </a>';
+                                }
+                                ?>
+
+                            </div>
                     </div>
                 </div>
                 <!--FOOTER-->

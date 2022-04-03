@@ -88,10 +88,10 @@ $students = json_decode($response, true);
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
-                                        Önder YAKUT
+                                        <?php echo $_SESSION["advisorFullName"] ?>
                                     </div>
                                     <div class="widget-subheading text-center">
-                                        Dr. Öğr. Üyesi
+                                        <?php echo $_SESSION["title"] ?>
                                     </div>
                                 </div>
                             </div>
@@ -528,7 +528,7 @@ $students = json_decode($response, true);
                             <div class="divider">
                             </div>
                             <?php
-                            foreach ($students as $student){
+                            foreach ($students as $student) {
                                 $curl = curl_init();
 
                                 curl_setopt_array($curl, array(
@@ -543,28 +543,31 @@ $students = json_decode($response, true);
                                     CURLOPT_POSTFIELDS => array('no' => trim($student["studentID"])),
                                 ));
 
-                                $response= curl_exec($curl);
+                                $response = curl_exec($curl);
                                 curl_close($curl);
                                 $projects = json_decode($response, true);
-                                foreach($projects as $project){
-                                    echo '<a href="student-this-project.php" style="text-decoration: none; color: black;"
+                                foreach ($projects as $project) {
+                                    // print $project['status'] 0,1,2,3 or 6
+                                    if ($project['status'] == "0" || $project['status'] == "1" || $project['status'] == "2" || $project['status'] == "3" || $project['status'] == "6") {
+                                        echo '<a href="advisor-this-project.php?id=' . $project['number'] . '" style="text-decoration: none; color: black;"
                                 class="main-card mb-3 card">
                                 <div class="card card-body">
-                                    <h5 class="card-title">'.$project["headline"].'</h5>
+                                    <h5 class="card-title">' . $project["headline"] . '</h5>
                                     <div class="row ml-0">
                                         <h6 class="card-subtitle"><b>Teslim Tarihi:</b></h6>
-                                        <h6 class="card-subtitle ml-2">'.$project["instertionDate"].'</h6>
+                                        <h6 class="card-subtitle ml-2">' . $project["instertionDate"] . '</h6>
                                     </div>
                                     <div class="row ml-0">
                                         <h6 class="card-subtitle"><b>Öğrenci:</b></h6>
-                                        <h6 class="card-subtitle ml-2">'.$student["name"].' '.$student["surname"].'</h6>
+                                        <h6 class="card-subtitle ml-2">' . $student["name"] . ' ' . $student["surname"] . '</h6>
                                     </div>
                                     <div class="row ml-0">
                                         <h6 class="card-subtitle"><b>Durum:</b></h6>
-                                        <h6 class="card-subtitle ml-2">'.$_SESSION[(string)$project["status"]].'</h6>
+                                        <h6 class="card-subtitle ml-2">' . $_SESSION[(string)$project["status"]] . '</h6>
                                     </div>
                                 </div>
                             </a>';
+                                    }
                                 }
                             }
                             ?>

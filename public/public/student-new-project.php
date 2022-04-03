@@ -419,9 +419,7 @@ if ($_SESSION['Permisson'] != 'student') {
                     <?php
                     if (isset($_POST['registerProject'])) {
                         //id,number,version,headline,matter,cont,purpose,keyword,metariel,method,poss,status,descr,maxplag,semeterid,studentid,insertiondate,updatedate
-                        $pid = "";
-                        $pnumber = "";
-                        $pversiyon = "";
+
                         $headline = $_POST['headline'];
                         //must be grate than  200 words
                         $purpose = $_POST['purpose'];
@@ -436,7 +434,6 @@ if ($_SESSION['Permisson'] != 'student') {
                         $keywords = explode(',', $keyword);
                         $status = "1";
                         $description = "";
-                        $maxplag = "";
 
                         $curl = curl_init();
                         curl_setopt_array($curl, array(
@@ -459,8 +456,8 @@ if ($_SESSION['Permisson'] != 'student') {
 
 
                         $studentid = $_SESSION['Id'];
-                        $insertiondate = "12.12.2022"; //(string)date("d-m-Y H:i:s");
-                        $updatedate = "12.12.2022"; //(string)date("d-m-Y H:i:s");
+                        $insertiondate = (string)date("d-m-Y H:i:s");
+                        $updatedate = (string)date("d-m-Y H:i:s");
                         echo  count($keywords);
                         if (str_word_count($purpose) < 200 || str_word_count($matter) < 200 || str_word_count($content) < 200 || str_word_count($metariel) < 200 || str_word_count($methodology) < 200 || str_word_count($possibility) < 200 || count($keywords) != 5) {
                             echo '<div class="alert alert-danger" role="alert">
@@ -478,9 +475,6 @@ if ($_SESSION['Permisson'] != 'student') {
                                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                                 CURLOPT_CUSTOMREQUEST => 'POST',
                                 CURLOPT_POSTFIELDS => array(
-                                    'id' => $pid,
-                                    'number' => $pnumber,
-                                    'version' => $pversiyon,
                                     'headline' => $headline,
                                     'matter' => $matter,
                                     'cont' => $content,
@@ -491,7 +485,6 @@ if ($_SESSION['Permisson'] != 'student') {
                                     'poss' => $possibility,
                                     'status' => $status,
                                     'descr' => $description,
-                                    'maxplag' => $maxplag,
                                     'semeterid' => $semeterid,
                                     'studentid' => $studentid,
                                     'insertiondate' => $insertiondate,
@@ -502,9 +495,17 @@ if ($_SESSION['Permisson'] != 'student') {
                             $response = curl_exec($curl);
                             curl_close($curl);
                             $projects = json_decode($response, true);
-                            echo '<div class="alert alert-danger" role="alert">
-                            <strong>Hataa!</strong> ' . $response . '
-                            </div>';
+                            if($response == "Successful"){
+                                echo '<div class="alert alert-success" role="alert">
+                                <strong>Başarılı!</strong> Proje başarıyla eklendi.
+                                </div>';
+                            }
+                            else{
+                                echo '<div class="alert alert-danger" role="alert">
+                                <strong>Hata!</strong> Başarısız!
+                                </div>';
+                            }
+
                         }
                     }
                     ?>

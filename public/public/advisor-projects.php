@@ -3,6 +3,22 @@ session_start();
 if($_SESSION['Permisson'] != 'advisor'){
     echo'<meta http-equiv="refresh" content="0;URL=404.php">';
 }
+$curl = curl_init();
+curl_setopt_array($curl, array(
+    CURLOPT_URL => 'http://172.105.73.62:5000/advisorStudent',
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => '',
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => 'POST',
+    CURLOPT_POSTFIELDS => array('no' => $_SESSION['Id']),
+));
+
+$response = curl_exec($curl);
+curl_close($curl);
+$students = json_decode($response, true);
 ?>
 <!doctype html>
 <html lang="en">
@@ -80,10 +96,10 @@ if($_SESSION['Permisson'] != 'advisor'){
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
-                                        Önder YAKUT
+                                        <?php echo $_SESSION["advisorFullName"] ?>
                                     </div>
                                     <div class="widget-subheading text-center">
-                                        Dr. Öğr. Üyesi
+                                        <?php echo $_SESSION["title"] ?>
                                     </div>
                                 </div>
                             </div>
@@ -515,500 +531,53 @@ if($_SESSION['Permisson'] != 'advisor'){
                 <div class="app-main__inner">
                     <!--PAGE CONTENT-->
                     <div class="row">
-                        <div class="col-xl-4">
-                            <a href="advisor-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
+                        <?php
+                        foreach ($students as $student){
+                            $curl = curl_init();
+
+                            curl_setopt_array($curl, array(
+                                CURLOPT_URL => 'http://172.105.73.62:5000/studentProject',
+                                CURLOPT_RETURNTRANSFER => true,
+                                CURLOPT_ENCODING => '',
+                                CURLOPT_MAXREDIRS => 10,
+                                CURLOPT_TIMEOUT => 0,
+                                CURLOPT_FOLLOWLOCATION => true,
+                                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                                CURLOPT_CUSTOMREQUEST => 'POST',
+                                CURLOPT_POSTFIELDS => array('no' => trim($student["studentID"])),
+                            ));
+
+                            $response= curl_exec($curl);
+                            curl_close($curl);
+                            $projects = json_decode($response, true);
+                            foreach($projects as $project){
+                                echo '<div class="col-xl-4">
+                                <a href="advisor-this-project.php?id='.$project['number'] . '" style="text-decoration: none; color: black;" class="main-card mb-3 card">
                                 <div class="card card-body">
-                                    <h5 class="card-title">ROBOTİK SİSTEMLER</h5>
-                                    <br>
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Tarih:</b></h6>
-                                            <h6 class="card-subtitle ml-3">28.02.2022 18:44</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Öğrenci:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Sirac ARAPOĞLU</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Durum:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Proje Onayı Bekleniyor</h6>
-                                        </div>
-                                        <div class="row">
+                                    <h5 class="card-title">'.$project["headline"].'</h5>
+                                    <div class="row">
+                                        <h6 class="card-subtitle"><b>Teslim Tarihi:</b></h6>
+                                        <h6 class="card-subtitle ml-2">'.$project["instertionDate"].'</h6>
+                                    </div>
+                                    <div class="row">
+                                        <h6 class="card-subtitle"><b>Öğrenci:</b></h6>
+                                        <h6 class="card-subtitle ml-2">'.$student["name"].' '.$student["surname"].'</h6>
+                                    </div>
+                                    <div class="row">
+                                        <h6 class="card-subtitle"><b>Durum:</b></h6>
+                                        <h6 class="card-subtitle ml-2">'.$_SESSION[(string)$project["status"]].'</h6>
+                                    </div>
+                                    <div class="row">
                                             <h6 class="card-subtitle"><b>Danışman:</b></h6>
                                             <h6 class="card-subtitle ml-3">Dr. Öğr. Üyesi Önder YAKUT</h6>
                                         </div>
-                                    </div>
                                 </div>
                             </a>
-                        </div>
-                        <div class="col-xl-4">
-                            <a href="advisor-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">ROBOTİK SİSTEMLER</h5>
-                                    <br>
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Tarih:</b></h6>
-                                            <h6 class="card-subtitle ml-3">28.02.2022 18:44</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Öğrenci:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Sirac ARAPOĞLU</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Durum:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Proje Onayı Bekleniyor</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Danışman:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Dr. Öğr. Üyesi Önder YAKUT</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xl-4">
-                            <a href="advisor-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">ROBOTİK SİSTEMLER</h5>
-                                    <br>
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Tarih:</b></h6>
-                                            <h6 class="card-subtitle ml-3">28.02.2022 18:44</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Öğrenci:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Sirac ARAPOĞLU</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Durum:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Proje Onayı Bekleniyor</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Danışman:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Dr. Öğr. Üyesi Önder YAKUT</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xl-4">
-                            <a href="advisor-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">ROBOTİK SİSTEMLER</h5>
-                                    <br>
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Tarih:</b></h6>
-                                            <h6 class="card-subtitle ml-3">28.02.2022 18:44</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Öğrenci:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Sirac ARAPOĞLU</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Durum:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Proje Onayı Bekleniyor</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Danışman:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Dr. Öğr. Üyesi Önder YAKUT</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xl-4">
-                            <a href="advisor-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">ROBOTİK SİSTEMLER</h5>
-                                    <br>
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Tarih:</b></h6>
-                                            <h6 class="card-subtitle ml-3">28.02.2022 18:44</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Öğrenci:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Sirac ARAPOĞLU</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Durum:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Proje Onayı Bekleniyor</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Danışman:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Dr. Öğr. Üyesi Önder YAKUT</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xl-4">
-                            <a href="advisor-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">ROBOTİK SİSTEMLER</h5>
-                                    <br>
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Tarih:</b></h6>
-                                            <h6 class="card-subtitle ml-3">28.02.2022 18:44</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Öğrenci:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Sirac ARAPOĞLU</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Durum:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Proje Onayı Bekleniyor</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Danışman:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Dr. Öğr. Üyesi Önder YAKUT</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xl-4">
-                            <a href="advisor-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">ROBOTİK SİSTEMLER</h5>
-                                    <br>
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Tarih:</b></h6>
-                                            <h6 class="card-subtitle ml-3">28.02.2022 18:44</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Öğrenci:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Sirac ARAPOĞLU</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Durum:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Proje Onayı Bekleniyor</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Danışman:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Dr. Öğr. Üyesi Önder YAKUT</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xl-4">
-                            <a href="advisor-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">ROBOTİK SİSTEMLER</h5>
-                                    <br>
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Tarih:</b></h6>
-                                            <h6 class="card-subtitle ml-3">28.02.2022 18:44</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Öğrenci:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Sirac ARAPOĞLU</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Durum:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Proje Onayı Bekleniyor</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Danışman:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Dr. Öğr. Üyesi Önder YAKUT</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xl-4">
-                            <a href="advisor-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">ROBOTİK SİSTEMLER</h5>
-                                    <br>
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Tarih:</b></h6>
-                                            <h6 class="card-subtitle ml-3">28.02.2022 18:44</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Öğrenci:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Sirac ARAPOĞLU</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Durum:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Proje Onayı Bekleniyor</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Danışman:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Dr. Öğr. Üyesi Önder YAKUT</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xl-4">
-                            <a href="advisor-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">ROBOTİK SİSTEMLER</h5>
-                                    <br>
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Tarih:</b></h6>
-                                            <h6 class="card-subtitle ml-3">28.02.2022 18:44</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Öğrenci:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Sirac ARAPOĞLU</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Durum:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Proje Onayı Bekleniyor</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Danışman:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Dr. Öğr. Üyesi Önder YAKUT</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xl-4">
-                            <a href="advisor-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">ROBOTİK SİSTEMLER</h5>
-                                    <br>
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Tarih:</b></h6>
-                                            <h6 class="card-subtitle ml-3">28.02.2022 18:44</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Öğrenci:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Sirac ARAPOĞLU</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Durum:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Proje Onayı Bekleniyor</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Danışman:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Dr. Öğr. Üyesi Önder YAKUT</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xl-4">
-                            <a href="advisor-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">ROBOTİK SİSTEMLER</h5>
-                                    <br>
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Tarih:</b></h6>
-                                            <h6 class="card-subtitle ml-3">28.02.2022 18:44</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Öğrenci:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Sirac ARAPOĞLU</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Durum:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Proje Onayı Bekleniyor</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Danışman:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Dr. Öğr. Üyesi Önder YAKUT</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xl-4">
-                            <a href="advisor-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">ROBOTİK SİSTEMLER</h5>
-                                    <br>
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Tarih:</b></h6>
-                                            <h6 class="card-subtitle ml-3">28.02.2022 18:44</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Öğrenci:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Sirac ARAPOĞLU</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Durum:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Proje Onayı Bekleniyor</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Danışman:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Dr. Öğr. Üyesi Önder YAKUT</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xl-4">
-                            <a href="advisor-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">ROBOTİK SİSTEMLER</h5>
-                                    <br>
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Tarih:</b></h6>
-                                            <h6 class="card-subtitle ml-3">28.02.2022 18:44</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Öğrenci:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Sirac ARAPOĞLU</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Durum:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Proje Onayı Bekleniyor</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Danışman:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Dr. Öğr. Üyesi Önder YAKUT</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xl-4">
-                            <a href="advisor-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">ROBOTİK SİSTEMLER</h5>
-                                    <br>
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Tarih:</b></h6>
-                                            <h6 class="card-subtitle ml-3">28.02.2022 18:44</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Öğrenci:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Sirac ARAPOĞLU</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Durum:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Proje Onayı Bekleniyor</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Danışman:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Dr. Öğr. Üyesi Önder YAKUT</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xl-4">
-                            <a href="advisor-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">ROBOTİK SİSTEMLER</h5>
-                                    <br>
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Tarih:</b></h6>
-                                            <h6 class="card-subtitle ml-3">28.02.2022 18:44</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Öğrenci:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Sirac ARAPOĞLU</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Durum:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Proje Onayı Bekleniyor</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Danışman:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Dr. Öğr. Üyesi Önder YAKUT</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xl-4">
-                            <a href="advisor-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">ROBOTİK SİSTEMLER</h5>
-                                    <br>
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Tarih:</b></h6>
-                                            <h6 class="card-subtitle ml-3">28.02.2022 18:44</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Öğrenci:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Sirac ARAPOĞLU</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Durum:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Proje Onayı Bekleniyor</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Danışman:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Dr. Öğr. Üyesi Önder YAKUT</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xl-4">
-                            <a href="advisor-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">ROBOTİK SİSTEMLER</h5>
-                                    <br>
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Tarih:</b></h6>
-                                            <h6 class="card-subtitle ml-3">28.02.2022 18:44</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Öğrenci:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Sirac ARAPOĞLU</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Durum:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Proje Onayı Bekleniyor</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Danışman:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Dr. Öğr. Üyesi Önder YAKUT</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-xl-4">
-                            <a href="advisor-this-project.php" style="text-decoration: none; color: black;" class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">ROBOTİK SİSTEMLER</h5>
-                                    <br>
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Tarih:</b></h6>
-                                            <h6 class="card-subtitle ml-3">28.02.2022 18:44</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Öğrenci:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Sirac ARAPOĞLU</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Durum:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Proje Onayı Bekleniyor</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Danışman:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Dr. Öğr. Üyesi Önder YAKUT</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                             </div>';
+                            }
+                        }
+                        ?>
+
                     </div>
                 </div>
                 <!--FOOTER-->

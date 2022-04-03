@@ -4,11 +4,11 @@ session_start();
 $_SESSION[0] = '<div class="mb-2 mr-2 badge badge-pill badge-info">TEST</div>';
 $_SESSION[1] = '<div class="mb-2 mr-2 badge badge-pill badge-info">Gönderildi</div>';
 $_SESSION[2] = '<div class="mb-2 mr-2 badge badge-pill badge-info">Görüldü</div>';
-$_SESSION['3'] = '<div class="mb-2 mr-2 badge badge-pill badge-info">İndirildi</div>';
-$_SESSION['4'] = '<div class="mb-2 mr-2 badge badge-pill badge-info">Kabul Edildi</div>';
-$_SESSION['5'] = '<div class="mb-2 mr-2 badge badge-pill badge-info">Red Edildi</div>';
-$_SESSION['6'] = '<div class="mb-2 mr-2 badge badge-pill badge-info">Revize Edildi</div>';
-$_SESSION['7'] = '<div class="mb-2 mr-2 badge badge-pill badge-info">Tamamlandı</div>';
+$_SESSION[3] = '<div class="mb-2 mr-2 badge badge-pill badge-info">İndirildi</div>';
+$_SESSION[4] = '<div class="mb-2 mr-2 badge badge-pill badge-info">Kabul Edildi</div>';
+$_SESSION[5] = '<div class="mb-2 mr-2 badge badge-pill badge-info">Red Edildi</div>';
+$_SESSION[6] = '<div class="mb-2 mr-2 badge badge-pill badge-info">Revize Edildi</div>';
+$_SESSION[7] = '<div class="mb-2 mr-2 badge badge-pill badge-info">Tamamlandı</div>';
 
 
 $_SESSION['Permisson'] = "";

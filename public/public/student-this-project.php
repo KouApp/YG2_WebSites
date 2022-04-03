@@ -1,8 +1,29 @@
 <?php
 session_start();
-if ($_SESSION['Permisson'] != 'student') {
+$id = $_GET['id']; //get id from url
+echo $id;
+
+if($_SESSION['Permisson'] != 'student' ||!isset($id) || empty($id) ) {
     echo '<meta http-equiv="refresh" content="0;URL=404.php">';
 }
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+    CURLOPT_URL => 'http://172.105.73.62:5000/projectQuery',
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => '',
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => 'POST',
+    CURLOPT_POSTFIELDS => array('id' => $id),
+));
+
+$response = curl_exec($curl);
+curl_close($curl);
+$project = json_decode($response, true);
 ?>
 <!doctype html>
 <html lang="en">

@@ -1,8 +1,29 @@
 <?php
 session_start();
-if ($_SESSION['Permisson'] != 'advisor') {
-    //echo'<meta http-equiv="refresh" content="0;URL=404.php">';
+$id = $_GET['id']; //get id from url
+echo $id;
+
+if($_SESSION['Permisson'] != 'advisor' ||!isset($id) || empty($id) ) {
+    echo '<meta http-equiv="refresh" content="0;URL=404.php">';
 }
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+    CURLOPT_URL => 'http://172.105.73.62:5000/projectQuery',
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => '',
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => 'POST',
+    CURLOPT_POSTFIELDS => array('id' => $id),
+));
+
+$response = curl_exec($curl);
+curl_close($curl);
+$project = json_decode($response, true);
 ?>
 <!doctype html>
 <html lang="en">
@@ -69,10 +90,10 @@ if ($_SESSION['Permisson'] != 'advisor') {
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
-                                        Önder YAKUT
+                                        <?php echo $_SESSION["advisorFullName"] ?>
                                     </div>
                                     <div class="widget-subheading text-center">
-                                        Dr. Öğr. Üyesi
+                                        <?php echo $_SESSION["title"] ?>
                                     </div>
                                 </div>
                             </div>
@@ -436,7 +457,7 @@ if ($_SESSION['Permisson'] != 'advisor') {
                                                         <h6>Proje Adı</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6 class="text-dark">Görüntü ve Video İşleme</h6>
+                                                        <h6 class="text-dark"><?php echo $project['headline']?></h6>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -445,7 +466,7 @@ if ($_SESSION['Permisson'] != 'advisor') {
                                                         <h6>Proje Alım Tarihi</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6 class="text-dark">28.02.2022</h6>
+                                                        <h6 class="text-dark"><?php echo $project['instertionDate']?></h6>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -463,7 +484,43 @@ if ($_SESSION['Permisson'] != 'advisor') {
                                                         <h6>Proje Durumu</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6 class="text-dark">Tez Hazırlama</h6>
+
+                                                        <?php
+                                                        /*status	name	hexColorCode
+                                                        0	TEST      	FFFFFF
+                                                        1	Gönderildi	000000
+                                                        2	Görüldü   	000000
+                                                        3	İndirildi 	000000
+                                                        4	Kabul     	000000
+                                                        5	Red       	000000
+                                                        6	Revize    	000000
+                                                        7	Tamamlandı	000000  */
+                                                        if($project['status'] == 1){
+                                                            echo '<h6 class="text-dark">Proje Gönderildi</h6>';
+                                                        }
+                                                        else if ($project['status'] == 2){
+                                                            echo '<h6 class="text-dark">Proje Görüldü</h6>';
+                                                        }
+                                                        else if ($project['status'] == 3) {
+                                                            echo '<h6 class="text-dark">Proje İndirildi</h6>';
+                                                        }
+                                                        else if ($project['status'] == 4) {
+                                                            echo '<h6 class="text-dark">Proje Kabul Edildi</h6>';
+                                                        }
+                                                        else if ($project['status'] == 5) {
+                                                            echo '<h6 class="text-dark">Proje Red Edildi</h6>';
+                                                        }
+                                                        else if ($project['status'] == 6) {
+                                                            echo '<h6 class="text-dark">Proje Revize Edildi</h6>';
+                                                        }
+                                                        else if ($project['status'] == 7) {
+                                                            echo '<h6 class="text-dark">Proje Tamamlandı</h6>';
+                                                        }
+                                                        else if ($project['status'] == 0) {
+                                                            echo '<h6 class="text-dark">Proje Test Edildi</h6>';
+                                                        }
+
+                                                        ?>
                                                     </div>
                                                 </div>
 

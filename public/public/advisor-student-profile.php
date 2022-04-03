@@ -2,7 +2,12 @@
 session_start();
 if($_SESSION['Permisson'] != 'advisor'){
     echo'<meta http-equiv="refresh" content="0;URL=404.php">';
+
+
 }
+    //print params id
+    $id = $_GET['id']; //get id from url
+    echo $id;
 ?>
 <!doctype html>
 <html lang="en">
@@ -533,7 +538,7 @@ if($_SESSION['Permisson'] != 'advisor'){
                                                         <h6>Numara:</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6>211307097</h6>
+                                                        <h6><?php echo $id ?></h6>
                                                     </div>
                                                 </div>
                                                 <br>

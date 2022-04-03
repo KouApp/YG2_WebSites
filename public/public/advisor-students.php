@@ -3,6 +3,23 @@ session_start();
 if($_SESSION['Permisson'] != 'advisor'){
     echo'<meta http-equiv="refresh" content="0;URL=404.php">';
 }
+
+$curl = curl_init();
+curl_setopt_array($curl, array(
+    CURLOPT_URL => 'http://172.105.73.62:5000/advisorStudent',
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => '',
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => 'POST',
+    CURLOPT_POSTFIELDS => array('no' => $_SESSION['Id']),
+));
+
+$response = curl_exec($curl);
+curl_close($curl);
+$students = json_decode($response, true);
 ?>
 <!doctype html>
 <html lang="en">
@@ -531,100 +548,27 @@ if($_SESSION['Permisson'] != 'advisor'){
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
+                                    <?php
+                                     //List student in table with use for loop
+                                    /*<th scope="row">1</th>
                                             <td><a href="advisor-student-profile.php"
                                                     style="text-decoration: none; color: black;">Sirac</a></td>
                                             <td>ARAPOĞLU</td>
                                             <td>211307097</td>
                                             <td>eposta@gmail.com</td>
-                                            <td>0553 305 41 99</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td><a href="advisor-student-profile.php"
-                                                    style="text-decoration: none; color: black;">Abdullah Ali</a>
-                                                <div class="ml-1 badge badge-success">YENİ</div>
-                                            </td>
-                                            <td>GÜN</td>
-                                            <td>211307025</td>
-                                            <td>eposta@gmail.com</td>
-                                            <td>0553 305 41 99</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td><a href="advisor-student-profile.php"
-                                                    style="text-decoration: none; color: black;">Yasin</a></td>
-                                            <td>ŞAHİN</td>
-                                            <td>211307034</td>
-                                            <td>eposta@gmail.com</td>
-                                            <td>0553 305 41 99</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">4</th>
-                                            <td><a href="advisor-student-profile.php"
-                                                    style="text-decoration: none; color: black;">Emre</a></td>
-                                            <td>ÇETİNDEMİR</td>
-                                            <td>211307036</td>
-                                            <td>eposta@gmail.com</td>
-                                            <td>0553 305 41 99</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">5</th>
-                                            <td><a href="advisor-student-profile.php"
-                                                    style="text-decoration: none; color: black;">Merve</a></td>
-                                            <td>TEKİN</td>
-                                            <td>211307045</td>
-                                            <td>eposta@gmail.com</td>
-                                            <td>0553 305 41 99</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">6</th>
-                                            <td><a href="advisor-student-profile.php"
-                                                    style="text-decoration: none; color: black;">Harun</a></td>
-                                            <td>CAN</td>
-                                            <td>211307049</td>
-                                            <td>eposta@gmail.com</td>
-                                            <td>0553 305 41 99</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">7</th>
-                                            <td><a href="advisor-student-profile.php"
-                                                    style="text-decoration: none; color: black;">Meryem</a>
-                                                <div class="ml-1 badge badge-success">YENİ</div>
-                                            </td>
-                                            <td>YILMAZ</td>
-                                            <td>211307057</td>
-                                            <td>eposta@gmail.com</td>
-                                            <td>0553 305 41 99</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">8</th>
-                                            <td><a href="advisor-student-profile.php"
-                                                    style="text-decoration: none; color: black;">Sıla</a></td>
-                                            <td>KARA</td>
-                                            <td>211307071</td>
-                                            <td>eposta@gmail.com</td>
-                                            <td>0553 305 41 99</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">9</th>
-                                            <td><a href="advisor-student-profile.php"
-                                                    style="text-decoration: none; color: black;">Metin</a></td>
-                                            <td>ÖZTÜRK</td>
-                                            <td>211307079</td>
-                                            <td>eposta@gmail.com</td>
-                                            <td>0553 305 41 99</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">10</th>
-                                            <td><a href="advisor-student-profile.php"
-                                                    style="text-decoration: none; color: black;">Rıza</a></td>
-                                            <td>BOSTANCI</td>
-                                            <td>211307087</td>
-                                            <td>eposta@gmail.com</td>
-                                            <td>0553 305 41 99</td>
-                                        </tr>
+                                            <td>0553 305 41 99</td>*/
+                                    for ($i = 1; $i <= count($students); $i++) {
+                                        echo '<tr>';
+                                        echo '<th scope="row">' . ($i) . '</th>';
+                                        echo '<td><a href="advisor-student-profile.php?id='.$students[$i]['studentID'] . '" style="text-decoration: none; color: black;">' . $students[$i]['name'] . '</a></td>';
+                                        echo '<td>' . $students[$i]['surname'] . '</td>';
+                                        echo '<td>' . $students[$i]['studentID'] . '</td>';
+                                        echo '<td>' . $students[$i]['mail'] . '</td>';
+                                        echo '<td>' . $students[$i]['phoneNumber'] . '</td>';
+                                        echo '</tr>';
+                                    }
+                                    ?>
+
                                     </tbody>
                                 </table>
                             </div>

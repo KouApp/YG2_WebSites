@@ -5,7 +5,7 @@ if($_SESSION['Permisson'] != 'advisor'){
 }
 $curl = curl_init();
 curl_setopt_array($curl, array(
-    CURLOPT_URL => 'http://172.105.73.62:5000/advisorStudent ',
+    CURLOPT_URL => 'http://172.105.73.62:5000/advisorStudent',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,
@@ -18,8 +18,7 @@ curl_setopt_array($curl, array(
 
 $response = curl_exec($curl);
 curl_close($curl);
-$project = json_decode($response, true);
-
+$students = json_decode($response, true);
 
 ?>
 <!doctype html>
@@ -528,112 +527,48 @@ $project = json_decode($response, true);
                             </div>
                             <div class="divider">
                             </div>
-                            <!-- <div class="text-center header-text-dark"><b>ONAY BEKLEYEN BİR GÖNDERİM YOK...</b></div>-->
-                            <a href="advisor-this-project.php" style="text-decoration: none; color: black;"
+                            <?php
+                            foreach ($students as $student){
+                                $curl = curl_init();
+
+                                curl_setopt_array($curl, array(
+                                    CURLOPT_URL => 'http://172.105.73.62:5000/studentProject',
+                                    CURLOPT_RETURNTRANSFER => true,
+                                    CURLOPT_ENCODING => '',
+                                    CURLOPT_MAXREDIRS => 10,
+                                    CURLOPT_TIMEOUT => 0,
+                                    CURLOPT_FOLLOWLOCATION => true,
+                                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                                    CURLOPT_CUSTOMREQUEST => 'POST',
+                                    CURLOPT_POSTFIELDS => array('no' => trim($student["studentID"])),
+                                ));
+
+                                $response= curl_exec($curl);
+                                curl_close($curl);
+                                $projects = json_decode($response, true);
+                                foreach($projects as $project){
+                                    echo '<a href="student-this-project.php" style="text-decoration: none; color: black;"
                                 class="main-card mb-3 card">
                                 <div class="card card-body">
-                                    <h5 class="card-title">ROBOTİK SİSTEMLER</h5>
-                                    <br>
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Tarih:</b></h6>
-                                            <h6 class="card-subtitle ml-3">28.02.2022 18:44</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Öğrenci:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Sirac ARAPOĞLU</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Durum:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Proje Onayı Bekleniyor</h6>
-                                        </div>
+                                    <h5 class="card-title">'.$project["headline"].'</h5>
+                                    <div class="row ml-0">
+                                        <h6 class="card-subtitle"><b>Teslim Tarihi:</b></h6>
+                                        <h6 class="card-subtitle ml-2">'.$project["instertionDate"].'</h6>
+                                    </div>
+                                    <div class="row ml-0">
+                                        <h6 class="card-subtitle"><b>Öğrenci:</b></h6>
+                                        <h6 class="card-subtitle ml-2">'.$student["name"].' '.$student["surname"].'</h6>
+                                    </div>
+                                    <div class="row ml-0">
+                                        <h6 class="card-subtitle"><b>Durum:</b></h6>
+                                        <h6 class="card-subtitle ml-2">'.$_SESSION[(string)$project["status"]].'</h6>
                                     </div>
                                 </div>
-                            </a>
-                            <a href="advisor-this-project.php" style="text-decoration: none; color: black;"
-                                class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">SİNYAL İŞLEME KURAMI</h5>
-                                    <br>
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Tarih:</b></h6>
-                                            <h6 class="card-subtitle ml-3">28.02.2022 18:44</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Öğrenci:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Emre ÇETİNDEMİR</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Durum:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Proje Onayı Bekleniyor</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="advisor-this-project.php" style="text-decoration: none; color: black;"
-                                class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">BİLGİ GİZLEME</h5>
-                                    <br>
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Tarih:</b></h6>
-                                            <h6 class="card-subtitle ml-3">28.02.2022 18:44</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Öğrenci:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Merve TEKİN</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Durum:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Proje Onayı Bekleniyor</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="advisor-this-project.php" style="text-decoration: none; color: black;"
-                                class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">BİLGİSAYARLA GÖRME</h5>
-                                    <br>
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Tarih:</b></h6>
-                                            <h6 class="card-subtitle ml-3">28.02.2022 18:44</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Öğrenci:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Abdullah Ali GÜN</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Durum:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Proje Onayı Bekleniyor</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="advisor-this-project.php" style="text-decoration: none; color: black;"
-                                class="main-card mb-3 card">
-                                <div class="card card-body">
-                                    <h5 class="card-title">GÖRÜNTÜ VE VİDEO İŞLEME</h5>
-                                    <br>
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Tarih:</b></h6>
-                                            <h6 class="card-subtitle ml-3">28.02.2022 18:44</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Öğrenci:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Yasin ŞAHİN</h6>
-                                        </div>
-                                        <div class="row">
-                                            <h6 class="card-subtitle"><b>Durum:</b></h6>
-                                            <h6 class="card-subtitle ml-3">Proje Onayı Bekleniyor</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
+                            </a>';
+                                }
+                            }
+                            ?>
+
                         </div>
                         <!--Announcement-->
                         <div class="col-md-12 col-lg-7">

@@ -1,8 +1,26 @@
 <?php
 session_start();
 if($_SESSION['Permisson'] != 'admin'){
-    echo'<meta http-equiv="refresh" content="0;URL=404.ph">';
+    echo'<meta http-equiv="refresh" content="0;URL=404.php">';
 }
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+    CURLOPT_URL => 'http://172.105.73.62:5000/adminQuery',
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => '',
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => 'POST',
+    CURLOPT_POSTFIELDS => array('id' => $_SESSION['Id']),
+));
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+$json = json_decode($response, true);
 ?>
 <!doctype html>
 <html lang="en">
@@ -63,10 +81,10 @@ if($_SESSION['Permisson'] != 'admin'){
                             <div class="widget-content-wrapper">
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
-                                        Yönetici Adı
+                                        <?php print $json["name"]." ".$json["surname"]?>
                                     </div>
                                     <div class="widget-subheading text-center">
-                                        Ünvan
+                                        <?php print $json["title"]?>
                                     </div>
                                 </div>
                             </div>
@@ -530,7 +548,7 @@ if($_SESSION['Permisson'] != 'admin'){
                                                         <h6>Ad:</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6>Yönetici Adı</h6>
+                                                        <h6><?php print $json["name"]?></h6>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -539,7 +557,7 @@ if($_SESSION['Permisson'] != 'admin'){
                                                         <h6>Soyad:</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6>YÖNETİCİ SOYADI</h6>
+                                                        <h6><?php print $json["surname"]?></h6>
                                                     </div>
                                                 </div>
                                                 </li>
@@ -553,7 +571,7 @@ if($_SESSION['Permisson'] != 'admin'){
                                                         <h6>E-Posta:</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6>eposta@gmail.com</h6>
+                                                        <h6><?php print $json["mail"]?></h6>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -562,7 +580,7 @@ if($_SESSION['Permisson'] != 'admin'){
                                                         <h6>Unvan:</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6>Haşmetli</h6>
+                                                        <h6><?php print $json["title"]?></h6>
                                                     </div>
                                                 </div>
                                             </div>

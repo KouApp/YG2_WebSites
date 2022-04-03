@@ -88,10 +88,10 @@ $project = json_decode($response, true);
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
-                                        Sirac ARAPOĞLU
+                                        <?php print $_SESSION['fullname'] ?>
                                     </div>
                                     <div class="widget-subheading text-center">
-                                        211307097
+                                        <?php print $_SESSION['Id'] ?>
                                     </div>
                                 </div>
                             </div>
@@ -455,7 +455,7 @@ $project = json_decode($response, true);
                                                         <h6>Proje Adı</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6 class="text-dark">Görüntü ve Video İşleme</h6>
+                                                        <h6 class="text-dark"><?php echo $project['headline']?></h6>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -464,7 +464,7 @@ $project = json_decode($response, true);
                                                         <h6>Proje Alım Tarihi</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6 class="text-dark">28.02.2022</h6>
+                                                        <h6 class="text-dark"><?php echo $project['headline']?></h6>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -473,7 +473,7 @@ $project = json_decode($response, true);
                                                         <h6>Proje Teslim Tarihi</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6 class="text-dark">-</h6>
+                                                        <h6 class="text-dark"><?php echo $project['instertionDate']?></h6>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -482,7 +482,51 @@ $project = json_decode($response, true);
                                                         <h6>Proje Durumu</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6 class="text-dark">Tez Hazırlama</h6>
+                                                        <?php
+                                                        /*status	name	hexColorCode
+                                                        0	TEST      	FFFFFF
+                                                        1	Gönderildi	000000
+                                                        2	Görüldü   	000000
+                                                        3	İndirildi 	000000
+                                                        4	Kabul     	000000
+                                                        5	Red       	000000
+                                                        6	Revize    	000000
+                                                        7	Tamamlandı	000000  */
+                                                        if($project['status'] == 1){
+                                                            echo '<h6 class="text-dark">Proje Gönderildi</h6>';
+                                                        }
+                                                        else if ($project['status'] == 2){
+                                                            echo '<h6 class="text-dark">Proje Görüldü</h6>';
+                                                        }
+                                                        else if ($project['status'] == 3) {
+                                                            echo '<h6 class="text-dark">Proje İndirildi</h6>';
+                                                        }
+                                                        else if ($project['status'] == 4) {
+                                                            echo '<h6 class="text-dark">Proje Kabul Edildi</h6>';
+                                                        }
+                                                        else if ($project['status'] == 5) {
+                                                            echo '<h6 class="text-dark">Proje Red Edildi</h6>';
+                                                        }
+                                                        else if ($project['status'] == 6) {
+                                                            echo '<h6 class="text-dark">Proje Revize Edildi</h6>';
+                                                        }
+                                                        else if ($project['status'] == 7) {
+                                                            echo '<h6 class="text-dark">Proje Tamamlandı</h6>';
+                                                        }
+                                                        else if ($project['status'] == 0) {
+                                                            echo '<h6 class="text-dark">Proje Test Edildi</h6>';
+                                                        }
+
+                                                        ?>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="widget-content-wrapper">
+                                                    <div class="widget-content-left">
+                                                        <h6>Açıklama</h6>
+                                                    </div>
+                                                    <div class="widget-content-right">
+                                                        <h6 class="text-dark"><?php echo $project['description']?></h6>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -491,7 +535,7 @@ $project = json_decode($response, true);
                                                         <h6>Proje Anahtar Kelimeleri</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6 class="text-dark">Kelime1, Kelime2, kelime3, kelime4, kelime5</h6>
+                                                        <h6 class="text-dark"><?php echo $project['keyword']?></h6>
                                                     </div>
                                                 </div>
                                             </div>
@@ -507,7 +551,7 @@ $project = json_decode($response, true);
                                             <ul class="nav nav-justified">
                                                 <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-0" class="nav-link active show">Projenin Amacı</a></li>
                                                 <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-1" class="nav-link">Projenin Önemi</a></li>
-                                                <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-2" class="nav-link">Projenin Kapsamo</a></li>
+                                                <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-2" class="nav-link">Projenin Kapsamı</a></li>
                                                 <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-3" class="nav-link">Projenin Materyalleri</a></li>
                                                 <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-4" class="nav-link">Projenin Yöntemleri</a></li>
                                                 <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-5" class="nav-link">Araştırma Olanakları</a>
@@ -517,328 +561,22 @@ $project = json_decode($response, true);
                                         <div class="card-body">
                                             <div class="tab-content">
                                                 <div class="tab-pane active show" id="tab-eg7-0" role="tabpanel">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ut
-                                                        ipsum id nisl tristique ultricies. Maecenas eu
-                                                        pulvinar libero. Donec pellentesque facilisis volutpat. Sed
-                                                        ultrices
-                                                        metus vitae lacus gravida aliquam. Integer
-                                                        convallis in orci ut semper. Nam viverra scelerisque est. Nulla
-                                                        a
-                                                        libero et lectus luctus consequat. Vestibulum ante
-                                                        ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-                                                        curae; Proin eget efficitur lorem. Nam pretium viverra
-                                                        mauris, ac facilisis augue elementum pharetra. Maecenas pharetra
-                                                        lacus a erat rutrum porttitor.
-
-                                                        Praesent luctus facilisis elit ac malesuada. In hac habitasse
-                                                        platea
-                                                        dictumst. Aenean aliquam, mauris ac placerat
-                                                        sagittis, urna nunc convallis diam, at luctus elit dui semper
-                                                        purus.
-                                                        Mauris auctor mi quis sem consequat, mollis cursus
-                                                        purus fermentum. Curabitur et mi nisi. Aliquam scelerisque risus
-                                                        scelerisque est venenatis tempor. Aenean faucibus, leo
-                                                        vitae sagittis porttitor, libero lectus euismod ex, quis
-                                                        pulvinar
-                                                        nisl neque a mi. Duis quis nisl tortor. Nullam id
-                                                        euismod diam, quis fringilla neque. Quisque finibus malesuada
-                                                        enim,
-                                                        ac tempus nunc sagittis sed. Nulla imperdiet purus
-                                                        in ante consectetur, et consectetur ligula egestas. Mauris
-                                                        ultrices
-                                                        lobortis pellentesque. Vivamus sed tempus leo.
-
-                                                        Nunc tempor, dui sed dignissim fermentum, dui velit porttitor
-                                                        felis,
-                                                        in facilisis nunc lorem nec nisl. Fusce eu urna
-                                                        ultrices, gravida nulla vitae, posuere lacus. Pellentesque
-                                                        finibus
-                                                        pharetra massa. Donec dapibus turpis eget ipsum
-                                                        tincidunt, et aliquet dolor tincidunt. Fusce ac ullamcorper
-                                                        elit,
-                                                        nec vehicula neque. Quisque dapibus commodo libero, ut
-                                                        sollicitudin risus. Nulla felis lectus, vulputate at egestas ut,
-                                                        auctor ac nisi. Nullam dapibus lobortis eros, sit.</p>
+                                                    <p><?php echo $project['matter']?></p>
                                                 </div>
                                                 <div class="tab-pane" id="tab-eg7-1" role="tabpanel">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut
-                                                        nisl
-                                                        est. Donec id tellus rutrum, aliquam nulla vitae,
-                                                        eleifend odio. Donec id ipsum ut felis tempus viverra. Orci
-                                                        varius
-                                                        natoque penatibus et magnis dis parturient montes,
-                                                        nascetur ridiculus mus. Fusce bibendum est fermentum ipsum
-                                                        eleifend,
-                                                        eu aliquam mauris mollis. Ut tempus tristique
-                                                        congue. Nulla non lacus risus. In hac habitasse platea dictumst.
-                                                        Ut
-                                                        sollicitudin quam nec porta laoreet. Duis in ipsum
-                                                        neque. Donec dictum risus a mollis sodales. Duis luctus euismod
-                                                        erat, id hendrerit purus fermentum ornare. Phasellus
-                                                        pulvinar quis felis id cursus. Nullam ut maximus mi.
-
-                                                        Integer eget porttitor elit. Morbi tincidunt sagittis nunc, vel
-                                                        pharetra nunc interdum ac. Praesent mattis elit id
-                                                        mauris eleifend, et fermentum turpis pulvinar. Ut consectetur
-                                                        tempus
-                                                        eleifend. Quisque risus leo, laoreet ut viverra
-                                                        efficitur, efficitur vel libero. Sed rutrum, eros ac congue
-                                                        vestibulum, mi purus semper lacus, a ultricies ipsum diam eu
-                                                        dolor. Maecenas faucibus, nisi quis porttitor rutrum, risus erat
-                                                        scelerisque velit, sit amet pretium ante sem in quam.
-                                                        Ut sed ullamcorper eros, ut egestas lectus. Morbi tempor, neque
-                                                        et
-                                                        tempus mollis, mauris metus tempus augue, ac rutrum
-                                                        lacus diam in risus. Ut tempus accumsan convallis. Duis
-                                                        sollicitudin
-                                                        erat eu mollis lacinia.
-
-                                                        Donec condimentum ac velit id hendrerit. Nam feugiat, lorem id
-                                                        faucibus commodo, dolor lorem egestas arcu, non feugiat
-                                                        tellus purus vitae libero. Etiam suscipit, nisi at venenatis
-                                                        pulvinar, felis ex vestibulum neque, sed feugiat ex metus
-                                                        ac lacus. Quisque blandit ligula enim, et maximus metus
-                                                        pellentesque
-                                                        id. Ut consectetur vestibulum velit ut maximus.
-                                                        Vestibulum nulla magna, facilisis ac vehicula at, pretium quis
-                                                        erat.
-                                                        Donec porttitor venenatis mi et finibus. Donec
-                                                        maximus eleifend est, a condimentum velit rutrum ut. Donec
-                                                        pulvinar
-                                                        nibh in nisi efficitur tempus. Curabitur vel rutrum
-                                                        metus. Nunc neque elit, tempor non urna et, maximus porttitor
-                                                        mauris. Phasellus dictum elit tempor leo dictum, ac
-                                                        convallis nunc laoreet. Suspendisse vehicula nisl nec dolor
-                                                        efficitur viverra. Nunc vehicula, enim eget faucibus
-                                                        facilisis, urna nisl ultricies felis, in maximus ex risus nec
-                                                        justo.
-                                                        Sed vehicula justo a mauris malesuada pharetra.
-                                                        Suspendisse fermentum porta ipsum in lobortis. Maecenas vitae
-                                                        tristique arcu.</p>
+                                                    <p><?php echo $project['[content]']?></p>
                                                 </div>
                                                 <div class="tab-pane" id="tab-eg7-2" role="tabpanel">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut
-                                                        nisl
-                                                        est. Donec id tellus rutrum, aliquam nulla vitae,
-                                                        eleifend odio. Donec id ipsum ut felis tempus viverra. Orci
-                                                        varius
-                                                        natoque penatibus et magnis dis parturient montes,
-                                                        nascetur ridiculus mus. Fusce bibendum est fermentum ipsum
-                                                        eleifend,
-                                                        eu aliquam mauris mollis. Ut tempus tristique
-                                                        congue. Nulla non lacus risus. In hac habitasse platea dictumst.
-                                                        Ut
-                                                        sollicitudin quam nec porta laoreet. Duis in ipsum
-                                                        neque. Donec dictum risus a mollis sodales. Duis luctus euismod
-                                                        erat, id hendrerit purus fermentum ornare. Phasellus
-                                                        pulvinar quis felis id cursus. Nullam ut maximus mi.
-
-                                                        Integer eget porttitor elit. Morbi tincidunt sagittis nunc, vel
-                                                        pharetra nunc interdum ac. Praesent mattis elit id
-                                                        mauris eleifend, et fermentum turpis pulvinar. Ut consectetur
-                                                        tempus
-                                                        eleifend. Quisque risus leo, laoreet ut viverra
-                                                        efficitur, efficitur vel libero. Sed rutrum, eros ac congue
-                                                        vestibulum, mi purus semper lacus, a ultricies ipsum diam eu
-                                                        dolor. Maecenas faucibus, nisi quis porttitor rutrum, risus erat
-                                                        scelerisque velit, sit amet pretium ante sem in quam.
-                                                        Ut sed ullamcorper eros, ut egestas lectus. Morbi tempor, neque
-                                                        et
-                                                        tempus mollis, mauris metus tempus augue, ac rutrum
-                                                        lacus diam in risus. Ut tempus accumsan convallis. Duis
-                                                        sollicitudin
-                                                        erat eu mollis lacinia.
-
-                                                        Donec condimentum ac velit id hendrerit. Nam feugiat, lorem id
-                                                        faucibus commodo, dolor lorem egestas arcu, non feugiat
-                                                        tellus purus vitae libero. Etiam suscipit, nisi at venenatis
-                                                        pulvinar, felis ex vestibulum neque, sed feugiat ex metus
-                                                        ac lacus. Quisque blandit ligula enim, et maximus metus
-                                                        pellentesque
-                                                        id. Ut consectetur vestibulum velit ut maximus.
-                                                        Vestibulum nulla magna, facilisis ac vehicula at, pretium quis
-                                                        erat.
-                                                        Donec porttitor venenatis mi et finibus. Donec
-                                                        maximus eleifend est, a condimentum velit rutrum ut. Donec
-                                                        pulvinar
-                                                        nibh in nisi efficitur tempus. Curabitur vel rutrum
-                                                        metus. Nunc neque elit, tempor non urna et, maximus porttitor
-                                                        mauris. Phasellus dictum elit tempor leo dictum, ac
-                                                        convallis nunc laoreet. Suspendisse vehicula nisl nec dolor
-                                                        efficitur viverra. Nunc vehicula, enim eget faucibus
-                                                        facilisis, urna nisl ultricies felis, in maximus ex risus nec
-                                                        justo.
-                                                        Sed vehicula justo a mauris malesuada pharetra.
-                                                        Suspendisse fermentum porta ipsum in lobortis. Maecenas vitae
-                                                        tristique arcu.</p>
+                                                    <p><?php echo $project['purpose']?></p>
                                                 </div>
                                                 <div class="tab-pane" id="tab-eg7-3" role="tabpanel">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut
-                                                        nisl
-                                                        est. Donec id tellus rutrum, aliquam nulla vitae,
-                                                        eleifend odio. Donec id ipsum ut felis tempus viverra. Orci
-                                                        varius
-                                                        natoque penatibus et magnis dis parturient montes,
-                                                        nascetur ridiculus mus. Fusce bibendum est fermentum ipsum
-                                                        eleifend,
-                                                        eu aliquam mauris mollis. Ut tempus tristique
-                                                        congue. Nulla non lacus risus. In hac habitasse platea dictumst.
-                                                        Ut
-                                                        sollicitudin quam nec porta laoreet. Duis in ipsum
-                                                        neque. Donec dictum risus a mollis sodales. Duis luctus euismod
-                                                        erat, id hendrerit purus fermentum ornare. Phasellus
-                                                        pulvinar quis felis id cursus. Nullam ut maximus mi.
-
-                                                        Integer eget porttitor elit. Morbi tincidunt sagittis nunc, vel
-                                                        pharetra nunc interdum ac. Praesent mattis elit id
-                                                        mauris eleifend, et fermentum turpis pulvinar. Ut consectetur
-                                                        tempus
-                                                        eleifend. Quisque risus leo, laoreet ut viverra
-                                                        efficitur, efficitur vel libero. Sed rutrum, eros ac congue
-                                                        vestibulum, mi purus semper lacus, a ultricies ipsum diam eu
-                                                        dolor. Maecenas faucibus, nisi quis porttitor rutrum, risus erat
-                                                        scelerisque velit, sit amet pretium ante sem in quam.
-                                                        Ut sed ullamcorper eros, ut egestas lectus. Morbi tempor, neque
-                                                        et
-                                                        tempus mollis, mauris metus tempus augue, ac rutrum
-                                                        lacus diam in risus. Ut tempus accumsan convallis. Duis
-                                                        sollicitudin
-                                                        erat eu mollis lacinia.
-
-                                                        Donec condimentum ac velit id hendrerit. Nam feugiat, lorem id
-                                                        faucibus commodo, dolor lorem egestas arcu, non feugiat
-                                                        tellus purus vitae libero. Etiam suscipit, nisi at venenatis
-                                                        pulvinar, felis ex vestibulum neque, sed feugiat ex metus
-                                                        ac lacus. Quisque blandit ligula enim, et maximus metus
-                                                        pellentesque
-                                                        id. Ut consectetur vestibulum velit ut maximus.
-                                                        Vestibulum nulla magna, facilisis ac vehicula at, pretium quis
-                                                        erat.
-                                                        Donec porttitor venenatis mi et finibus. Donec
-                                                        maximus eleifend est, a condimentum velit rutrum ut. Donec
-                                                        pulvinar
-                                                        nibh in nisi efficitur tempus. Curabitur vel rutrum
-                                                        metus. Nunc neque elit, tempor non urna et, maximus porttitor
-                                                        mauris. Phasellus dictum elit tempor leo dictum, ac
-                                                        convallis nunc laoreet. Suspendisse vehicula nisl nec dolor
-                                                        efficitur viverra. Nunc vehicula, enim eget faucibus
-                                                        facilisis, urna nisl ultricies felis, in maximus ex risus nec
-                                                        justo.
-                                                        Sed vehicula justo a mauris malesuada pharetra.
-                                                        Suspendisse fermentum porta ipsum in lobortis. Maecenas vitae
-                                                        tristique arcu.</p>
+                                                    <p><?php echo $project['materiel']?></p>
                                                 </div>
                                                 <div class="tab-pane" id="tab-eg7-4" role="tabpanel">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut
-                                                        nisl
-                                                        est. Donec id tellus rutrum, aliquam nulla vitae,
-                                                        eleifend odio. Donec id ipsum ut felis tempus viverra. Orci
-                                                        varius
-                                                        natoque penatibus et magnis dis parturient montes,
-                                                        nascetur ridiculus mus. Fusce bibendum est fermentum ipsum
-                                                        eleifend,
-                                                        eu aliquam mauris mollis. Ut tempus tristique
-                                                        congue. Nulla non lacus risus. In hac habitasse platea dictumst.
-                                                        Ut
-                                                        sollicitudin quam nec porta laoreet. Duis in ipsum
-                                                        neque. Donec dictum risus a mollis sodales. Duis luctus euismod
-                                                        erat, id hendrerit purus fermentum ornare. Phasellus
-                                                        pulvinar quis felis id cursus. Nullam ut maximus mi.
-
-                                                        Integer eget porttitor elit. Morbi tincidunt sagittis nunc, vel
-                                                        pharetra nunc interdum ac. Praesent mattis elit id
-                                                        mauris eleifend, et fermentum turpis pulvinar. Ut consectetur
-                                                        tempus
-                                                        eleifend. Quisque risus leo, laoreet ut viverra
-                                                        efficitur, efficitur vel libero. Sed rutrum, eros ac congue
-                                                        vestibulum, mi purus semper lacus, a ultricies ipsum diam eu
-                                                        dolor. Maecenas faucibus, nisi quis porttitor rutrum, risus erat
-                                                        scelerisque velit, sit amet pretium ante sem in quam.
-                                                        Ut sed ullamcorper eros, ut egestas lectus. Morbi tempor, neque
-                                                        et
-                                                        tempus mollis, mauris metus tempus augue, ac rutrum
-                                                        lacus diam in risus. Ut tempus accumsan convallis. Duis
-                                                        sollicitudin
-                                                        erat eu mollis lacinia.
-
-                                                        Donec condimentum ac velit id hendrerit. Nam feugiat, lorem id
-                                                        faucibus commodo, dolor lorem egestas arcu, non feugiat
-                                                        tellus purus vitae libero. Etiam suscipit, nisi at venenatis
-                                                        pulvinar, felis ex vestibulum neque, sed feugiat ex metus
-                                                        ac lacus. Quisque blandit ligula enim, et maximus metus
-                                                        pellentesque
-                                                        id. Ut consectetur vestibulum velit ut maximus.
-                                                        Vestibulum nulla magna, facilisis ac vehicula at, pretium quis
-                                                        erat.
-                                                        Donec porttitor venenatis mi et finibus. Donec
-                                                        maximus eleifend est, a condimentum velit rutrum ut. Donec
-                                                        pulvinar
-                                                        nibh in nisi efficitur tempus. Curabitur vel rutrum
-                                                        metus. Nunc neque elit, tempor non urna et, maximus porttitor
-                                                        mauris. Phasellus dictum elit tempor leo dictum, ac
-                                                        convallis nunc laoreet. Suspendisse vehicula nisl nec dolor
-                                                        efficitur viverra. Nunc vehicula, enim eget faucibus
-                                                        facilisis, urna nisl ultricies felis, in maximus ex risus nec
-                                                        justo.
-                                                        Sed vehicula justo a mauris malesuada pharetra.
-                                                        Suspendisse fermentum porta ipsum in lobortis. Maecenas vitae
-                                                        tristique arcu.</p>
+                                                    <p><?php echo $project['method']?></p>
                                                 </div>
                                                 <div class="tab-pane" id="tab-eg7-5" role="tabpanel">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut
-                                                        nisl
-                                                        est. Donec id tellus rutrum, aliquam nulla vitae,
-                                                        eleifend odio. Donec id ipsum ut felis tempus viverra. Orci
-                                                        varius
-                                                        natoque penatibus et magnis dis parturient montes,
-                                                        nascetur ridiculus mus. Fusce bibendum est fermentum ipsum
-                                                        eleifend,
-                                                        eu aliquam mauris mollis. Ut tempus tristique
-                                                        congue. Nulla non lacus risus. In hac habitasse platea dictumst.
-                                                        Ut
-                                                        sollicitudin quam nec porta laoreet. Duis in ipsum
-                                                        neque. Donec dictum risus a mollis sodales. Duis luctus euismod
-                                                        erat, id hendrerit purus fermentum ornare. Phasellus
-                                                        pulvinar quis felis id cursus. Nullam ut maximus mi.
-
-                                                        Integer eget porttitor elit. Morbi tincidunt sagittis nunc, vel
-                                                        pharetra nunc interdum ac. Praesent mattis elit id
-                                                        mauris eleifend, et fermentum turpis pulvinar. Ut consectetur
-                                                        tempus
-                                                        eleifend. Quisque risus leo, laoreet ut viverra
-                                                        efficitur, efficitur vel libero. Sed rutrum, eros ac congue
-                                                        vestibulum, mi purus semper lacus, a ultricies ipsum diam eu
-                                                        dolor. Maecenas faucibus, nisi quis porttitor rutrum, risus erat
-                                                        scelerisque velit, sit amet pretium ante sem in quam.
-                                                        Ut sed ullamcorper eros, ut egestas lectus. Morbi tempor, neque
-                                                        et
-                                                        tempus mollis, mauris metus tempus augue, ac rutrum
-                                                        lacus diam in risus. Ut tempus accumsan convallis. Duis
-                                                        sollicitudin
-                                                        erat eu mollis lacinia.
-
-                                                        Donec condimentum ac velit id hendrerit. Nam feugiat, lorem id
-                                                        faucibus commodo, dolor lorem egestas arcu, non feugiat
-                                                        tellus purus vitae libero. Etiam suscipit, nisi at venenatis
-                                                        pulvinar, felis ex vestibulum neque, sed feugiat ex metus
-                                                        ac lacus. Quisque blandit ligula enim, et maximus metus
-                                                        pellentesque
-                                                        id. Ut consectetur vestibulum velit ut maximus.
-                                                        Vestibulum nulla magna, facilisis ac vehicula at, pretium quis
-                                                        erat.
-                                                        Donec porttitor venenatis mi et finibus. Donec
-                                                        maximus eleifend est, a condimentum velit rutrum ut. Donec
-                                                        pulvinar
-                                                        nibh in nisi efficitur tempus. Curabitur vel rutrum
-                                                        metus. Nunc neque elit, tempor non urna et, maximus porttitor
-                                                        mauris. Phasellus dictum elit tempor leo dictum, ac
-                                                        convallis nunc laoreet. Suspendisse vehicula nisl nec dolor
-                                                        efficitur viverra. Nunc vehicula, enim eget faucibus
-                                                        facilisis, urna nisl ultricies felis, in maximus ex risus nec
-                                                        justo.
-                                                        Sed vehicula justo a mauris malesuada pharetra.
-                                                        Suspendisse fermentum porta ipsum in lobortis. Maecenas vitae
-                                                        tristique arcu.</p>
+                                                    <p><?php echo $project['possibility']?></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -848,7 +586,8 @@ $project = json_decode($response, true);
                             </div>
                             <!--Sent Files Details-->
                             <div class="row">
-                                <!--Accepted Files Details-->
+                                <!--
+                                Accepted Files Details
                                 <div class="col-xl-6">
                                     <div class="col-md-12 main-card mb-3 card widget-content">
                                         <div class="col-md-12">
@@ -874,7 +613,7 @@ $project = json_decode($response, true);
                                         </div>
                                     </div>
                                 </div>
-                                <!--Declined Files Details-->
+                                Declined Files Details
                                 <div class="col-xl-6">
                                     <div class="col-md-12 main-card mb-3 card widget-content">
                                         <div class="col-md-12">
@@ -900,18 +639,73 @@ $project = json_decode($response, true);
                                         </div>
                                     </div>
                                 </div>
+                                -->
                             </div>
                         </div>
                         <!--SECOND COLUMN-->
                         <div class="col-xl-6">
-                            <!--Send File-->
-                            <div class="row">
+                            <?php
+                            if(isset($_POST['sendFile'])){
+                                if (isset($_FILES['filePdf'])) {
+                                    $hata = $_FILES['filePdf']['error'];
+                                    if ($hata != 0) {
+                                        echo '<h6 class="card-subtitle ml-2">Error Local</h6>';
+                                    } else {
+                                        $dosya = $_FILES['filePdf']['tmp_name'];
+                                        copy($dosya, 'dosyalar/' . $_FILES['filePdf']['name']);
+                                        $path = 'dosyalar/'. $_FILES['filePdf']['name'];
+                                        $data = file_get_contents($path);
+                                        $filePdfbase64 = base64_encode($data);
+                                    }
+                                }
+                                else {
+                                    echo '<h6 class="card-subtitle ml-2"> filePdf Error</h6>';
+                                }
+                                if (isset($_FILES['fileDocx'])) {
+                                    $hata = $_FILES['fileDocx']['error'];
+                                    if ($hata != 0) {
+                                        echo '<h6 class="card-subtitle ml-2">Error Local</h6>';
+                                    } else {
+                                        $dosya = $_FILES['fileDocx']['tmp_name'];
+                                        copy($dosya, 'dosyalar/' . $_FILES['fileDocx']['name']);
+                                        $path = 'dosyalar/'. $_FILES['fileDocx']['name'];
+                                        $data = file_get_contents($path);
+                                        $fileDocxbase64 = base64_encode($data);
+                                    }
+                                }
+                                else {
+                                    echo '<h6 class="card-subtitle ml-2">fileDocx Error</h6>';
+                                }
+
+                                    //id,projenumber,pdfpath,docpath,status,desc,insertdate,updatedate
+                                    $curl = curl_init();
+
+                                    curl_setopt_array($curl, array(
+                                        CURLOPT_URL => 'http://172.105.73.62:5000/reportsInsert',
+                                        CURLOPT_RETURNTRANSFER => true,
+                                        CURLOPT_ENCODING => '',
+                                        CURLOPT_MAXREDIRS => 10,
+                                        CURLOPT_TIMEOUT => 0,
+                                        CURLOPT_FOLLOWLOCATION => true,
+                                        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                                        CURLOPT_CUSTOMREQUEST => 'POST',
+                                        CURLOPT_POSTFIELDS => array('id' => "", 'projenumber' => $project['number'], 'pdfpath' => $filePdfbase64, 'docpath' => $fileDocxbase64, 'status' => "1", 'desc' => "", 'insertdate' => (string)date("d-m-Y H:i:s"), 'updatedate' => (string)date("d-m-Y H:i:s")),
+                                    ));
+
+                                    $response= curl_exec($curl);
+                                    curl_close($curl);
+                                    echo '<h6 class="card-subtitle ml-2">'.$response.'</h6>';
+                            }
+
+
+                            if($project['status'] == 4){
+                                echo '<div class="row">
                                 <div class="col-xl-12">
                                     <div class="col-md-12 main-card mb-3 card widget-content">
                                         <div class="widget-content-wrapper">
                                             <div class="col-md-12">
                                                 <h5 class="card-title">BELGE GÖNDER</h5>
-                                                <form name="studentFile" method="post" action="student-this-project.php">
+                                                <form name="studentFile" method="post" action="student-this-project.php?id=' . $project['number'] . '" enctype="multipart/form-data">
 
                                                     <div class="position-relative form-group">
                                                         <label for="typeSelect">Belge Türü</label>
@@ -922,18 +716,13 @@ $project = json_decode($response, true);
                                                     </div>
 
                                                     <div class="position-relative form-group">
-                                                        <label for="fileTitle" class="">Belge Başlığı</label>
-                                                        <input name="fileTitle" placeholder="" type="email" class="form-control">
-                                                    </div>
-
-                                                    <div class="position-relative form-group">
                                                         <label for="filePdf">PDF</label>
-                                                        <input name="filePdf" type="file" class="form-control-file">
+                                                        <input required name="filePdf" type="file" class="form-control-file">
                                                     </div>
 
                                                     <div class="position-relative form-group">
                                                         <label for="fileDocx">DOCX</label>
-                                                        <input name="fileDocx" type="file" class="form-control-file">
+                                                        <input required name="fileDocx" type="file" class="form-control-file">
                                                     </div>
 
                                                     <input class="mt-1 btn btn-primary" type="submit" name="sendFile" value="Gönder">
@@ -942,7 +731,11 @@ $project = json_decode($response, true);
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>';
+                            }
+                            ?>
+                            <!--Send File-->
+
                             <!--Project History-->
                             <div class="row">
                                 <div class="col-xl-12">

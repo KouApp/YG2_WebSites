@@ -546,7 +546,7 @@ $project = json_decode($response, true);
                             </div>
                             <?php
                             foreach($projects as $project){
-                                echo '<a href="student-this-project.php" style="text-decoration: none; color: black;"
+                                echo '<a href="student-this-project.php?id=' . $project['number'] . '" style="text-decoration: none; color: black;"
                                 class="main-card mb-3 card">
                                 <div class="card card-body">
                                     <h5 class="card-title">'.$project["headline"].'

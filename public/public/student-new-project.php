@@ -502,7 +502,7 @@ if ($_SESSION['Permisson'] != 'student') {
                             }
                             else{
                                 echo '<div class="alert alert-danger" role="alert">
-                                <strong>Hata!</strong> Başarısız!
+                                <strong>Hata!</strong> '.$response.'
                                 </div>';
                             }
 

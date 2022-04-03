@@ -1,7 +1,7 @@
 <?php
 session_start();
-if($_SESSION['Permisson'] != 'student'){
-    echo'<meta http-equiv="refresh" content="0;URL=404.php">';
+if ($_SESSION['Permisson'] != 'student') {
+    echo '<meta http-equiv="refresh" content="0;URL=404.php">';
 }
 ?>
 <!doctype html>
@@ -13,8 +13,7 @@ if($_SESSION['Permisson'] != 'student'){
     <meta http-equiv="Content-Language" content="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Analytics Dashboard - This is an example dashboard created using build-in elements and components.</title>
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <meta name="description" content="This is an example dashboard created using build-in elements and components.">
     <meta name="msapplication-tap-highlight" content="no">
     <!--
@@ -37,8 +36,7 @@ if($_SESSION['Permisson'] != 'student'){
             <div class="app-header__logo">
                 <div class="header__pane ml-auto">
                     <div>
-                        <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
-                            data-class="closed-sidebar">
+                        <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
                             <span class="hamburger-box">
                                 <span class="hamburger-inner"></span>
                             </span>
@@ -63,15 +61,14 @@ if($_SESSION['Permisson'] != 'student'){
                                 <div class="widget-content-left">
                                     <div class="btn-group">
                                         <div aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                                            <img width="42" class="rounded-circle" src="assets/images/avatars/2.jpg"
-                                                alt="">
+                                            <img width="42" class="rounded-circle" src="assets/images/avatars/2.jpg" alt="">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-content-left  ml-3 header-user-info">
                                         <div class="widget-heading">
-                                            <?php print $_SESSION['fullname']?>
+                                            <?php print $_SESSION['fullname'] ?>
                                         </div>
                                         <div class="widget-subheading text-center">
                                             <?php print $_SESSION['Id'] ?>
@@ -100,11 +97,9 @@ if($_SESSION['Permisson'] != 'student'){
                                     <div class="widget-content p-0">
                                         <div class="widget-content-wrapper">
                                             <div class="widget-content-left mr-3">
-                                                <div class="switch has-switch switch-container-class"
-                                                    data-class="fixed-header">
+                                                <div class="switch has-switch switch-container-class" data-class="fixed-header">
                                                     <div class="switch-animate switch-on">
-                                                        <input type="checkbox" checked data-toggle="toggle"
-                                                            data-onstyle="success">
+                                                        <input type="checkbox" checked data-toggle="toggle" data-onstyle="success">
                                                     </div>
                                                 </div>
                                             </div>
@@ -121,11 +116,9 @@ if($_SESSION['Permisson'] != 'student'){
                                     <div class="widget-content p-0">
                                         <div class="widget-content-wrapper">
                                             <div class="widget-content-left mr-3">
-                                                <div class="switch has-switch switch-container-class"
-                                                    data-class="fixed-sidebar">
+                                                <div class="switch has-switch switch-container-class" data-class="fixed-sidebar">
                                                     <div class="switch-animate switch-on">
-                                                        <input type="checkbox" checked data-toggle="toggle"
-                                                            data-onstyle="success">
+                                                        <input type="checkbox" checked data-toggle="toggle" data-onstyle="success">
                                                     </div>
                                                 </div>
                                             </div>
@@ -142,11 +135,9 @@ if($_SESSION['Permisson'] != 'student'){
                                     <div class="widget-content p-0">
                                         <div class="widget-content-wrapper">
                                             <div class="widget-content-left mr-3">
-                                                <div class="switch has-switch switch-container-class"
-                                                    data-class="fixed-footer">
+                                                <div class="switch has-switch switch-container-class" data-class="fixed-footer">
                                                     <div class="switch-animate switch-off">
-                                                        <input type="checkbox" data-toggle="toggle"
-                                                            data-onstyle="success">
+                                                        <input type="checkbox" data-toggle="toggle" data-onstyle="success">
                                                     </div>
                                                 </div>
                                             </div>
@@ -165,9 +156,7 @@ if($_SESSION['Permisson'] != 'student'){
                             <div>
                                 Başlık Seçenekleri
                             </div>
-                            <button type="button"
-                                class="btn-pill btn-shadow btn-wide ml-auto btn btn-focus btn-sm switch-header-cs-class"
-                                data-class="">
+                            <button type="button" class="btn-pill btn-shadow btn-wide ml-auto btn btn-focus btn-sm switch-header-cs-class" data-class="">
                                 Orijinali Yükle
                             </button>
                         </h3>
@@ -177,115 +166,79 @@ if($_SESSION['Permisson'] != 'student'){
                                     <h5 class="pb-2">Renk Şeması Seç
                                     </h5>
                                     <div class="theme-settings-swatches">
-                                        <div class="swatch-holder bg-primary switch-header-cs-class"
-                                            data-class="bg-primary header-text-light">
+                                        <div class="swatch-holder bg-primary switch-header-cs-class" data-class="bg-primary header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-secondary switch-header-cs-class"
-                                            data-class="bg-secondary header-text-light">
+                                        <div class="swatch-holder bg-secondary switch-header-cs-class" data-class="bg-secondary header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-success switch-header-cs-class"
-                                            data-class="bg-success header-text-dark">
+                                        <div class="swatch-holder bg-success switch-header-cs-class" data-class="bg-success header-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-info switch-header-cs-class"
-                                            data-class="bg-info header-text-dark">
+                                        <div class="swatch-holder bg-info switch-header-cs-class" data-class="bg-info header-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-warning switch-header-cs-class"
-                                            data-class="bg-warning header-text-dark">
+                                        <div class="swatch-holder bg-warning switch-header-cs-class" data-class="bg-warning header-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-danger switch-header-cs-class"
-                                            data-class="bg-danger header-text-light">
+                                        <div class="swatch-holder bg-danger switch-header-cs-class" data-class="bg-danger header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-light switch-header-cs-class"
-                                            data-class="bg-light header-text-dark">
+                                        <div class="swatch-holder bg-light switch-header-cs-class" data-class="bg-light header-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-dark switch-header-cs-class"
-                                            data-class="bg-dark header-text-light">
+                                        <div class="swatch-holder bg-dark switch-header-cs-class" data-class="bg-dark header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-focus switch-header-cs-class"
-                                            data-class="bg-focus header-text-light">
+                                        <div class="swatch-holder bg-focus switch-header-cs-class" data-class="bg-focus header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-alternate switch-header-cs-class"
-                                            data-class="bg-alternate header-text-light">
+                                        <div class="swatch-holder bg-alternate switch-header-cs-class" data-class="bg-alternate header-text-light">
                                         </div>
                                         <div class="divider">
                                         </div>
-                                        <div class="swatch-holder bg-vicious-stance switch-header-cs-class"
-                                            data-class="bg-vicious-stance header-text-light">
+                                        <div class="swatch-holder bg-vicious-stance switch-header-cs-class" data-class="bg-vicious-stance header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-midnight-bloom switch-header-cs-class"
-                                            data-class="bg-midnight-bloom header-text-light">
+                                        <div class="swatch-holder bg-midnight-bloom switch-header-cs-class" data-class="bg-midnight-bloom header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-night-sky switch-header-cs-class"
-                                            data-class="bg-night-sky header-text-light">
+                                        <div class="swatch-holder bg-night-sky switch-header-cs-class" data-class="bg-night-sky header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-slick-carbon switch-header-cs-class"
-                                            data-class="bg-slick-carbon header-text-light">
+                                        <div class="swatch-holder bg-slick-carbon switch-header-cs-class" data-class="bg-slick-carbon header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-asteroid switch-header-cs-class"
-                                            data-class="bg-asteroid header-text-light">
+                                        <div class="swatch-holder bg-asteroid switch-header-cs-class" data-class="bg-asteroid header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-royal switch-header-cs-class"
-                                            data-class="bg-royal header-text-light">
+                                        <div class="swatch-holder bg-royal switch-header-cs-class" data-class="bg-royal header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-warm-flame switch-header-cs-class"
-                                            data-class="bg-warm-flame header-text-dark">
+                                        <div class="swatch-holder bg-warm-flame switch-header-cs-class" data-class="bg-warm-flame header-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-night-fade switch-header-cs-class"
-                                            data-class="bg-night-fade header-text-dark">
+                                        <div class="swatch-holder bg-night-fade switch-header-cs-class" data-class="bg-night-fade header-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-sunny-morning switch-header-cs-class"
-                                            data-class="bg-sunny-morning header-text-dark">
+                                        <div class="swatch-holder bg-sunny-morning switch-header-cs-class" data-class="bg-sunny-morning header-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-tempting-azure switch-header-cs-class"
-                                            data-class="bg-tempting-azure header-text-dark">
+                                        <div class="swatch-holder bg-tempting-azure switch-header-cs-class" data-class="bg-tempting-azure header-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-amy-crisp switch-header-cs-class"
-                                            data-class="bg-amy-crisp header-text-dark">
+                                        <div class="swatch-holder bg-amy-crisp switch-header-cs-class" data-class="bg-amy-crisp header-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-heavy-rain switch-header-cs-class"
-                                            data-class="bg-heavy-rain header-text-dark">
+                                        <div class="swatch-holder bg-heavy-rain switch-header-cs-class" data-class="bg-heavy-rain header-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-mean-fruit switch-header-cs-class"
-                                            data-class="bg-mean-fruit header-text-dark">
+                                        <div class="swatch-holder bg-mean-fruit switch-header-cs-class" data-class="bg-mean-fruit header-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-malibu-beach switch-header-cs-class"
-                                            data-class="bg-malibu-beach header-text-light">
+                                        <div class="swatch-holder bg-malibu-beach switch-header-cs-class" data-class="bg-malibu-beach header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-deep-blue switch-header-cs-class"
-                                            data-class="bg-deep-blue header-text-dark">
+                                        <div class="swatch-holder bg-deep-blue switch-header-cs-class" data-class="bg-deep-blue header-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-ripe-malin switch-header-cs-class"
-                                            data-class="bg-ripe-malin header-text-light">
+                                        <div class="swatch-holder bg-ripe-malin switch-header-cs-class" data-class="bg-ripe-malin header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-arielle-smile switch-header-cs-class"
-                                            data-class="bg-arielle-smile header-text-light">
+                                        <div class="swatch-holder bg-arielle-smile switch-header-cs-class" data-class="bg-arielle-smile header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-plum-plate switch-header-cs-class"
-                                            data-class="bg-plum-plate header-text-light">
+                                        <div class="swatch-holder bg-plum-plate switch-header-cs-class" data-class="bg-plum-plate header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-happy-fisher switch-header-cs-class"
-                                            data-class="bg-happy-fisher header-text-dark">
+                                        <div class="swatch-holder bg-happy-fisher switch-header-cs-class" data-class="bg-happy-fisher header-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-happy-itmeo switch-header-cs-class"
-                                            data-class="bg-happy-itmeo header-text-light">
+                                        <div class="swatch-holder bg-happy-itmeo switch-header-cs-class" data-class="bg-happy-itmeo header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-mixed-hopes switch-header-cs-class"
-                                            data-class="bg-mixed-hopes header-text-light">
+                                        <div class="swatch-holder bg-mixed-hopes switch-header-cs-class" data-class="bg-mixed-hopes header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-strong-bliss switch-header-cs-class"
-                                            data-class="bg-strong-bliss header-text-light">
+                                        <div class="swatch-holder bg-strong-bliss switch-header-cs-class" data-class="bg-strong-bliss header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-grow-early switch-header-cs-class"
-                                            data-class="bg-grow-early header-text-light">
+                                        <div class="swatch-holder bg-grow-early switch-header-cs-class" data-class="bg-grow-early header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-love-kiss switch-header-cs-class"
-                                            data-class="bg-love-kiss header-text-light">
+                                        <div class="swatch-holder bg-love-kiss switch-header-cs-class" data-class="bg-love-kiss header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-premium-dark switch-header-cs-class"
-                                            data-class="bg-premium-dark header-text-light">
+                                        <div class="swatch-holder bg-premium-dark switch-header-cs-class" data-class="bg-premium-dark header-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-happy-green switch-header-cs-class"
-                                            data-class="bg-happy-green header-text-light">
+                                        <div class="swatch-holder bg-happy-green switch-header-cs-class" data-class="bg-happy-green header-text-light">
                                         </div>
                                     </div>
                                 </li>
@@ -293,9 +246,7 @@ if($_SESSION['Permisson'] != 'student'){
                         </div>
                         <h3 class="themeoptions-heading">
                             <div>Yan Sekme Seçenekleri</div>
-                            <button type="button"
-                                class="btn-pill btn-shadow btn-wide ml-auto btn btn-focus btn-sm switch-sidebar-cs-class"
-                                data-class="">
+                            <button type="button" class="btn-pill btn-shadow btn-wide ml-auto btn btn-focus btn-sm switch-sidebar-cs-class" data-class="">
                                 Orijinali Yükle
                             </button>
                         </h3>
@@ -305,115 +256,79 @@ if($_SESSION['Permisson'] != 'student'){
                                     <h5 class="pb-2">Renk Şeması Seç
                                     </h5>
                                     <div class="theme-settings-swatches">
-                                        <div class="swatch-holder bg-primary switch-sidebar-cs-class"
-                                            data-class="bg-primary sidebar-text-light">
+                                        <div class="swatch-holder bg-primary switch-sidebar-cs-class" data-class="bg-primary sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-secondary switch-sidebar-cs-class"
-                                            data-class="bg-secondary sidebar-text-light">
+                                        <div class="swatch-holder bg-secondary switch-sidebar-cs-class" data-class="bg-secondary sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-success switch-sidebar-cs-class"
-                                            data-class="bg-success sidebar-text-dark">
+                                        <div class="swatch-holder bg-success switch-sidebar-cs-class" data-class="bg-success sidebar-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-info switch-sidebar-cs-class"
-                                            data-class="bg-info sidebar-text-dark">
+                                        <div class="swatch-holder bg-info switch-sidebar-cs-class" data-class="bg-info sidebar-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-warning switch-sidebar-cs-class"
-                                            data-class="bg-warning sidebar-text-dark">
+                                        <div class="swatch-holder bg-warning switch-sidebar-cs-class" data-class="bg-warning sidebar-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-danger switch-sidebar-cs-class"
-                                            data-class="bg-danger sidebar-text-light">
+                                        <div class="swatch-holder bg-danger switch-sidebar-cs-class" data-class="bg-danger sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-light switch-sidebar-cs-class"
-                                            data-class="bg-light sidebar-text-dark">
+                                        <div class="swatch-holder bg-light switch-sidebar-cs-class" data-class="bg-light sidebar-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-dark switch-sidebar-cs-class"
-                                            data-class="bg-dark sidebar-text-light">
+                                        <div class="swatch-holder bg-dark switch-sidebar-cs-class" data-class="bg-dark sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-focus switch-sidebar-cs-class"
-                                            data-class="bg-focus sidebar-text-light">
+                                        <div class="swatch-holder bg-focus switch-sidebar-cs-class" data-class="bg-focus sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-alternate switch-sidebar-cs-class"
-                                            data-class="bg-alternate sidebar-text-light">
+                                        <div class="swatch-holder bg-alternate switch-sidebar-cs-class" data-class="bg-alternate sidebar-text-light">
                                         </div>
                                         <div class="divider">
                                         </div>
-                                        <div class="swatch-holder bg-vicious-stance switch-sidebar-cs-class"
-                                            data-class="bg-vicious-stance sidebar-text-light">
+                                        <div class="swatch-holder bg-vicious-stance switch-sidebar-cs-class" data-class="bg-vicious-stance sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-midnight-bloom switch-sidebar-cs-class"
-                                            data-class="bg-midnight-bloom sidebar-text-light">
+                                        <div class="swatch-holder bg-midnight-bloom switch-sidebar-cs-class" data-class="bg-midnight-bloom sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-night-sky switch-sidebar-cs-class"
-                                            data-class="bg-night-sky sidebar-text-light">
+                                        <div class="swatch-holder bg-night-sky switch-sidebar-cs-class" data-class="bg-night-sky sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-slick-carbon switch-sidebar-cs-class"
-                                            data-class="bg-slick-carbon sidebar-text-light">
+                                        <div class="swatch-holder bg-slick-carbon switch-sidebar-cs-class" data-class="bg-slick-carbon sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-asteroid switch-sidebar-cs-class"
-                                            data-class="bg-asteroid sidebar-text-light">
+                                        <div class="swatch-holder bg-asteroid switch-sidebar-cs-class" data-class="bg-asteroid sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-royal switch-sidebar-cs-class"
-                                            data-class="bg-royal sidebar-text-light">
+                                        <div class="swatch-holder bg-royal switch-sidebar-cs-class" data-class="bg-royal sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-warm-flame switch-sidebar-cs-class"
-                                            data-class="bg-warm-flame sidebar-text-dark">
+                                        <div class="swatch-holder bg-warm-flame switch-sidebar-cs-class" data-class="bg-warm-flame sidebar-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-night-fade switch-sidebar-cs-class"
-                                            data-class="bg-night-fade sidebar-text-dark">
+                                        <div class="swatch-holder bg-night-fade switch-sidebar-cs-class" data-class="bg-night-fade sidebar-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-sunny-morning switch-sidebar-cs-class"
-                                            data-class="bg-sunny-morning sidebar-text-dark">
+                                        <div class="swatch-holder bg-sunny-morning switch-sidebar-cs-class" data-class="bg-sunny-morning sidebar-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-tempting-azure switch-sidebar-cs-class"
-                                            data-class="bg-tempting-azure sidebar-text-dark">
+                                        <div class="swatch-holder bg-tempting-azure switch-sidebar-cs-class" data-class="bg-tempting-azure sidebar-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-amy-crisp switch-sidebar-cs-class"
-                                            data-class="bg-amy-crisp sidebar-text-dark">
+                                        <div class="swatch-holder bg-amy-crisp switch-sidebar-cs-class" data-class="bg-amy-crisp sidebar-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-heavy-rain switch-sidebar-cs-class"
-                                            data-class="bg-heavy-rain sidebar-text-dark">
+                                        <div class="swatch-holder bg-heavy-rain switch-sidebar-cs-class" data-class="bg-heavy-rain sidebar-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-mean-fruit switch-sidebar-cs-class"
-                                            data-class="bg-mean-fruit sidebar-text-dark">
+                                        <div class="swatch-holder bg-mean-fruit switch-sidebar-cs-class" data-class="bg-mean-fruit sidebar-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-malibu-beach switch-sidebar-cs-class"
-                                            data-class="bg-malibu-beach sidebar-text-light">
+                                        <div class="swatch-holder bg-malibu-beach switch-sidebar-cs-class" data-class="bg-malibu-beach sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-deep-blue switch-sidebar-cs-class"
-                                            data-class="bg-deep-blue sidebar-text-dark">
+                                        <div class="swatch-holder bg-deep-blue switch-sidebar-cs-class" data-class="bg-deep-blue sidebar-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-ripe-malin switch-sidebar-cs-class"
-                                            data-class="bg-ripe-malin sidebar-text-light">
+                                        <div class="swatch-holder bg-ripe-malin switch-sidebar-cs-class" data-class="bg-ripe-malin sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-arielle-smile switch-sidebar-cs-class"
-                                            data-class="bg-arielle-smile sidebar-text-light">
+                                        <div class="swatch-holder bg-arielle-smile switch-sidebar-cs-class" data-class="bg-arielle-smile sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-plum-plate switch-sidebar-cs-class"
-                                            data-class="bg-plum-plate sidebar-text-light">
+                                        <div class="swatch-holder bg-plum-plate switch-sidebar-cs-class" data-class="bg-plum-plate sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-happy-fisher switch-sidebar-cs-class"
-                                            data-class="bg-happy-fisher sidebar-text-dark">
+                                        <div class="swatch-holder bg-happy-fisher switch-sidebar-cs-class" data-class="bg-happy-fisher sidebar-text-dark">
                                         </div>
-                                        <div class="swatch-holder bg-happy-itmeo switch-sidebar-cs-class"
-                                            data-class="bg-happy-itmeo sidebar-text-light">
+                                        <div class="swatch-holder bg-happy-itmeo switch-sidebar-cs-class" data-class="bg-happy-itmeo sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-mixed-hopes switch-sidebar-cs-class"
-                                            data-class="bg-mixed-hopes sidebar-text-light">
+                                        <div class="swatch-holder bg-mixed-hopes switch-sidebar-cs-class" data-class="bg-mixed-hopes sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-strong-bliss switch-sidebar-cs-class"
-                                            data-class="bg-strong-bliss sidebar-text-light">
+                                        <div class="swatch-holder bg-strong-bliss switch-sidebar-cs-class" data-class="bg-strong-bliss sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-grow-early switch-sidebar-cs-class"
-                                            data-class="bg-grow-early sidebar-text-light">
+                                        <div class="swatch-holder bg-grow-early switch-sidebar-cs-class" data-class="bg-grow-early sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-love-kiss switch-sidebar-cs-class"
-                                            data-class="bg-love-kiss sidebar-text-light">
+                                        <div class="swatch-holder bg-love-kiss switch-sidebar-cs-class" data-class="bg-love-kiss sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-premium-dark switch-sidebar-cs-class"
-                                            data-class="bg-premium-dark sidebar-text-light">
+                                        <div class="swatch-holder bg-premium-dark switch-sidebar-cs-class" data-class="bg-premium-dark sidebar-text-light">
                                         </div>
-                                        <div class="swatch-holder bg-happy-green switch-sidebar-cs-class"
-                                            data-class="bg-happy-green sidebar-text-light">
+                                        <div class="swatch-holder bg-happy-green switch-sidebar-cs-class" data-class="bg-happy-green sidebar-text-light">
                                         </div>
                                     </div>
                                 </li>
@@ -430,8 +345,7 @@ if($_SESSION['Permisson'] != 'student'){
                     <div class="logo-src"></div>
                     <div class="header__pane ml-auto">
                         <div>
-                            <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
-                                data-class="closed-sidebar">
+                            <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
                                 <span class="hamburger-box">
                                     <span class="hamburger-inner"></span>
                                 </span>
@@ -450,8 +364,7 @@ if($_SESSION['Permisson'] != 'student'){
                 </div>
                 <div class="app-header__menu">
                     <span>
-                        <button type="button"
-                            class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                        <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
                             <span class="btn-icon-wrapper">
                                 <i class="fa fa-ellipsis-v fa-w-6"></i>
                             </span>
@@ -522,7 +435,7 @@ if($_SESSION['Permisson'] != 'student'){
                             CURLOPT_POSTFIELDS => array('no' => $_SESSION['Id']),
                         ));
 
-                        $response= curl_exec($curl);
+                        $response = curl_exec($curl);
 
                         curl_close($curl);
                         $projects = json_decode($response, true);
@@ -535,26 +448,26 @@ if($_SESSION['Permisson'] != 'student'){
                             <div class="divider">
                             </div>
                             <?php
-                                foreach($projects as $project){
-                                    echo '<a href="student-this-project.php" style="text-decoration: none; color: black;"
+                            foreach ($projects as $project) {
+                                echo '<a href="student-this-project.php" style="text-decoration: none; color: black;"
                                 class="main-card mb-3 card">
                                 <div class="card card-body">
-                                    <h5 class="card-title">'.$project["headline"].$_SESSION[(string)$project["status"]].'</h5>
+                                    <h5 class="card-title">' . $project["headline"] . $_SESSION[(string)$project["status"]] . '</h5>
                                     <div class="row ml-0">
                                         <h6 class="card-subtitle"><b>Teslim Tarihi:</b></h6>
-                                        <h6 class="card-subtitle ml-2">'.$project["instertionDate"].'</h6>
+                                        <h6 class="card-subtitle ml-2">' . $project["instertionDate"] . '</h6>
                                     </div>
                                     <div class="row ml-0">
                                         <h6 class="card-subtitle"><b>Danışman:</b></h6>
-                                        <h6 class="card-subtitle ml-2">'.$_SESSION["advisorFullName"].'</h6>
+                                        <h6 class="card-subtitle ml-2">' . $_SESSION["advisorFullName"] . '</h6>
                                     </div>
                                     <div class="row ml-0">
                                         <h6 class="card-subtitle"><b>Son Güncelleme:</b></h6>
-                                        <h6 class="card-subtitle ml-2">'.$project["updateDate"].'</h6>
+                                        <h6 class="card-subtitle ml-2">' . $project["updateDate"] . '</h6>
                                     </div>
                                 </div>
                             </a>';
-                                }
+                            }
                             ?>
 
                         </div>
@@ -565,40 +478,52 @@ if($_SESSION['Permisson'] != 'student'){
                             </div>
                             <div class="divider">
                             </div>
-                            <div class="main-card mb-3 card" id="denemeid">
-                                <div class="card-header"><i class="header-icon lnr-license icon-gradient bg-plum-plate">
-                                    </i>Web Sayfası Tasarımı
-                                </div>
-                                <div class="card-body">
-                                    <div class="tab-content">
-                                        <p>-Tüm sayfalar kabaca oluşturulacak. <br>
-                                            -Diğer grup üyelerinin fikri alınacak. <br>
-                                            -Tasarımlar son haline getirilecek. <br>
-                                            -Yasin "Şuraya ekleme yapacağım classları düzeltmeniz lazım" diyecek. <br>
-                                            -Sirac hayata küsecek ve yeniden html çalışmaya başlayacak. <br>
-                                            -Sirac için link:
-                                            <a href="https://www.w3schools.com/">https://www.w3schools.com/</a>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="d-block text-right card-footer">
-                                    <a href="javascript:void(0);" class="btn-wide btn btn-danger">Delete</a>
+                            <div class="mb-3 card card-body">
+                                <h5 class="card-title">BAŞLIK </h5>
+                                <h6 class="card-subtitle">Alt Başlık</h6>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget enim in tortor ultrices hendrerit sed sed ex.
+                                    Integer et vulputate velit, in elementum nisi. Etiam vitae neque quis tortor congue lacinia. Fusce posuere mattis
+                                    ligula. Phasellus dignissim metus tortor, sodales pretium nunc rhoncus id. Vivamus mauris massa, porta quis molestie at,
+                                    pharetra ut ex. Aliquam ut velit non elit volutpat tristique. Vivamus nec sodales ipsum. Aliquam erat volutpat. Nulla
+                                    malesuada nisl erat, a ullamcorper massa elementum nec. Donec bibendum arcu lacus, eu rutrum risus pulvinar sed.
+                                    Pellentesque habitant morbi tristique senectus et netus et.
+                                </p>
+                                <div class="d-block text-left ">
+                                    <input class="btn-wide btn btn-danger" type="submit" value="Sil">
                                 </div>
                             </div>
-                            <div class="main-card mb-3 card">
-                                <div class="card-header"><i class="header-icon lnr-license icon-gradient bg-plum-plate">
-                                    </i>Eski Not
+                            <div class="mb-3 card card-body">
+                                <h5 class="card-title">BAŞLIK </h5>
+                                <h6 class="card-subtitle">Alt Başlık</h6>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget enim in tortor ultrices hendrerit sed sed ex.
+                                    Integer et vulputate velit, in elementum nisi. Etiam vitae neque quis tortor congue lacinia. Fusce posuere mattis
+                                    ligula. Phasellus dignissim metus tortor, sodales pretium nunc rhoncus id. Vivamus mauris massa, porta quis molestie at,
+                                    pharetra ut ex. Aliquam ut velit non elit volutpat tristique. Vivamus nec sodales ipsum. Aliquam erat volutpat. Nulla
+                                    malesuada nisl erat, a ullamcorper massa elementum nec. Donec bibendum arcu lacus, eu rutrum risus pulvinar sed.
+                                    Pellentesque habitant morbi tristique senectus et netus et.
+                                </p>
+                                <div class="d-block text-left ">
+                                    <input class="btn-wide btn btn-danger" type="submit" value="Sil">
                                 </div>
-                                <div class="card-body">
-                                    <div class="tab-content">
-                                        <p>
-                                            Lorem ipsum falan.
-                                        </p>
+                            </div>
+                            <!--Title, subtitle and content inputs in a form and button as input. Card's title will be "Not ekle". -->
+                            <div class="mb-3 card card-body">
+                                <h5 class="card-title">Not Ekle</h5>
+                                <form action="student-add-note.php" method="post">
+                                    <div class="form-group">
+                                        <label for="title">Başlık</label>
+                                        <input type="text" class="form-control" id="title" name="title" placeholder="Başlık">
                                     </div>
-                                </div>
-                                <div class="d-block text-right card-footer">
-                                    <a href="javascript:void(0);" class="btn-wide btn btn-danger">Delete</a>
-                                </div>
+                                    <div class="form-group">
+                                        <label for="subtitle">Alt Başlık</label>
+                                        <input type="text" class="form-control" id="subtitle" name="subtitle" placeholder="Alt Başlık">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="content">İçerik</label>
+                                        <textarea class="form-control" id="content" name="content" rows="3"></textarea>
+                                    </div>
+                                    <input type="submit" class="btn btn-primary" value="Ekle">
+                                </form>
                             </div>
                         </div>
                     </div>

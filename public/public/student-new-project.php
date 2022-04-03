@@ -459,15 +459,14 @@ if ($_SESSION['Permisson'] != 'student') {
 
 
                         $studentid = $_SESSION['Id'];
-                        $insertiondate = "12.12.2022";//(string)date("d-m-Y H:i:s");
-                        $updatedate = "12.12.2022";//(string)date("d-m-Y H:i:s");
+                        $insertiondate = "12.12.2022"; //(string)date("d-m-Y H:i:s");
+                        $updatedate = "12.12.2022"; //(string)date("d-m-Y H:i:s");
                         echo  count($keywords);
-                        if(str_word_count($purpose) < 200 || str_word_count($matter) < 200 || str_word_count($content) < 200 || str_word_count($metariel) < 200 || str_word_count($methodology) < 200 || str_word_count($possibility) < 200 || count($keywords) != 5 ) {
+                        if (str_word_count($purpose) < 200 || str_word_count($matter) < 200 || str_word_count($content) < 200 || str_word_count($metariel) < 200 || str_word_count($methodology) < 200 || str_word_count($possibility) < 200 || count($keywords) != 5) {
                             echo '<div class="alert alert-danger" role="alert">
                             <strong>Hata!</strong> Başarısız!
                             </div>';
-                        }
-                        else {
+                        } else {
                             $curl = curl_init();
                             curl_setopt_array($curl, array(
                                 CURLOPT_URL => 'http://172.105.73.62:5000/projectsInsert',
@@ -478,7 +477,8 @@ if ($_SESSION['Permisson'] != 'student') {
                                 CURLOPT_FOLLOWLOCATION => true,
                                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                                 CURLOPT_CUSTOMREQUEST => 'POST',
-                                CURLOPT_POSTFIELDS => array('id' => $pid,
+                                CURLOPT_POSTFIELDS => array(
+                                    'id' => $pid,
                                     'number' => $pnumber,
                                     'version' => $pversiyon,
                                     'headline' => $headline,
@@ -495,17 +495,17 @@ if ($_SESSION['Permisson'] != 'student') {
                                     'semeterid' => $semeterid,
                                     'studentid' => $studentid,
                                     'insertiondate' => $insertiondate,
-                                    'updatedate' => $updatedate)
+                                    'updatedate' => $updatedate
+                                )
                             ));
 
                             $response = curl_exec($curl);
                             curl_close($curl);
                             $projects = json_decode($response, true);
                             echo '<div class="alert alert-danger" role="alert">
-                            <strong>Hataa!</strong> '.$response.'
+                            <strong>Hataa!</strong> ' . $response . '
                             </div>';
                         }
-
                     }
                     ?>
                     <!--PAGE CONTENT-->
@@ -528,7 +528,7 @@ if ($_SESSION['Permisson'] != 'student') {
                                     }
                                     ?>
                                     <label for="purpose" class="">Projenin amacı (en az 200 kelime.)</label>
-                                    <textarea required name="purpose" type="text"  class="form-control"><?php echo $purpose ?></textarea>
+                                    <textarea required name="purpose" type="text" class="form-control" rows="4"><?php echo $purpose ?></textarea>
                                 </div>
 
                                 <div class="position-relative form-group">
@@ -541,7 +541,7 @@ if ($_SESSION['Permisson'] != 'student') {
                                     }
                                     ?>
                                     <label for="matter" class="">Projenin önemi (en az 200 kelime.)</label>
-                                    <textarea required name="matter" type="text"  class="form-control"><?php echo $matter ?></textarea>
+                                    <textarea required name="matter" type="text" class="form-control" rows="4"><?php echo $matter ?></textarea>
                                 </div>
 
                                 <div class="position-relative form-group">
@@ -554,7 +554,7 @@ if ($_SESSION['Permisson'] != 'student') {
                                     }
                                     ?>
                                     <label for="content" class="">Projenin kapsamı (en az 200 kelime.)</label>
-                                    <textarea required name="content" type="text"  class="form-control"><?php echo $content ?> </textarea>
+                                    <textarea required name="content" type="text" class="form-control" rows="4"><?php echo $content ?> </textarea>
                                 </div>
 
 
@@ -568,7 +568,7 @@ if ($_SESSION['Permisson'] != 'student') {
                                     }
                                     ?>
                                     <label for="metariel" class="">Projenin materyalleri (en az 300 kelime.)</label>
-                                    <textarea required name="metariel" type="text"  class="form-control"><?php echo $metariel ?></textarea>
+                                    <textarea required name="metariel" type="text" class="form-control" rows="4"><?php echo $metariel ?></textarea>
                                 </div>
 
                                 <div class="position-relative form-group">
@@ -581,7 +581,7 @@ if ($_SESSION['Permisson'] != 'student') {
                                     }
                                     ?>
                                     <label for="methodology" class="">Projenin yöntemi (en az 300 kelime.)</label>
-                                    <textarea required name="methodology" type="text"  class="form-control"><?php echo $methodology ?></textarea>
+                                    <textarea required name="methodology" type="text" class="form-control" rows="4"><?php echo $methodology ?></textarea>
                                 </div>
 
                                 <div class="position-relative form-group">
@@ -594,15 +594,15 @@ if ($_SESSION['Permisson'] != 'student') {
                                     }
                                     ?>
                                     <label for="possibility" class="">Projenin araştırma olanakları (en az 300 kelime.)</label>
-                                    <textarea required name="possibility" type="text"  class="form-control"><?php echo $possibility ?></textarea>
+                                    <textarea required name="possibility" type="text" class="form-control" rows="4"><?php echo $possibility ?></textarea>
                                 </div>
 
                                 <div class="position-relative form-group">
                                     <?php
                                     #keywords split ',' to array, if array len < 5 then error
-                                    if(strlen($keyword) > 0){
+                                    if (strlen($keyword) > 0) {
                                         $keywords = explode(',', $keyword);
-                                        if(count($keywords) != 5){
+                                        if (count($keywords) != 5) {
                                             echo '<div class="alert alert-danger" role="alert">
                                                     <strong>Hata!</strong> Projenin anahtar kelimelerinin sayısı 5 olmalıdır.
                                                 </div>';

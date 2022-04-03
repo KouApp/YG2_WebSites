@@ -438,11 +438,10 @@ if ($_SESSION['Permisson'] != 'admin') {
                                     <div class="row">
                                         <div class="col-md-12">
                                             <?php
-                                            if(isset($_POST['adminPasswordChange'])){
-                                                $old_password = $_POST['oldPassword'];
-                                                $new_password = $_POST['newPassword'];
-                                                $new_password_again = $_POST['newPassword2'];
-
+                                            if(isset($_POST['changePassword'])){
+                                                $old_password = $_POST['OldPassword'];
+                                                $new_password = $_POST['NewPassword1'];
+                                                $new_password_again = $_POST['NewPassword2'];
                                                 if($new_password == $new_password_again){
 
                                                     $curl = curl_init();
@@ -458,9 +457,9 @@ if ($_SESSION['Permisson'] != 'admin') {
                                                         CURLOPT_POSTFIELDS => array('no' => $_SESSION['Id'], 'old_pass' => $old_password, 'new_pass' => $new_password),
                                                     ));
 
-                                                    $studentNewPassword = curl_exec($curl);
+                                                    $NewPassword = curl_exec($curl);
                                                     curl_close($curl);
-                                                    if($studentNewPassword != 'False'){
+                                                    if($NewPassword != 'False'){
                                                         echo '<div class="alert alert-success" role="alert">
                                                             <strong>Başarılı!</strong> Şifreniz başarıyla değiştirildi.
                                                             </div>';}
@@ -475,17 +474,17 @@ if ($_SESSION['Permisson'] != 'admin') {
                                             }
 
                                             ?>
-                                            <form name="adminPassword" method="post" action="admin-password.php">
-                                                <label for="oldPassword" class="">Şifre</label>
-                                                <input name="oldPassword" placeholder="" type="password" class="form-control mb-3">
+                                            <form name="NewPassword" method="post" action="admin-password.php">
+                                                <label for="OldPassword" class="">Şifre</label>
+                                                <input required name="OldPassword" placeholder="" type="password" class="form-control mb-3">
 
-                                                <label for="newPassword" class="">Yeni Şifre</label>
-                                                <input name="newPassword" placeholder="" type="password" class="form-control mb-3">
+                                                <label for="NewPassword1" class="">Yeni Şifre</label>
+                                                <input required name="NewPassword1" placeholder="" type="password" class="form-control mb-3">
 
-                                                <label for="newPassword2" class="">Yeni Şifreyi Doğrula</label>
-                                                <input name="newPassword2" placeholder="" type="password" class="form-control mb-3">
+                                                <label for="studentNewPassword2" class="">Yeni Şifreyi Doğrula</label>
+                                                <input required name="NewPassword2" placeholder="" type="password" class="form-control mb-3">
 
-                                                <input class="mt-1 btn btn-primary" type="submit" name="adminPasswordChange" value="Şifreni Değiştir">
+                                                <input class="mt-1 btn btn-primary" type="submit" name="changePassword" value="Şifreni Değiştir">
                                             </form>
                                         </div>
                                     </div>

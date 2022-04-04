@@ -547,7 +547,7 @@ $json = json_decode($response, true);
                             </div>
                         </div>
                         <!--Student Projects-->
-                            <div class="row">
+                            <div class="col-xl-4">
                             <?php
                             $curl = curl_init();
 

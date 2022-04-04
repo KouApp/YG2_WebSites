@@ -3,7 +3,7 @@ session_start();
 $id = $_GET['id']; //get id from url
 echo $id;
 
-if($_SESSION['Permisson'] != 'advisor' ||!isset($id) || empty($id) ) {
+if ($_SESSION['Permisson'] != 'advisor' || !isset($id) || empty($id)) {
     echo '<meta http-equiv="refresh" content="0;URL=404.php">';
 }
 
@@ -457,7 +457,7 @@ $project = json_decode($response, true);
                                                         <h6>Proje Adı</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6 class="text-dark"><?php echo $project['headline']?></h6>
+                                                        <h6 class="text-dark"><?php echo $project['headline'] ?></h6>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -466,7 +466,7 @@ $project = json_decode($response, true);
                                                         <h6>Proje Alım Tarihi</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6 class="text-dark"><?php echo $project['instertionDate']?></h6>
+                                                        <h6 class="text-dark"><?php echo $project['instertionDate'] ?></h6>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -495,35 +495,36 @@ $project = json_decode($response, true);
                                                         5	Red       	000000
                                                         6	Revize    	000000
                                                         7	Tamamlandı	000000  */
-                                                        if($project['status'] == 1){
+                                                        if ($project['status'] == 1) {
                                                             echo '<h6 class="text-dark">Proje Gönderildi</h6>';
-                                                        }
-                                                        else if ($project['status'] == 2){
+                                                        } else if ($project['status'] == 2) {
                                                             echo '<h6 class="text-dark">Proje Görüldü</h6>';
-                                                        }
-                                                        else if ($project['status'] == 3) {
+                                                        } else if ($project['status'] == 3) {
                                                             echo '<h6 class="text-dark">Proje İndirildi</h6>';
-                                                        }
-                                                        else if ($project['status'] == 4) {
+                                                        } else if ($project['status'] == 4) {
                                                             echo '<h6 class="text-dark">Proje Kabul Edildi</h6>';
-                                                        }
-                                                        else if ($project['status'] == 5) {
+                                                        } else if ($project['status'] == 5) {
                                                             echo '<h6 class="text-dark">Proje Red Edildi</h6>';
-                                                        }
-                                                        else if ($project['status'] == 6) {
+                                                        } else if ($project['status'] == 6) {
                                                             echo '<h6 class="text-dark">Proje Revize Edildi</h6>';
-                                                        }
-                                                        else if ($project['status'] == 7) {
+                                                        } else if ($project['status'] == 7) {
                                                             echo '<h6 class="text-dark">Proje Tamamlandı</h6>';
-                                                        }
-                                                        else if ($project['status'] == 0) {
+                                                        } else if ($project['status'] == 0) {
                                                             echo '<h6 class="text-dark">Proje Test Edildi</h6>';
                                                         }
 
                                                         ?>
                                                     </div>
                                                 </div>
-
+                                                <br>
+                                                <div class="widget-content-wrapper">
+                                                    <div class="widget-content-left">
+                                                        <h6>Anahtar Kelimeler</h6>
+                                                    </div>
+                                                    <div class="widget-content-right">
+                                                        <h6 class="text-dark">kelime1, kelime2, kelime3, kelime4, kelime5</h6>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -596,22 +597,22 @@ $project = json_decode($response, true);
                                         <div class="card-body">
                                             <div class="tab-content">
                                                 <div class="tab-pane active show" id="tab-eg7-0" role="tabpanel">
-                                                    <p><?php echo $project['matter']?></p>
+                                                    <p><?php echo $project['matter'] ?></p>
                                                 </div>
                                                 <div class="tab-pane" id="tab-eg7-1" role="tabpanel">
-                                                    <p><?php echo $project['[content]']?></p>
+                                                    <p><?php echo $project['[content]'] ?></p>
                                                 </div>
                                                 <div class="tab-pane" id="tab-eg7-2" role="tabpanel">
-                                                    <p><?php echo $project['purpose']?></p>
+                                                    <p><?php echo $project['purpose'] ?></p>
                                                 </div>
                                                 <div class="tab-pane" id="tab-eg7-3" role="tabpanel">
-                                                    <p><?php echo $project['materiel']?></p>
+                                                    <p><?php echo $project['materiel'] ?></p>
                                                 </div>
                                                 <div class="tab-pane" id="tab-eg7-4" role="tabpanel">
-                                                    <p><?php echo $project['method']?></p>
+                                                    <p><?php echo $project['method'] ?></p>
                                                 </div>
                                                 <div class="tab-pane" id="tab-eg7-5" role="tabpanel">
-                                                    <p><?php echo $project['possibility']?></p>
+                                                    <p><?php echo $project['possibility'] ?></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -622,51 +623,58 @@ $project = json_decode($response, true);
 
                             <!--Sent Files-->
                             <div class="row">
-                                <div class="col-md-6">
+                                
+                                <div class="col-xl-6">
                                     <div class="col-md-12 main-card mb-3 card widget-content">
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <h5 class="card-title">Onaylanan Belgeler</h5>
                                             <a href="" style="text-decoration: none; color: black;">
-                                                <h6>Birinci Rapor</h6>
+                                                <h6>Belge 1:</h6>
                                             </a>
                                             <a href="" style="text-decoration: none; color: black;">
-                                                <h6>İkinci Rapor</h6>
+                                                <h6>Belge 1:</h6>
                                             </a>
                                             <a href="" style="text-decoration: none; color: black;">
-                                                <h6>Üçüncü Rapor</h6>
+                                                <h6>Belge 1:</h6>
                                             </a>
                                             <a href="" style="text-decoration: none; color: black;">
-                                                <h6>"Tez Gönderimi Yok"</h6>
+                                                <h6>Belge 1:</h6>
                                             </a>
                                             <a href="" style="text-decoration: none; color: black;">
-                                                <h6>"Tez Gönderimi Yok"</h6>
+                                                <h6>Belge 1:</h6>
                                             </a>
                                             <a href="" style="text-decoration: none; color: black;">
-                                                <h6>"Tez Gönderimi Yok"</h6>
+                                                <h6>Belge 1:</h6>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="col-md-12 main-card mb-3  card widget-content">
-                                        <div class="col-md-6">
+                                <div class="col-xl-6">
+                                    <div class="col-md-12 main-card mb-3 card widget-content">
+                                        <div class="col-md-12">
                                             <h5 class="card-title">Reddedilen Belgeler</h5>
                                             <a href="" style="text-decoration: none; color: black;">
-                                                <h6>Kötü Rapor</h6>
+                                                <h6>Belge 1:</h6>
                                             </a>
                                             <a href="" style="text-decoration: none; color: black;">
-                                                <h6>Kötü Rapor</h6>
+                                                <h6>Belge 1:</h6>
                                             </a>
                                             <a href="" style="text-decoration: none; color: black;">
-                                                <h6>Kötü Rapor</h6>
+                                                <h6>Belge 1:</h6>
                                             </a>
                                             <a href="" style="text-decoration: none; color: black;">
-                                                <h6>Kötü Rapor</h6>
+                                                <h6>Belge 1:</h6>
+                                            </a>
+                                            <a href="" style="text-decoration: none; color: black;">
+                                                <h6>Belge 1:</h6>
+                                            </a>
+                                            <a href="" style="text-decoration: none; color: black;">
+                                                <h6>Belge 1:</h6>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-
+                            
                             </div>
 
                             <!--Plaguarism??? Table-->
@@ -686,56 +694,55 @@ $project = json_decode($response, true);
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                <?php
-                                                $curl = curl_init();
+                                                    <?php
+                                                    $curl = curl_init();
 
-                                                curl_setopt_array($curl, array(
-                                                    CURLOPT_URL => 'http://172.105.73.62:5000/plagiarismRate',
-                                                    CURLOPT_RETURNTRANSFER => true,
-                                                    CURLOPT_ENCODING => '',
-                                                    CURLOPT_MAXREDIRS => 10,
-                                                    CURLOPT_TIMEOUT => 0,
-                                                    CURLOPT_FOLLOWLOCATION => true,
-                                                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                                                    CURLOPT_CUSTOMREQUEST => 'POST',
-                                                    CURLOPT_POSTFIELDS => array('mainProjeid' => trim($project["number"])),
-                                                ));
+                                                    curl_setopt_array($curl, array(
+                                                        CURLOPT_URL => 'http://172.105.73.62:5000/plagiarismRate',
+                                                        CURLOPT_RETURNTRANSFER => true,
+                                                        CURLOPT_ENCODING => '',
+                                                        CURLOPT_MAXREDIRS => 10,
+                                                        CURLOPT_TIMEOUT => 0,
+                                                        CURLOPT_FOLLOWLOCATION => true,
+                                                        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                                                        CURLOPT_CUSTOMREQUEST => 'POST',
+                                                        CURLOPT_POSTFIELDS => array('mainProjeid' => trim($project["number"])),
+                                                    ));
 
-                                                $response= curl_exec($curl);
-                                                curl_close($curl);
-                                                $plagarisms = json_decode($response, true);
+                                                    $response = curl_exec($curl);
+                                                    curl_close($curl);
+                                                    $plagarisms = json_decode($response, true);
 
-                                                foreach ($plagarisms as $key => $value) {
-                                                    foreach ($value as $key2 => $value2) {
-                                                        if ($value2 > 0) {
-                                                            $curl = curl_init();
+                                                    foreach ($plagarisms as $key => $value) {
+                                                        foreach ($value as $key2 => $value2) {
+                                                            if ($value2 > 0) {
+                                                                $curl = curl_init();
 
-                                                            curl_setopt_array($curl, array(
-                                                                CURLOPT_URL => 'http://172.105.73.62:5000/projectQuery',
-                                                                CURLOPT_RETURNTRANSFER => true,
-                                                                CURLOPT_ENCODING => '',
-                                                                CURLOPT_MAXREDIRS => 10,
-                                                                CURLOPT_TIMEOUT => 0,
-                                                                CURLOPT_FOLLOWLOCATION => true,
-                                                                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                                                                CURLOPT_CUSTOMREQUEST => 'POST',
-                                                                CURLOPT_POSTFIELDS => array('id' => $key2),
-                                                            ));
+                                                                curl_setopt_array($curl, array(
+                                                                    CURLOPT_URL => 'http://172.105.73.62:5000/projectQuery',
+                                                                    CURLOPT_RETURNTRANSFER => true,
+                                                                    CURLOPT_ENCODING => '',
+                                                                    CURLOPT_MAXREDIRS => 10,
+                                                                    CURLOPT_TIMEOUT => 0,
+                                                                    CURLOPT_FOLLOWLOCATION => true,
+                                                                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                                                                    CURLOPT_CUSTOMREQUEST => 'POST',
+                                                                    CURLOPT_POSTFIELDS => array('id' => $key2),
+                                                                ));
 
-                                                            $response = curl_exec($curl);
-                                                            curl_close($curl);
-                                                            $project = json_decode($response, true);
-                                                            echo '<tr>
+                                                                $response = curl_exec($curl);
+                                                                curl_close($curl);
+                                                                $project = json_decode($response, true);
+                                                                echo '<tr>
                                                         <th scope="row">1</th>
-                                                        <td><a href="advisor-this-project.php?id='.$key2. '"style="text-decoration: none; color: black;">' . $key2 . '</a></td>
-                                                        <td><a href="advisor-this-project.php?id='.$key2. '"style="text-decoration: none; color: black;">' . $project['headline'] . '</a></td>
+                                                        <td><a href="advisor-this-project.php?id=' . $key2 . '"style="text-decoration: none; color: black;">' . $key2 . '</a></td>
+                                                        <td><a href="advisor-this-project.php?id=' . $key2 . '"style="text-decoration: none; color: black;">' . $project['headline'] . '</a></td>
                                                         <td>%' . $value2 . '</td>
                                                         </tr>';
+                                                            }
                                                         }
-
                                                     }
-                                                }
-                                                ?>
+                                                    ?>
                                                 </tbody>
                                             </table>
                                         </div>

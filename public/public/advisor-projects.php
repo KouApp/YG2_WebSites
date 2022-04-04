@@ -554,7 +554,9 @@ $students = json_decode($response, true);
                                 echo '<div class="col-xl-4">
                                 <a href="advisor-this-project.php?id='.$project['number'] . '" style="text-decoration: none; color: black;" class="main-card mb-3 card">
                                 <div class="card card-body">
-                                    <h5 class="card-title">'.$project["headline"].'</h5>
+                                    <h5 class="card-title">'.$project["headline"]. '</h5>
+                                    <br>
+                                    <div class="col-md-12">
                                     <div class="row">
                                         <h6 class="card-subtitle"><b>Teslim Tarihi:</b></h6>
                                         <h6 class="card-subtitle ml-2">'.$project["instertionDate"].'</h6>
@@ -565,12 +567,13 @@ $students = json_decode($response, true);
                                     </div>
                                     <div class="row">
                                         <h6 class="card-subtitle"><b>Durum:</b></h6>
-                                        <h6 class="card-subtitle ml-2">'.$_SESSION[(string)$project["status"]].'</h6>
+                                        <h6 class="card-subtitle ml-2">'.$_SESSION[(string)$project["status"]]. '</h6>
                                     </div>
                                     <div class="row">
                                             <h6 class="card-subtitle"><b>Danışman:</b></h6>
                                             <h6 class="card-subtitle ml-3">Dr. Öğr. Üyesi Önder YAKUT</h6>
-                                        </div>
+                                    </div>
+                                    </div>
                                 </div>
                             </a>
                              </div>';

@@ -3,7 +3,7 @@ session_start();
 $id = $_GET['id']; //get id from url
 echo $id;
 
-if($_SESSION['Permisson'] != 'student' ||!isset($id) || empty($id) ) {
+if ($_SESSION['Permisson'] != 'student' || !isset($id) || empty($id)) {
     echo '<meta http-equiv="refresh" content="0;URL=404.php">';
 }
 
@@ -472,7 +472,7 @@ $acceptReport = curl_exec($curl);
                                                         <h6>Proje Adı</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6 class="text-dark"><?php echo $project['headline']?></h6>
+                                                        <h6 class="text-dark"><?php echo $project['headline'] ?></h6>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -481,7 +481,7 @@ $acceptReport = curl_exec($curl);
                                                         <h6>Proje Alım Tarihi</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6 class="text-dark"><?php echo $project['instertionDate']?></h6>
+                                                        <h6 class="text-dark"><?php echo $project['instertionDate'] ?></h6>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -509,28 +509,21 @@ $acceptReport = curl_exec($curl);
                                                         5	Red       	000000
                                                         6	Revize    	000000
                                                         7	Tamamlandı	000000  */
-                                                        if($project['status'] == 1){
+                                                        if ($project['status'] == 1) {
                                                             echo '<h6 class="text-dark">Proje Gönderildi</h6>';
-                                                        }
-                                                        else if ($project['status'] == 2){
+                                                        } else if ($project['status'] == 2) {
                                                             echo '<h6 class="text-dark">Proje Görüldü</h6>';
-                                                        }
-                                                        else if ($project['status'] == 3) {
+                                                        } else if ($project['status'] == 3) {
                                                             echo '<h6 class="text-dark">Proje İndirildi</h6>';
-                                                        }
-                                                        else if ($project['status'] == 4) {
+                                                        } else if ($project['status'] == 4) {
                                                             echo '<h6 class="text-dark">Proje Kabul Edildi</h6>';
-                                                        }
-                                                        else if ($project['status'] == 5) {
+                                                        } else if ($project['status'] == 5) {
                                                             echo '<h6 class="text-dark">Proje Red Edildi</h6>';
-                                                        }
-                                                        else if ($project['status'] == 6) {
+                                                        } else if ($project['status'] == 6) {
                                                             echo '<h6 class="text-dark">Proje Revize Edildi</h6>';
-                                                        }
-                                                        else if ($project['status'] == 7) {
+                                                        } else if ($project['status'] == 7) {
                                                             echo '<h6 class="text-dark">Proje Tamamlandı</h6>';
-                                                        }
-                                                        else if ($project['status'] == 0) {
+                                                        } else if ($project['status'] == 0) {
                                                             echo '<h6 class="text-dark">Proje Test Edildi</h6>';
                                                         }
 
@@ -543,7 +536,7 @@ $acceptReport = curl_exec($curl);
                                                         <h6>Açıklama</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6 class="text-dark"><?php echo $project['description']?></h6>
+                                                        <h6 class="text-dark"><?php echo $project['description'] ?></h6>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -552,7 +545,7 @@ $acceptReport = curl_exec($curl);
                                                         <h6>Proje Anahtar Kelimeleri</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6 class="text-dark"><?php echo $project['keyword']?></h6>
+                                                        <h6 class="text-dark"><?php echo $project['keyword'] ?></h6>
                                                     </div>
                                                 </div>
                                             </div>
@@ -578,22 +571,22 @@ $acceptReport = curl_exec($curl);
                                         <div class="card-body">
                                             <div class="tab-content">
                                                 <div class="tab-pane active show" id="tab-eg7-0" role="tabpanel">
-                                                    <p><?php echo $project['matter']?></p>
+                                                    <p><?php echo $project['matter'] ?></p>
                                                 </div>
                                                 <div class="tab-pane" id="tab-eg7-1" role="tabpanel">
-                                                    <p><?php echo $project['[content]']?></p>
+                                                    <p><?php echo $project['[content]'] ?></p>
                                                 </div>
                                                 <div class="tab-pane" id="tab-eg7-2" role="tabpanel">
-                                                    <p><?php echo $project['purpose']?></p>
+                                                    <p><?php echo $project['purpose'] ?></p>
                                                 </div>
                                                 <div class="tab-pane" id="tab-eg7-3" role="tabpanel">
-                                                    <p><?php echo $project['materiel']?></p>
+                                                    <p><?php echo $project['materiel'] ?></p>
                                                 </div>
                                                 <div class="tab-pane" id="tab-eg7-4" role="tabpanel">
-                                                    <p><?php echo $project['method']?></p>
+                                                    <p><?php echo $project['method'] ?></p>
                                                 </div>
                                                 <div class="tab-pane" id="tab-eg7-5" role="tabpanel">
-                                                    <p><?php echo $project['possibility']?></p>
+                                                    <p><?php echo $project['possibility'] ?></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -663,10 +656,10 @@ $acceptReport = curl_exec($curl);
                         <div class="col-xl-6">
                             <?php
                             $url = "http://172.105.73.62:5000/reportsInsert";
-                            if($acceptReport >= 3){
+                            if ($acceptReport >= 3) {
                                 $url = "http://172.105.73.62:5000/dissertationInsert";
                             }
-                            if(isset($_POST['sendFile'])){
+                            if (isset($_POST['sendFile'])) {
                                 if (isset($_FILES['filePdf'])) {
                                     $hata = $_FILES['filePdf']['error'];
                                     if ($hata != 0) {
@@ -674,12 +667,11 @@ $acceptReport = curl_exec($curl);
                                     } else {
                                         $dosya = $_FILES['filePdf']['tmp_name'];
                                         copy($dosya, 'dosyalar/' . $_FILES['filePdf']['name']);
-                                        $path = 'dosyalar/'. $_FILES['filePdf']['name'];
+                                        $path = 'dosyalar/' . $_FILES['filePdf']['name'];
                                         $data = file_get_contents($path);
                                         $filePdfbase64 = base64_encode($data);
                                     }
-                                }
-                                else {
+                                } else {
                                     echo '<h6 class="card-subtitle ml-2"> filePdf Error</h6>';
                                 }
                                 if (isset($_FILES['fileDocx'])) {
@@ -689,37 +681,36 @@ $acceptReport = curl_exec($curl);
                                     } else {
                                         $dosya = $_FILES['fileDocx']['tmp_name'];
                                         copy($dosya, 'dosyalar/' . $_FILES['fileDocx']['name']);
-                                        $path = 'dosyalar/'. $_FILES['fileDocx']['name'];
+                                        $path = 'dosyalar/' . $_FILES['fileDocx']['name'];
                                         $data = file_get_contents($path);
                                         $fileDocxbase64 = base64_encode($data);
                                     }
-                                }
-                                else {
+                                } else {
                                     echo '<h6 class="card-subtitle ml-2">fileDocx Error</h6>';
                                 }
 
-                                    //id,projenumber,pdfpath,docpath,status,desc,insertdate,updatedate
-                                    $curl = curl_init();
+                                //id,projenumber,pdfpath,docpath,status,desc,insertdate,updatedate
+                                $curl = curl_init();
 
-                                    curl_setopt_array($curl, array(
-                                        CURLOPT_URL => $url,
-                                        CURLOPT_RETURNTRANSFER => true,
-                                        CURLOPT_ENCODING => '',
-                                        CURLOPT_MAXREDIRS => 10,
-                                        CURLOPT_TIMEOUT => 0,
-                                        CURLOPT_FOLLOWLOCATION => true,
-                                        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                                        CURLOPT_CUSTOMREQUEST => 'POST',
-                                        CURLOPT_POSTFIELDS => array('id' => "", 'projenumber' => $project['number'], 'pdfpath' => $filePdfbase64, 'docpath' => $fileDocxbase64, 'status' => "1", 'desc' => "", 'insertdate' => (string)date("d-m-Y H:i:s"), 'updatedate' => (string)date("d-m-Y H:i:s")),
-                                    ));
+                                curl_setopt_array($curl, array(
+                                    CURLOPT_URL => $url,
+                                    CURLOPT_RETURNTRANSFER => true,
+                                    CURLOPT_ENCODING => '',
+                                    CURLOPT_MAXREDIRS => 10,
+                                    CURLOPT_TIMEOUT => 0,
+                                    CURLOPT_FOLLOWLOCATION => true,
+                                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                                    CURLOPT_CUSTOMREQUEST => 'POST',
+                                    CURLOPT_POSTFIELDS => array('id' => "", 'projenumber' => $project['number'], 'pdfpath' => $filePdfbase64, 'docpath' => $fileDocxbase64, 'status' => "1", 'desc' => "", 'insertdate' => (string)date("d-m-Y H:i:s"), 'updatedate' => (string)date("d-m-Y H:i:s")),
+                                ));
 
-                                    $response= curl_exec($curl);
-                                    curl_close($curl);
-                                    echo '<h6 class="card-subtitle ml-2">'.$response.'</h6>';
+                                $response = curl_exec($curl);
+                                curl_close($curl);
+                                echo '<h6 class="card-subtitle ml-2">' . $response . '</h6>';
                             }
 
 
-                            if($project['status'] == 4){
+                            if ($project['status'] == 4) {
                                 echo '<div class="row">
                                 <div class="col-xl-12">
                                     <div class="col-md-12 main-card mb-3 card widget-content">
@@ -769,34 +760,27 @@ $acceptReport = curl_exec($curl);
                                             echo ' <div class="">
                                                 <h6>Sonuç ve Öneriler (Rapor)
                                                     <div class="mb-2 mr-2 ml-2 badge badge-pill badge-info">';
-                                            if($project['status'] == 1){
+                                            if ($project['status'] == 1) {
                                                 echo 'Proje Gönderildi';
-                                            }
-                                            else if ($project['status'] == 2){
+                                            } else if ($project['status'] == 2) {
                                                 echo 'Proje Görüldü';
-                                            }
-                                            else if ($project['status'] == 3) {
+                                            } else if ($project['status'] == 3) {
                                                 echo 'Proje İndirildi';
-                                            }
-                                            else if ($project['status'] == 4) {
+                                            } else if ($project['status'] == 4) {
                                                 echo 'Proje Kabul Edildi';
-                                            }
-                                            else if ($project['status'] == 5) {
+                                            } else if ($project['status'] == 5) {
                                                 echo 'Proje Red Edildi';
-                                            }
-                                            else if ($project['status'] == 6) {
+                                            } else if ($project['status'] == 6) {
                                                 echo 'Proje Revize Edildi';
-                                            }
-                                            else if ($project['status'] == 7) {
+                                            } else if ($project['status'] == 7) {
                                                 echo 'Proje Tamamlandı';
-                                            }
-                                            else if ($project['status'] == 0) {
+                                            } else if ($project['status'] == 0) {
                                                 echo 'Proje Test Edildi';
                                             }
                                             echo '</div>
                                                 </h6>
                                             </div>';
-                                            if($acceptReport >= 3){
+                                            if ($acceptReport >= 3) {
                                                 echo '<div class="">
                                                 <h6>Rapor Durumu
                                                     <div class="mb-2 mr-2 ml-2 badge badge-pill badge-info">
@@ -804,15 +788,14 @@ $acceptReport = curl_exec($curl);
                                                     </div>
                                                 </h6>
                                             </div>';
-
-                                            }
-                                            else{
+                                            } else {
                                                 echo '<div class="">
                                                 <h6>Rapor Durumu
                                                     <div class="mb-2 mr-2 ml-2 badge badge-pill badge-info">
                                                         Raporlar Eksik
                                                     </div>
-                                                </h6>';
+                                                </h6>
+                                            </div>';
                                             }
 
                                             ?>
@@ -833,7 +816,6 @@ $acceptReport = curl_exec($curl);
                             <!--Project Progress-->
                             <div class="row">
                                 <div class="col-xl-12">
-
                                     <div class="col-md-12 main-card mb-3 card widget-content">
                                         <div class="widget-content-wrapper">
                                             <div class="col-md-12">
@@ -889,7 +871,7 @@ $acceptReport = curl_exec($curl);
                                                 <br>
                                                 <!--Progress Bar-->
                                                 <div class="mb-3 progress">
-                                                    <div class="progress-bar" role="progressbar" aria-valuenow="<?php echo $acceptReport ?>" aria-valuemin="0" aria-valuemax="3" style="width: <?php print $acceptReport/3 ?>%;">
+                                                    <div class="progress-bar" role="progressbar" aria-valuenow="<?php echo $acceptReport ?>" aria-valuemin="0" aria-valuemax="3" style="width: <?php print $acceptReport / 3 ?>%;">
                                                         <?php echo $acceptReport ?>
                                                     </div>
                                                 </div>
@@ -913,65 +895,62 @@ $acceptReport = curl_exec($curl);
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                <?php
-                                                $curl = curl_init();
+                                                    <?php
+                                                    $curl = curl_init();
 
-                                                curl_setopt_array($curl, array(
-                                                    CURLOPT_URL => 'http://172.105.73.62:5000/plagiarismRate',
-                                                    CURLOPT_RETURNTRANSFER => true,
-                                                    CURLOPT_ENCODING => '',
-                                                    CURLOPT_MAXREDIRS => 10,
-                                                    CURLOPT_TIMEOUT => 0,
-                                                    CURLOPT_FOLLOWLOCATION => true,
-                                                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                                                    CURLOPT_CUSTOMREQUEST => 'POST',
-                                                    CURLOPT_POSTFIELDS => array('mainProjeid' => trim($project["number"])),
-                                                ));
+                                                    curl_setopt_array($curl, array(
+                                                        CURLOPT_URL => 'http://172.105.73.62:5000/plagiarismRate',
+                                                        CURLOPT_RETURNTRANSFER => true,
+                                                        CURLOPT_ENCODING => '',
+                                                        CURLOPT_MAXREDIRS => 10,
+                                                        CURLOPT_TIMEOUT => 0,
+                                                        CURLOPT_FOLLOWLOCATION => true,
+                                                        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                                                        CURLOPT_CUSTOMREQUEST => 'POST',
+                                                        CURLOPT_POSTFIELDS => array('mainProjeid' => trim($project["number"])),
+                                                    ));
 
-                                                $response= curl_exec($curl);
-                                                curl_close($curl);
-                                                $plagarisms = json_decode($response, true);
+                                                    $response = curl_exec($curl);
+                                                    curl_close($curl);
+                                                    $plagarisms = json_decode($response, true);
 
-                                                foreach ($plagarisms as $key => $value) {
-                                                    foreach ($value as $key2 => $value2) {
-                                                        if ($value2 > 0) {
-                                                            $curl = curl_init();
+                                                    foreach ($plagarisms as $key => $value) {
+                                                        foreach ($value as $key2 => $value2) {
+                                                            if ($value2 > 0) {
+                                                                $curl = curl_init();
 
-                                                            curl_setopt_array($curl, array(
-                                                                CURLOPT_URL => 'http://172.105.73.62:5000/projectQuery',
-                                                                CURLOPT_RETURNTRANSFER => true,
-                                                                CURLOPT_ENCODING => '',
-                                                                CURLOPT_MAXREDIRS => 10,
-                                                                CURLOPT_TIMEOUT => 0,
-                                                                CURLOPT_FOLLOWLOCATION => true,
-                                                                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                                                                CURLOPT_CUSTOMREQUEST => 'POST',
-                                                                CURLOPT_POSTFIELDS => array('id' => $key2),
-                                                            ));
+                                                                curl_setopt_array($curl, array(
+                                                                    CURLOPT_URL => 'http://172.105.73.62:5000/projectQuery',
+                                                                    CURLOPT_RETURNTRANSFER => true,
+                                                                    CURLOPT_ENCODING => '',
+                                                                    CURLOPT_MAXREDIRS => 10,
+                                                                    CURLOPT_TIMEOUT => 0,
+                                                                    CURLOPT_FOLLOWLOCATION => true,
+                                                                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                                                                    CURLOPT_CUSTOMREQUEST => 'POST',
+                                                                    CURLOPT_POSTFIELDS => array('id' => $key2),
+                                                                ));
 
-                                                            $response = curl_exec($curl);
-                                                            curl_close($curl);
-                                                            $project = json_decode($response, true);
-                                                            echo '<tr>
+                                                                $response = curl_exec($curl);
+                                                                curl_close($curl);
+                                                                $project = json_decode($response, true);
+                                                                echo '<tr>
                                                         <th scope="row">1</th>
                                                         <td><a style="text-decoration: none; color: black;">' . $project['headline'] . '</a></td>
                                                         <td>%' . $value2 . '</td>
                                                         </tr>';
+                                                            }
                                                         }
-
                                                     }
-                                                }
-                                                ?>
+                                                    ?>
 
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <!--FOOTER-->

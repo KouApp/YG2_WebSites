@@ -3,11 +3,10 @@ session_start();
 if ($_SESSION['Permisson'] != 'admin') {
     echo '<meta http-equiv="refresh" content="0;URL=404.ph">';
 }
-
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-    CURLOPT_URL => 'http://172.105.73.62:5000/projectListQuery ',
+    CURLOPT_URL => 'http://172.105.73.62:5000/semesterListQuery',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,
@@ -19,7 +18,44 @@ curl_setopt_array($curl, array(
 
 $response = curl_exec($curl);
 curl_close($curl);
-$projects = json_decode($response, true);
+$semester = json_decode($response, true);
+if(isset($_POST['searchButton'])){
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+        CURLOPT_URL => 'http://172.105.73.62:5000/semesterQuery',
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => '',
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => 'POST',
+        CURLOPT_POSTFIELDS => array('id' => $_POST['semester'])
+    ));
+
+    $response = curl_exec($curl);
+    curl_close($curl);
+    $projects = json_decode($response, true);
+}
+else {
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+        CURLOPT_URL => 'http://172.105.73.62:5000/projectListQuery',
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => '',
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => 'POST',
+    ));
+
+    $response = curl_exec($curl);
+    curl_close($curl);
+    $projects = json_decode($response, true);
+}
 
 ?>
 <!doctype html>
@@ -464,9 +500,11 @@ $projects = json_decode($response, true);
                                     <label for="typeSelect" class="sr-only">Belge Türü</label>
                                     <select name="typeSelect" class="form-control mr-2">
                                         <option>Arama için bir tarih seçiniz...</option>
-                                        <option>Tarih</option>
-                                        <option>Tarih</option>
-                                        <option>Tarih</option>
+                                        <?php
+                                        foreach ($semester as $key => $value) {
+                                            echo '<option value="'.$value['id'].'">'.$value['name']." start date : ".$value['startDate']." end date : ".$value['endDate'].'</option>';
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                                 <input class="btn btn-primary" type="submit" name="searchButton" value="Ara">
@@ -552,3 +590,4 @@ $projects = json_decode($response, true);
 </body>
 
 </html>
+

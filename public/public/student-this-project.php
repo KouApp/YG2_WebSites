@@ -24,6 +24,23 @@ curl_setopt_array($curl, array(
 $response = curl_exec($curl);
 curl_close($curl);
 $project = json_decode($response, true);
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+    CURLOPT_URL => 'http://172.105.73.62:5000/projectCounterQuery',
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => '',
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => 'POST',
+    CURLOPT_POSTFIELDS => array('proje_number' => $id)
+));
+
+$acceptReport = curl_exec($curl);
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -645,6 +662,10 @@ $project = json_decode($response, true);
                         <!--SECOND COLUMN-->
                         <div class="col-xl-6">
                             <?php
+                            $url = "http://172.105.73.62:5000/reportsInsert";
+                            if($acceptReport >= 3){
+                                $url = "http://172.105.73.62:5000/dissertationInsert";
+                            }
                             if(isset($_POST['sendFile'])){
                                 if (isset($_FILES['filePdf'])) {
                                     $hata = $_FILES['filePdf']['error'];
@@ -681,7 +702,7 @@ $project = json_decode($response, true);
                                     $curl = curl_init();
 
                                     curl_setopt_array($curl, array(
-                                        CURLOPT_URL => 'http://172.105.73.62:5000/reportsInsert',
+                                        CURLOPT_URL => $url,
                                         CURLOPT_RETURNTRANSFER => true,
                                         CURLOPT_ENCODING => '',
                                         CURLOPT_MAXREDIRS => 10,
@@ -744,34 +765,67 @@ $project = json_decode($response, true);
                                             <div class="widget-content-wrapper">
                                                 <h5 class="card-title">PROJE GEÇMİŞİ</h5>
                                             </div>
-                                            <div class="">
+                                            <?php
+                                            echo ' <div class="">
                                                 <h6>Sonuç ve Öneriler (Rapor)
+                                                    <div class="mb-2 mr-2 ml-2 badge badge-pill badge-info">';
+                                            if($project['status'] == 1){
+                                                echo 'Proje Gönderildi';
+                                            }
+                                            else if ($project['status'] == 2){
+                                                echo 'Proje Görüldü';
+                                            }
+                                            else if ($project['status'] == 3) {
+                                                echo 'Proje İndirildi';
+                                            }
+                                            else if ($project['status'] == 4) {
+                                                echo 'Proje Kabul Edildi';
+                                            }
+                                            else if ($project['status'] == 5) {
+                                                echo 'Proje Red Edildi';
+                                            }
+                                            else if ($project['status'] == 6) {
+                                                echo 'Proje Revize Edildi';
+                                            }
+                                            else if ($project['status'] == 7) {
+                                                echo 'Proje Tamamlandı';
+                                            }
+                                            else if ($project['status'] == 0) {
+                                                echo 'Proje Test Edildi';
+                                            }
+                                            echo '</div>
+                                                </h6>
+                                            </div>';
+                                            if($acceptReport >= 3){
+                                                echo '<div class="">
+                                                <h6>Rapor Durumu
                                                     <div class="mb-2 mr-2 ml-2 badge badge-pill badge-info">
-                                                        Onaylandı
+                                                        Raporlar Tamamlandı
                                                     </div>
                                                 </h6>
-                                            </div>
+                                            </div>';
+
+                                            }
+                                            else{
+                                                echo '<div class="">
+                                                <h6>Rapor Durumu
+                                                    <div class="mb-2 mr-2 ml-2 badge badge-pill badge-info">
+                                                        Raporlar Eksik
+                                                    </div>
+                                                </h6>';
+                                            }
+
+                                            ?>
+
+
                                             <div class="">
-                                                <h6>Sistem Mimarisi (Rapor)
+                                                <h6>Tez Durumu
                                                     <div class="mb-2 mr-2 ml-2 badge badge-pill badge-info">
-                                                        Onaylandı
+                                                        Tez Eksik
                                                     </div>
                                                 </h6>
                                             </div>
-                                            <div class="">
-                                                <h6>Araştırmalar ve Sonuçları (Rapor)
-                                                    <div class="mb-2 mr-2 ml-2 badge badge-pill badge-info">
-                                                        Onaylandı
-                                                    </div>
-                                                </h6>
-                                            </div>
-                                            <div class="">
-                                                <h6>Görüntü ve Video İşleme (Proje)
-                                                    <div class="mb-2 mr-2 ml-2 badge badge-pill badge-info">
-                                                        Onaylandı
-                                                    </div>
-                                                </h6>
-                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -803,7 +857,7 @@ $project = json_decode($response, true);
                                                                         <h6>Onaylanan Rapor: </h6>
                                                                     </div>
                                                                     <div class="widget-content-right">
-                                                                        <h6 class="mr-5">3</h6>
+                                                                        <h6 class="mr-5"><?php echo $acceptReport ?></h6>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -835,8 +889,8 @@ $project = json_decode($response, true);
                                                 <br>
                                                 <!--Progress Bar-->
                                                 <div class="mb-3 progress">
-                                                    <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">
-                                                        50%
+                                                    <div class="progress-bar" role="progressbar" aria-valuenow="<?php echo $acceptReport ?>" aria-valuemin="0" aria-valuemax="3" style="width: <?php print $acceptReport/3 ?>%;">
+                                                        <?php echo $acceptReport ?>
                                                     </div>
                                                 </div>
                                             </div>

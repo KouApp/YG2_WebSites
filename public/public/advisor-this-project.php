@@ -571,18 +571,22 @@ $acceptReport = curl_exec($curl);
                                                         </a></h6>
                                                 </div>
                                             </div>
-                                            <div class="position-relative form-group"><label for="exampleText" class="">Gönderimi reddetmeden önce,
-                                                    reddedilme sebebini yazınız.
-                                                    (Onaylanan gönderimler için boş bırakabilirsiniz.)
-                                                </label><textarea name="text" id="exampleText" class="form-control"></textarea></div>
-                                            <div class="row widget-content-wrapper">
-                                                <div class="widget-content-left">
-                                                    <button class="mt-1 ml-5 btn btn-success">Onayla</button>
+                                            <form name="advisorThisProject1" method="post" action="advisor-this-project.php">
+                                                <div class="position-relative form-group">
+                                                    <label for="explainText" class="">
+                                                        Gönderimi reddetmeden önce, reddedilme sebebini yazınız.
+                                                        (Onaylanan gönderimler için boş bırakabilirsiniz.)</label>
+                                                    <textarea name="explainText" class="form-control"></textarea>
                                                 </div>
-                                                <div class="widget-content-right">
-                                                    <button class="mt-1 mr-5 btn btn-danger">Reddet</button>
+                                                <div class="row widget-content-wrapper">
+                                                    <div class="widget-content-left">
+                                                        <input class="mt-1 ml-5 btn btn-success" type="submit" name="onaylaButton" value="Onayla">
+                                                    </div>
+                                                    <div class="widget-content-right">
+                                                        <input class="mt-1 mr-5 btn btn-danger" type="submit" name="reddetButton" value="Reddet">
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            </form>
                                         </div>
 
                                     </div>

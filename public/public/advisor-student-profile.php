@@ -25,8 +25,6 @@ $response = curl_exec($curl);
 curl_close($curl);
 $json = json_decode($response, true);
 
-
-
 ?>
 <!doctype html>
 <html lang="en">

@@ -477,7 +477,15 @@ if ($_SESSION['Permisson'] != 'admin') {
                                                         <h6 class="text-dark">Tez Hazırlama</h6>
                                                     </div>
                                                 </div>
-
+                                                <br>
+                                                <div class="widget-content-wrapper">
+                                                    <div class="widget-content-left">
+                                                        <h6>Anahtar Kelimeler</h6>
+                                                    </div>
+                                                    <div class="widget-content-right">
+                                                        <h6 class="text-dark">kelime1, kelime2, kel3, kel4, kel5</h6>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -548,114 +556,34 @@ if ($_SESSION['Permisson'] != 'admin') {
                                     <div class="col-md-12 mb-3 main-card card">
                                         <div class="card-header">
                                             <ul class="nav nav-justified">
-                                                <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-0" class="nav-link">Proje
-                                                        Konusu</a></li>
-                                                <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-1" class="nav-link active show">Proje
-                                                        Yöntemleri</a>
+                                                <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-0" class="nav-link active show">Projenin Amacı</a></li>
+                                                <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-1" class="nav-link">Projenin Önemi</a></li>
+                                                <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-2" class="nav-link">Projenin Kapsamı</a></li>
+                                                <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-3" class="nav-link">Projenin Materyalleri</a></li>
+                                                <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-4" class="nav-link">Projenin Yöntemleri</a></li>
+                                                <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-5" class="nav-link">Araştırma Olanakları</a>
                                                 </li>
                                             </ul>
                                         </div>
                                         <div class="card-body">
                                             <div class="tab-content">
-                                                <div class="tab-pane" id="tab-eg7-0" role="tabpanel">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ut
-                                                        ipsum id nisl tristique ultricies. Maecenas eu
-                                                        pulvinar libero. Donec pellentesque facilisis volutpat. Sed
-                                                        ultrices
-                                                        metus vitae lacus gravida aliquam. Integer
-                                                        convallis in orci ut semper. Nam viverra scelerisque est. Nulla
-                                                        a
-                                                        libero et lectus luctus consequat. Vestibulum ante
-                                                        ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-                                                        curae; Proin eget efficitur lorem. Nam pretium viverra
-                                                        mauris, ac facilisis augue elementum pharetra. Maecenas pharetra
-                                                        lacus a erat rutrum porttitor.
-
-                                                        Praesent luctus facilisis elit ac malesuada. In hac habitasse
-                                                        platea
-                                                        dictumst. Aenean aliquam, mauris ac placerat
-                                                        sagittis, urna nunc convallis diam, at luctus elit dui semper
-                                                        purus.
-                                                        Mauris auctor mi quis sem consequat, mollis cursus
-                                                        purus fermentum. Curabitur et mi nisi. Aliquam scelerisque risus
-                                                        scelerisque est venenatis tempor. Aenean faucibus, leo
-                                                        vitae sagittis porttitor, libero lectus euismod ex, quis
-                                                        pulvinar
-                                                        nisl neque a mi. Duis quis nisl tortor. Nullam id
-                                                        euismod diam, quis fringilla neque. Quisque finibus malesuada
-                                                        enim,
-                                                        ac tempus nunc sagittis sed. Nulla imperdiet purus
-                                                        in ante consectetur, et consectetur ligula egestas. Mauris
-                                                        ultrices
-                                                        lobortis pellentesque. Vivamus sed tempus leo.
-
-                                                        Nunc tempor, dui sed dignissim fermentum, dui velit porttitor
-                                                        felis,
-                                                        in facilisis nunc lorem nec nisl. Fusce eu urna
-                                                        ultrices, gravida nulla vitae, posuere lacus. Pellentesque
-                                                        finibus
-                                                        pharetra massa. Donec dapibus turpis eget ipsum
-                                                        tincidunt, et aliquet dolor tincidunt. Fusce ac ullamcorper
-                                                        elit,
-                                                        nec vehicula neque. Quisque dapibus commodo libero, ut
-                                                        sollicitudin risus. Nulla felis lectus, vulputate at egestas ut,
-                                                        auctor ac nisi. Nullam dapibus lobortis eros, sit.</p>
+                                                <div class="tab-pane active show" id="tab-eg7-0" role="tabpanel">
+                                                    <p>Lorem ipsum dolor sit amet</p>
                                                 </div>
-                                                <div class="tab-pane active show" id="tab-eg7-1" role="tabpanel">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut
-                                                        nisl
-                                                        est. Donec id tellus rutrum, aliquam nulla vitae,
-                                                        eleifend odio. Donec id ipsum ut felis tempus viverra. Orci
-                                                        varius
-                                                        natoque penatibus et magnis dis parturient montes,
-                                                        nascetur ridiculus mus. Fusce bibendum est fermentum ipsum
-                                                        eleifend,
-                                                        eu aliquam mauris mollis. Ut tempus tristique
-                                                        congue. Nulla non lacus risus. In hac habitasse platea dictumst.
-                                                        Ut
-                                                        sollicitudin quam nec porta laoreet. Duis in ipsum
-                                                        neque. Donec dictum risus a mollis sodales. Duis luctus euismod
-                                                        erat, id hendrerit purus fermentum ornare. Phasellus
-                                                        pulvinar quis felis id cursus. Nullam ut maximus mi.
-
-                                                        Integer eget porttitor elit. Morbi tincidunt sagittis nunc, vel
-                                                        pharetra nunc interdum ac. Praesent mattis elit id
-                                                        mauris eleifend, et fermentum turpis pulvinar. Ut consectetur
-                                                        tempus
-                                                        eleifend. Quisque risus leo, laoreet ut viverra
-                                                        efficitur, efficitur vel libero. Sed rutrum, eros ac congue
-                                                        vestibulum, mi purus semper lacus, a ultricies ipsum diam eu
-                                                        dolor. Maecenas faucibus, nisi quis porttitor rutrum, risus erat
-                                                        scelerisque velit, sit amet pretium ante sem in quam.
-                                                        Ut sed ullamcorper eros, ut egestas lectus. Morbi tempor, neque
-                                                        et
-                                                        tempus mollis, mauris metus tempus augue, ac rutrum
-                                                        lacus diam in risus. Ut tempus accumsan convallis. Duis
-                                                        sollicitudin
-                                                        erat eu mollis lacinia.
-
-                                                        Donec condimentum ac velit id hendrerit. Nam feugiat, lorem id
-                                                        faucibus commodo, dolor lorem egestas arcu, non feugiat
-                                                        tellus purus vitae libero. Etiam suscipit, nisi at venenatis
-                                                        pulvinar, felis ex vestibulum neque, sed feugiat ex metus
-                                                        ac lacus. Quisque blandit ligula enim, et maximus metus
-                                                        pellentesque
-                                                        id. Ut consectetur vestibulum velit ut maximus.
-                                                        Vestibulum nulla magna, facilisis ac vehicula at, pretium quis
-                                                        erat.
-                                                        Donec porttitor venenatis mi et finibus. Donec
-                                                        maximus eleifend est, a condimentum velit rutrum ut. Donec
-                                                        pulvinar
-                                                        nibh in nisi efficitur tempus. Curabitur vel rutrum
-                                                        metus. Nunc neque elit, tempor non urna et, maximus porttitor
-                                                        mauris. Phasellus dictum elit tempor leo dictum, ac
-                                                        convallis nunc laoreet. Suspendisse vehicula nisl nec dolor
-                                                        efficitur viverra. Nunc vehicula, enim eget faucibus
-                                                        facilisis, urna nisl ultricies felis, in maximus ex risus nec
-                                                        justo.
-                                                        Sed vehicula justo a mauris malesuada pharetra.
-                                                        Suspendisse fermentum porta ipsum in lobortis. Maecenas vitae
-                                                        tristique arcu.</p>
+                                                <div class="tab-pane" id="tab-eg7-1" role="tabpanel">
+                                                    <p>Lorem ipsum dolor sit amet</p>
+                                                </div>
+                                                <div class="tab-pane" id="tab-eg7-2" role="tabpanel">
+                                                    <p>Lorem ipsum dolor sit amet</p>
+                                                </div>
+                                                <div class="tab-pane" id="tab-eg7-3" role="tabpanel">
+                                                    <p>Lorem ipsum dolor sit amet</p>
+                                                </div>
+                                                <div class="tab-pane" id="tab-eg7-4" role="tabpanel">
+                                                    <p>Lorem ipsum dolor sit amet</p>
+                                                </div>
+                                                <div class="tab-pane" id="tab-eg7-5" role="tabpanel">
+                                                    <p>Lorem ipsum dolor sit amet</p>
                                                 </div>
                                             </div>
                                         </div>

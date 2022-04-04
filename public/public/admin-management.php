@@ -1,7 +1,7 @@
 <?php
 session_start();
 if ($_SESSION['Permisson'] != 'admin') {
-    echo'<meta http-equiv="refresh" content="0;URL=404.ph">';
+    echo '<meta http-equiv="refresh" content="0;URL=404.ph">';
 }
 ?>
 <!doctype html>
@@ -431,19 +431,16 @@ if ($_SESSION['Permisson'] != 'admin') {
                 <div class="app-main__inner">
                     <!--PAGE CONTENT-->
                     <div class="row">
-                        <div class="col-md-3">
+                        <!--First Column-->
+                        <div class="col-md-4">
+                            <!--Üye Kaydet-->
                             <div class="row">
-                                <div class="col-xl-12">
+                                <div class="col-xl-6">
                                     <div class="col-md-12 main-card mb-3 card widget-content">
                                         <div class="widget-content-wrapper">
                                             <div class="col-md-12">
-                                                <h5 class="card-title">ÜYELERİ KAYDET</h5>
+                                                <h5 class="card-title">ÖĞRENCİ KAYDET</h5>
                                                 <form name="adminManagement1" method="post" action="admin-management.php">
-                                                    <div class="position-relative form-group">
-                                                        <label for="file1">Danışman Tablosu</label>
-                                                        <input name="file1" id="exampleFile" type="file" class="form-control-file">
-                                                    </div>
-
                                                     <div class="position-relative form-group">
                                                         <label for="file2">Öğrenci Tablosu</label>
                                                         <input name="file2" id="exampleFile" type="file" class="form-control-file">
@@ -455,7 +452,25 @@ if ($_SESSION['Permisson'] != 'admin') {
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-xl-6">
+                                    <div class="col-md-12 main-card mb-3 card widget-content">
+                                        <div class="widget-content-wrapper">
+                                            <div class="col-md-12">
+                                                <h5 class="card-title">DANIŞMAN KAYDET</h5>
+                                                <form name="adminManagement1" method="post" action="admin-management.php">
+                                                    <div class="position-relative form-group">
+                                                        <label for="file2">Danışman Tablosu</label>
+                                                        <input name="file2" id="exampleFile" type="file" class="form-control-file">
+                                                    </div>
+
+                                                    <input class="mt-1 btn btn-primary" type="submit" name="management1" value="Kaydet">
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+                            <!--Yarıyıl Ekle-->
                             <div class="row">
                                 <div class="col-xl-12">
                                     <div class="col-md-12 main-card mb-3 card widget-content">
@@ -463,11 +478,16 @@ if ($_SESSION['Permisson'] != 'admin') {
                                             <h5 class="card-title">EĞİTİM YARIYILINI SEÇ</h5>
                                             <form name="adminManagement2" method="post" action="admin-management.php">
                                                 <div class="position-relative form-group">
-                                                    <label for="phaseSelect" class="">Yarıyıl</label>
-                                                    <select name="phaseSelect" id="exampleSelect" class="form-control">
-                                                        <option>Güz Yarıyılı</option>
-                                                        <option>Bahar Yarıyılı</option>
-                                                    </select>
+                                                    <label for="phaseSelect" class="">Dönem</label>
+                                                    <input name="phaseSelect" class="form-control">
+                                                </div>
+                                                <div class="position-relative form-group">
+                                                    <label for="startSelect" class="">Başlangıç</label>
+                                                    <input name="startSelect" type="date" class="form-control">
+                                                </div>
+                                                <div class="position-relative form-group">
+                                                    <label for="endSelect" class="">Bitiş</label>
+                                                    <input name="endSelect" type="date" class="form-control">
                                                 </div>
                                                 <input class="mt-1 btn btn-primary" type="submit" name="management2" value="Kaydet">
                                             </form>
@@ -478,7 +498,8 @@ if ($_SESSION['Permisson'] != 'admin') {
 
                             </div>
                         </div>
-                        <div class="col-md-9">
+                        <!--Second Column-->
+                        <div class="col-md-8">
                             <div class="col-md-12 col-lg-12 ">
                                 <div class="main-card mb-3 card">
                                     <div class="card-body">

@@ -519,7 +519,7 @@ if($_SESSION['Permisson'] != 'admin'){
                     <div class="row">
 
                         <!--Announcements-->
-                        <div class="col-md-12 col-lg-8">
+                        <div class="col-md-12">
                             <div class="text-center">
                                 <h4><b>Duyurular</b></h4>
                             </div>

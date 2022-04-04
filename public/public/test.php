@@ -28,6 +28,4 @@ if(isset($_POST['sendFile'])){
     else {
         echo '<h6 class="card-subtitle ml-2"> filePdf Error</h6>';
     }
-
-
 }

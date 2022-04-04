@@ -440,13 +440,52 @@ if ($_SESSION['Permisson'] != 'admin') {
                                         <div class="widget-content-wrapper">
                                             <div class="col-md-12">
                                                 <h5 class="card-title">ÖĞRENCİ KAYDET</h5>
-                                                <form name="adminManagement1" method="post" action="admin-management.php">
+                                                <?php
+                                                if(isset($_POST['studentimport'])){
+                                                    if (isset($_FILES['base64'])) {
+                                                        $hata = $_FILES['base64']['error'];
+                                                        if ($hata != 0) {
+                                                            echo '<h6 class="card-subtitle ml-2">Error Local'.$_FILES['base64']['error'].'</h6>';
+                                                        } else {
+                                                            $dosya = $_FILES['base64']['tmp_name'];
+                                                            copy($dosya, 'dosyalar/' . $_FILES['base64']['name']);
+                                                            $path = 'dosyalar/'. $_FILES['base64']['name'];
+                                                            $data = file_get_contents($path);
+                                                            $file2 = base64_encode($data);
+                                                            $curl = curl_init();
+
+                                                            curl_setopt_array($curl, array(
+                                                                CURLOPT_URL => 'http://172.105.73.62:5000/studentimport',
+                                                                CURLOPT_RETURNTRANSFER => true,
+                                                                CURLOPT_ENCODING => '',
+                                                                CURLOPT_MAXREDIRS => 10,
+                                                                CURLOPT_TIMEOUT => 0,
+                                                                CURLOPT_FOLLOWLOCATION => true,
+                                                                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                                                                CURLOPT_CUSTOMREQUEST => 'POST',
+                                                                CURLOPT_POSTFIELDS => array('rowcount' => $_POST['rowcount'], 'base64' => $file2),
+                                                            ));
+
+                                                            $response = curl_exec($curl);
+                                                            curl_close($curl);
+                                                            echo '<div class="alert alert-success" role="alert">
+                                                            <strong>Başarılı!</strong> Öğrenci eklendi.
+                                                            </div>';
+                                                        }
+                                                    }
+                                                    else {
+                                                        echo '<h6 class="card-subtitle ml-2"> excel Error</h6>';
+                                                    }
+                                                }?>
+                                                <form name="adminManagement1" method="post" action="admin-management.php" enctype="multipart/form-data">
                                                     <div class="position-relative form-group">
-                                                        <label for="file2">Öğrenci Tablosu</label>
-                                                        <input name="file2" id="exampleFile" type="file" class="form-control-file">
+                                                        <label for="rowcount">Veri Sayısı</label>
+                                                        <input name="rowcount" id="exampleFile" type="text" class="form-control-file">
+                                                        <label for="base64">Öğrenci Tablosu</label>
+                                                        <input name="base64" id="exampleFile" type="file" class="form-control-file">
                                                     </div>
 
-                                                    <input class="mt-1 btn btn-primary" type="submit" name="management1" value="Kaydet">
+                                                    <input class="mt-1 btn btn-primary" type="submit" name="studentimport" value="Kaydet">
                                                 </form>
                                             </div>
                                         </div>
@@ -456,14 +495,53 @@ if ($_SESSION['Permisson'] != 'admin') {
                                     <div class="col-md-12 main-card mb-3 card widget-content">
                                         <div class="widget-content-wrapper">
                                             <div class="col-md-12">
+                                                <?php
+                                                if(isset($_POST['advisorimport'])){
+                                                    if (isset($_FILES['file2'])) {
+                                                        $hata = $_FILES['file2']['error'];
+                                                        if ($hata != 0) {
+                                                            echo '<h6 class="card-subtitle ml-2">Error Local</h6>';
+                                                        } else {
+                                                            $dosya = $_FILES['file2']['tmp_name'];
+                                                            copy($dosya, 'dosyalar/' . $_FILES['file2']['name']);
+                                                            $path = 'dosyalar/'. $_FILES['file2']['name'];
+                                                            $data = file_get_contents($path);
+                                                            $file2 = base64_encode($data);
+                                                            $curl = curl_init();
+
+                                                            curl_setopt_array($curl, array(
+                                                                CURLOPT_URL => 'http://172.105.73.62:5000/advisorimport',
+                                                                CURLOPT_RETURNTRANSFER => true,
+                                                                CURLOPT_ENCODING => '',
+                                                                CURLOPT_MAXREDIRS => 10,
+                                                                CURLOPT_TIMEOUT => 0,
+                                                                CURLOPT_FOLLOWLOCATION => true,
+                                                                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                                                                CURLOPT_CUSTOMREQUEST => 'POST',
+                                                                CURLOPT_POSTFIELDS => array('rowcount' => $_POST['rowcount'], 'base64' => $file2),
+                                                            ));
+
+                                                            $response = curl_exec($curl);
+                                                            curl_close($curl);
+                                                            echo '<div class="alert alert-success" role="alert">
+                                                            <strong>Başarılı!</strong> Danışman eklendi.
+                                                            </div>';
+                                                        }
+                                                    }
+                                                    else {
+                                                        echo '<h6 class="card-subtitle ml-2"> excel Error</h6>';
+                                                    }
+                                                }?>
                                                 <h5 class="card-title">DANIŞMAN KAYDET</h5>
-                                                <form name="adminManagement1" method="post" action="admin-management.php">
+                                                <form name="adminManagement1" method="post" action="admin-management.php" enctype="multipart/form-data">
                                                     <div class="position-relative form-group">
+                                                        <label for="rowcount">Veri Sayısı</label>
+                                                        <input name="rowcount" id="exampleFile" type="text" class="form-control-file">
                                                         <label for="file2">Danışman Tablosu</label>
                                                         <input name="file2" id="exampleFile" type="file" class="form-control-file">
                                                     </div>
 
-                                                    <input class="mt-1 btn btn-primary" type="submit" name="management1" value="Kaydet">
+                                                    <input class="mt-1 btn btn-primary" type="submit" name="advisorimport" value="Kaydet">
                                                 </form>
                                             </div>
                                         </div>
@@ -475,21 +553,53 @@ if ($_SESSION['Permisson'] != 'admin') {
                                 <div class="col-xl-12">
                                     <div class="col-md-12 main-card mb-3 card widget-content">
                                         <div class="col-md-12">
-                                            <h5 class="card-title">EĞİTİM YARIYILINI SEÇ</h5>
+                                            <?php
+                                            if(isset($_POST['semesterInsert'])){
+                                            $curl = curl_init();
+                                            curl_setopt_array($curl, array(
+                                            CURLOPT_URL => 'http://172.105.73.62:5000/semesterInsert',
+                                            CURLOPT_RETURNTRANSFER => true,
+                                            CURLOPT_ENCODING => '',
+                                            CURLOPT_MAXREDIRS => 10,
+                                            CURLOPT_TIMEOUT => 0,
+                                            CURLOPT_FOLLOWLOCATION => true,
+                                            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                                            CURLOPT_CUSTOMREQUEST => 'POST',
+                                            CURLOPT_POSTFIELDS => array('startdate' => $_POST['startdate'], 'enddate' => $_POST['enddate'], 'name' => $_POST['name'])
+                                            ));
+
+                                            $response = curl_exec($curl);
+                                            curl_close($curl);
+
+                                            //if response Successful print /w strong
+
+                                            if($response == "Successful"){
+                                                echo '<div class="alert alert-success" role="alert">
+                                                            <strong>Başarılı!</strong> Yarıyıl eklendi.
+                                                            </div>';
+                                            }
+                                            else{
+                                                echo '<div class="alert alert-danger" role="alert">
+                                                            <strong>Hata!</strong> '.$response.'
+                                                            </div>';
+                                            }
+                                            }
+                                            ?>
+                                            <h5 class="card-title">EĞİTİM YARIYILINI EKLE</h5>
                                             <form name="adminManagement2" method="post" action="admin-management.php">
                                                 <div class="position-relative form-group">
                                                     <label for="phaseSelect" class="">Dönem</label>
-                                                    <input name="phaseSelect" class="form-control">
+                                                    <input name="name" text class="form-control">
                                                 </div>
                                                 <div class="position-relative form-group">
                                                     <label for="startSelect" class="">Başlangıç</label>
-                                                    <input name="startSelect" type="date" class="form-control">
+                                                    <input name="startdate" type="date" class="form-control">
                                                 </div>
                                                 <div class="position-relative form-group">
                                                     <label for="endSelect" class="">Bitiş</label>
-                                                    <input name="endSelect" type="date" class="form-control">
+                                                    <input name="enddate" type="date" class="form-control">
                                                 </div>
-                                                <input class="mt-1 btn btn-primary" type="submit" name="management2" value="Kaydet">
+                                                <input class="mt-1 btn btn-primary" type="submit" name="semesterInsert" value="Kaydet">
                                             </form>
                                         </div>
 

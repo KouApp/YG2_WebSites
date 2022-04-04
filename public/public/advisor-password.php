@@ -551,7 +551,7 @@ if($_SESSION['Permisson'] != 'advisor'){
                                             }
 
                                             ?>
-                                            <form name="NewPassword" method="post" action="advisor-password.php">
+                                            <form name="NewPassword" method="post" action="advisor-password.php" >
                                                 <label for="OldPassword" class="">Şifre</label>
                                                 <input required name="OldPassword" placeholder="" type="password" class="form-control mb-3">
 

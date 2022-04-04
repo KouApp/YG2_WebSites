@@ -94,6 +94,25 @@ else if ($_SESSION['Permisson'] == "advisor") {
     echo'<meta http-equiv="refresh" content="0;URL=advisor-homepage.php">';
 }
 else if ($_SESSION['Permisson'] == "admin") {
+
+    $curl = curl_init();
+    curl_setopt_array($curl, array(
+        CURLOPT_URL => 'http://172.105.73.62:5000/superadminQuery',
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => '',
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => 'POST',
+        CURLOPT_POSTFIELDS => array('id' => $_SESSION['Id']),
+    ));
+    $response = curl_exec($curl);
+
+    curl_close($curl);
+    $admin = json_decode($response, true);
+    $_SESSION["adminFullName"] = $admin["name"] . " " . $admin['surname'];
+    $_SESSION["title"] = $admin["title"];
     echo'<meta http-equiv="refresh" content="0;URL=admin-homepage.php">';
 }
 ?>

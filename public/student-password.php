@@ -405,7 +405,7 @@ if ($_SESSION['Permisson'] != 'student') {
                                     <i class="metismenu-icon bi bi-person-lines-fill">
                                     </i>Şifre Değiştir
                                 </a>
-                                <a href="#">
+                                <a href="login.php">
                                     <i class="metismenu-icon bi bi-door-open-fill">
                                     </i>Çıkış Yap
                                 </a>

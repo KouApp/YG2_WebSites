@@ -428,7 +428,7 @@ $project = json_decode($response, true);
                                     <i class="metismenu-icon bi bi-person-lines-fill">
                                     </i>Şifre Değiştir
                                 </a>
-                                <a href="#">
+                                <a href="login.php">
                                     <i class="metismenu-icon bi bi-door-open-fill">
                                     </i>Çıkış Yap
                                 </a>
@@ -680,54 +680,62 @@ $project = json_decode($response, true);
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>Öğrenci</th>
+                                                        <th>Proje Numarası</th>
                                                         <th>Proje Başlığı</th>
-                                                        <th>Danışman</th>
-                                                        <th>Konu İntihal Oranı</th>
-                                                        <th>Yöntem İntihal Oranı</th>
+                                                        <th>İntihal Oranı</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
+                                                <?php
+                                                $curl = curl_init();
+
+                                                curl_setopt_array($curl, array(
+                                                    CURLOPT_URL => 'http://172.105.73.62:5000/plagiarismRate',
+                                                    CURLOPT_RETURNTRANSFER => true,
+                                                    CURLOPT_ENCODING => '',
+                                                    CURLOPT_MAXREDIRS => 10,
+                                                    CURLOPT_TIMEOUT => 0,
+                                                    CURLOPT_FOLLOWLOCATION => true,
+                                                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                                                    CURLOPT_CUSTOMREQUEST => 'POST',
+                                                    CURLOPT_POSTFIELDS => array('mainProjeid' => trim($project["number"])),
+                                                ));
+
+                                                $response= curl_exec($curl);
+                                                curl_close($curl);
+                                                $plagarisms = json_decode($response, true);
+
+                                                foreach ($plagarisms as $key => $value) {
+                                                    foreach ($value as $key2 => $value2) {
+                                                        if ($value2 > 0) {
+                                                            $curl = curl_init();
+
+                                                            curl_setopt_array($curl, array(
+                                                                CURLOPT_URL => 'http://172.105.73.62:5000/projectQuery',
+                                                                CURLOPT_RETURNTRANSFER => true,
+                                                                CURLOPT_ENCODING => '',
+                                                                CURLOPT_MAXREDIRS => 10,
+                                                                CURLOPT_TIMEOUT => 0,
+                                                                CURLOPT_FOLLOWLOCATION => true,
+                                                                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                                                                CURLOPT_CUSTOMREQUEST => 'POST',
+                                                                CURLOPT_POSTFIELDS => array('id' => $key2),
+                                                            ));
+
+                                                            $response = curl_exec($curl);
+                                                            curl_close($curl);
+                                                            $project = json_decode($response, true);
+                                                            echo '<tr>
                                                         <th scope="row">1</th>
-                                                        <td>Ad SOYAD</td>
-                                                        <td><a href="advisor-student-profile.html" style="text-decoration: none; color: black;">Proje Adı</a></td>
-                                                        <td>Danışman Adı</td>
-                                                        <td>%45</td>
-                                                        <td>%22</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Ad SOYAD</td>
-                                                        <td><a href="advisor-student-profile.html" style="text-decoration: none; color: black;">Proje Adı</a></td>
-                                                        <td>Danışman Adı</td>
-                                                        <td>%45</td>
-                                                        <td>%22</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Ad SOYAD</td>
-                                                        <td><a href="advisor-student-profile.html" style="text-decoration: none; color: black;">Proje Adı</a></td>
-                                                        <td>Danışman Adı</td>
-                                                        <td>%45</td>
-                                                        <td>%22</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Ad SOYAD</td>
-                                                        <td><a href="advisor-student-profile.html" style="text-decoration: none; color: black;">Proje Adı</a></td>
-                                                        <td>Danışman Adı</td>
-                                                        <td>%45</td>
-                                                        <td>%22</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Ad SOYAD</td>
-                                                        <td><a href="advisor-student-profile.html" style="text-decoration: none; color: black;">Proje Adı</a></td>
-                                                        <td>Danışman Adı</td>
-                                                        <td>%45</td>
-                                                        <td>%22</td>
-                                                    </tr>
+                                                        <td><a href="advisor-this-project.php?id='.$key2. '"style="text-decoration: none; color: black;">' . $key2 . '</a></td>
+                                                        <td><a href="advisor-this-project.php?id='.$key2. '"style="text-decoration: none; color: black;">' . $project['headline'] . '</a></td>
+                                                        <td>%' . $value2 . '</td>
+                                                        </tr>';
+                                                        }
+
+                                                    }
+                                                }
+                                                ?>
                                                 </tbody>
                                             </table>
                                         </div>

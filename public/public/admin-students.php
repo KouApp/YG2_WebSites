@@ -1,7 +1,24 @@
 <?php
 session_start();
-if($_SESSION['Permisson'] != 'admin'){
-    echo'<meta http-equiv="refresh" content="0;URL=404.ph">';
+if($_SESSION['Permisson'] != 'admin') {
+    echo '<meta http-equiv="refresh" content="0;URL=404.ph">';
+}
+$curl = curl_init();
+curl_setopt_array($curl, array(
+    CURLOPT_URL => 'http://172.105.73.62:5000/studentListQuery',
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => '',
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => 'POST',
+));
+
+$response = curl_exec($curl);
+curl_close($curl);
+$students = json_decode($response, true);
+?>
 }
 ?>
 <!doctype html>
@@ -534,142 +551,28 @@ if($_SESSION['Permisson'] != 'admin'){
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td><a href="admin-student-profile.php"
-                                                    style="text-decoration: none; color: black;">Öğrenci Adı</a></td>
-                                            <td>ÖĞRENCİ SOYADI</td>
-                                            <td>211307097</td>
-                                            <td>Danışman Adı Soyadı</td>
-                                            <td>eposta@gmail.com</td>
-                                            <td>0532 457 89 74</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td><a href="admin-student-profile.php" style="text-decoration: none; color: black;">Öğrenci Adı</a></td>
-                                            <td>ÖĞRENCİ SOYADI</td>
-                                            <td>211307097</td>
-                                            <td>Danışman Adı Soyadı</td>
-                                            <td>eposta@gmail.com</td>
-                                            <td>0532 457 89 74</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td><a href="admin-student-profile.php" style="text-decoration: none; color: black;">Öğrenci Adı</a></td>
-                                            <td>ÖĞRENCİ SOYADI</td>
-                                            <td>211307097</td>
-                                            <td>Danışman Adı Soyadı</td>
-                                            <td>eposta@gmail.com</td>
-                                            <td>0532 457 89 74</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">4</th>
-                                            <td><a href="admin-student-profile.php" style="text-decoration: none; color: black;">Öğrenci Adı</a></td>
-                                            <td>ÖĞRENCİ SOYADI</td>
-                                            <td>211307097</td>
-                                            <td>Danışman Adı Soyadı</td>
-                                            <td>eposta@gmail.com</td>
-                                            <td>0532 457 89 74</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">5</th>
-                                            <td><a href="admin-student-profile.php" style="text-decoration: none; color: black;">Öğrenci Adı</a></td>
-                                            <td>ÖĞRENCİ SOYADI</td>
-                                            <td>211307097</td>
-                                            <td>Danışman Adı Soyadı</td>
-                                            <td>eposta@gmail.com</td>
-                                            <td>0532 457 89 74</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">6</th>
-                                            <td><a href="admin-student-profile.php" style="text-decoration: none; color: black;">Öğrenci Adı</a></td>
-                                            <td>ÖĞRENCİ SOYADI</td>
-                                            <td>211307097</td>
-                                            <td>Danışman Adı Soyadı</td>
-                                            <td>eposta@gmail.com</td>
-                                            <td>0532 457 89 74</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">7</th>
-                                            <td><a href="admin-student-profile.php" style="text-decoration: none; color: black;">Öğrenci Adı</a></td>
-                                            <td>ÖĞRENCİ SOYADI</td>
-                                            <td>211307097</td>
-                                            <td>Danışman Adı Soyadı</td>
-                                            <td>eposta@gmail.com</td>
-                                            <td>0532 457 89 74</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">8</th>
-                                            <td><a href="admin-student-profile.php" style="text-decoration: none; color: black;">Öğrenci Adı</a></td>
-                                            <td>ÖĞRENCİ SOYADI</td>
-                                            <td>211307097</td>
-                                            <td>Danışman Adı Soyadı</td>
-                                            <td>eposta@gmail.com</td>
-                                            <td>0532 457 89 74</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">9</th>
-                                            <td><a href="admin-student-profile.php" style="text-decoration: none; color: black;">Öğrenci Adı</a></td>
-                                            <td>ÖĞRENCİ SOYADI</td>
-                                            <td>211307097</td>
-                                            <td>Danışman Adı Soyadı</td>
-                                            <td>eposta@gmail.com</td>
-                                            <td>0532 457 89 74</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">10</th>
-                                            <td><a href="admin-student-profile.php" style="text-decoration: none; color: black;">Öğrenci Adı</a></td>
-                                            <td>ÖĞRENCİ SOYADI</td>
-                                            <td>211307097</td>
-                                            <td>Danışman Adı Soyadı</td>
-                                            <td>eposta@gmail.com</td>
-                                            <td>0532 457 89 74</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">11</th>
-                                            <td><a href="admin-student-profile.php" style="text-decoration: none; color: black;">Öğrenci Adı</a></td>
-                                            <td>ÖĞRENCİ SOYADI</td>
-                                            <td>211307097</td>
-                                            <td>Danışman Adı Soyadı</td>
-                                            <td>eposta@gmail.com</td>
-                                            <td>0532 457 89 74</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">12</th>
-                                            <td><a href="admin-student-profile.php" style="text-decoration: none; color: black;">Öğrenci Adı</a></td>
-                                            <td>ÖĞRENCİ SOYADI</td>
-                                            <td>211307097</td>
-                                            <td>Danışman Adı Soyadı</td>
-                                            <td>eposta@gmail.com</td>
-                                            <td>0532 457 89 74</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">13</th>
-                                            <td><a href="admin-student-profile.php" style="text-decoration: none; color: black;">Öğrenci Adı</a></td>
-                                            <td>ÖĞRENCİ SOYADI</td>
-                                            <td>211307097</td>
-                                            <td>Danışman Adı Soyadı</td>
-                                            <td>eposta@gmail.com</td>
-                                            <td>0532 457 89 74</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">14</th>
-                                            <td><a href="admin-student-profile.php" style="text-decoration: none; color: black;">Öğrenci Adı</a></td>
-                                            <td>ÖĞRENCİ SOYADI</td>
-                                            <td>211307097</td>
-                                            <td>Danışman Adı Soyadı</td>
-                                            <td>eposta@gmail.com</td>
-                                            <td>0532 457 89 74</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">15</th>
-                                            <td><a href="admin-student-profile.php" style="text-decoration: none; color: black;">Öğrenci Adı</a></td>
-                                            <td>ÖĞRENCİ SOYADI</td>
-                                            <td>211307097</td>
-                                            <td>Danışman Adı Soyadı</td>
-                                            <td>eposta@gmail.com</td>
-                                            <td>0532 457 89 74</td>
-                                        </tr>
+                                    <?php
+                                        /*<th>#</th>
+                                            <th>Ad</th>
+                                            <th>Soyad</th>
+                                            <th>Numara</th>
+                                            <th>Danışman</th>
+                                            <th>E-posta</th>
+                                            <th>Telefon</th>*/
+
+                                    foreach ($students as $key => $value) {
+                                        echo '<tr>';
+                                        echo '<th scope="row">'.$key.'</th>';
+                                        echo '<td><a href="admin-student-profile.php?id='.$value['studentID'].'">'.$value['name'].'</a></td>';
+                                        echo '<td>'.$value['surname'].'</td>';
+                                        echo '<td>'.$value['studentID'].'</td>';
+                                        echo '<td>'.$value['advisorID'].'</td>';
+                                        echo '<td>'.$value['mail'].'</td>';
+                                        echo '<td>'.$value['phoneNumber'].'</td>';
+                                        echo '</tr>';
+                                    }
+                                    ?>
+
                                     </tbody>
                                 </table>
                             </div>

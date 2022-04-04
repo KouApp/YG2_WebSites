@@ -498,7 +498,7 @@ $project = json_decode($response, true);
                                                     <div class="widget-content-right">
 
                                                         <?php
-                                                        
+
                                                         if ($project['status'] == 1) {
                                                             echo '<h6 class="text-dark">Proje Gönderildi</h6>';
                                                         } else if ($project['status'] == 2) {

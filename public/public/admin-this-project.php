@@ -1,8 +1,29 @@
 <?php
 session_start();
-if ($_SESSION['Permisson'] != 'admin') {
-    //echo'<meta http-equiv="refresh" content="0;URL=404.ph">';
+$id = $_GET['id']; //get id from url
+echo $id;
+
+if ($_SESSION['Permisson'] != 'admin' || !isset($id) || empty($id)) {
+    echo '<meta http-equiv="refresh" content="0;URL=404.php">';
 }
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+    CURLOPT_URL => 'http://172.105.73.62:5000/projectQuery',
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => '',
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => 'POST',
+    CURLOPT_POSTFIELDS => array('id' => $id),
+));
+
+$response = curl_exec($curl);
+curl_close($curl);
+$project = json_decode($response, true);
 ?>
 <!doctype html>
 <html lang="en">
@@ -430,6 +451,7 @@ if ($_SESSION['Permisson'] != 'admin') {
             <div class="app-main__outer">
                 <div class="app-main__inner">
                     <!--PAGE CONTENT-->
+                    <!--PAGE CONTENT-->
                     <div class="row">
                         <!--FIRST COLUMN-->
                         <div class="col-md-4">
@@ -447,7 +469,7 @@ if ($_SESSION['Permisson'] != 'admin') {
                                                         <h6>Proje Adı</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6 class="text-dark">Görüntü ve Video İşleme</h6>
+                                                        <h6 class="text-dark"><?php echo $project['headline'] ?></h6>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -456,7 +478,7 @@ if ($_SESSION['Permisson'] != 'admin') {
                                                         <h6>Proje Alım Tarihi</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6 class="text-dark">28.02.2022</h6>
+                                                        <h6 class="text-dark"><?php echo $project['instertionDate'] ?></h6>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -474,7 +496,28 @@ if ($_SESSION['Permisson'] != 'admin') {
                                                         <h6>Proje Durumu</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6 class="text-dark">Tez Hazırlama</h6>
+
+                                                        <?php
+                                                        
+                                                        if ($project['status'] == 1) {
+                                                            echo '<h6 class="text-dark">Proje Gönderildi</h6>';
+                                                        } else if ($project['status'] == 2) {
+                                                            echo '<h6 class="text-dark">Proje Görüldü</h6>';
+                                                        } else if ($project['status'] == 3) {
+                                                            echo '<h6 class="text-dark">Proje İndirildi</h6>';
+                                                        } else if ($project['status'] == 4) {
+                                                            echo '<h6 class="text-dark">Proje Kabul Edildi</h6>';
+                                                        } else if ($project['status'] == 5) {
+                                                            echo '<h6 class="text-dark">Proje Red Edildi</h6>';
+                                                        } else if ($project['status'] == 6) {
+                                                            echo '<h6 class="text-dark">Proje Revize Edildi</h6>';
+                                                        } else if ($project['status'] == 7) {
+                                                            echo '<h6 class="text-dark">Proje Tamamlandı</h6>';
+                                                        } else if ($project['status'] == 0) {
+                                                            echo '<h6 class="text-dark">Proje Test Edildi</h6>';
+                                                        }
+
+                                                        ?>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -483,7 +526,7 @@ if ($_SESSION['Permisson'] != 'admin') {
                                                         <h6>Anahtar Kelimeler</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6 class="text-dark">kelime1, kelime2, kel3, kel4, kel5</h6>
+                                                        <h6 class="text-dark"><?php echo $project['keyword'] ?></h6>
                                                     </div>
                                                 </div>
                                             </div>
@@ -492,59 +535,49 @@ if ($_SESSION['Permisson'] != 'admin') {
                                 </div>
 
                             </div>
-                            <!--Project History-->
+                            <!--Accept and Decline-->
                             <div class="row">
-                                <div class="col-xl-12">
-                                    <div class="col-md-12 main-card mb-3 card widget-content">
+                                <div class="col-md-12">
+                                    <div class="col-md-12 mb-3 main-card card widget-content">
                                         <div class="col-md-12">
                                             <div class="widget-content-wrapper">
-                                                <h5 class="card-title">PROJE GEÇMİŞİ</h5>
+                                                <h5 class="card-title">Onay ve Ret</h5>
                                             </div>
-                                            <div class="">
-                                                <h6>Sonuç ve Öneriler (Rapor)
-                                                    <div class="mb-2 mr-2 ml-2 badge badge-pill badge-success">
-                                                        Onaylandı
-                                                    </div>
-                                                </h6>
+                                            <div class="widget-content-wrapper">
+                                                <div class="widget-content-left">
+                                                    <h6>Gönderim Türü</h6>
+                                                </div>
+                                                <div class="widget-content-right">
+                                                    <h6 class="text-dark">Tez</h6>
+                                                </div>
                                             </div>
-                                            <div class="">
-                                                <h6>Kötü Rapor (Rapor)
-                                                    <div class="mb-2 mr-2 ml-2 badge badge-pill badge-danger">
-                                                        Reddedildi
-                                                    </div>
-                                                </h6>
+                                            <div class="widget-content-wrapper">
+                                                <div class="widget-content-left">
+                                                    <h6>Gönderim Linki</h6>
+                                                </div>
+                                                <div class="widget-content-right">
+                                                    <h6 class="text-dark"><a href="" style="text-decoration: none; color: black;">
+                                                            Gönderilen Tezin İsmi
+                                                        </a></h6>
+                                                </div>
                                             </div>
-                                            <div class="">
-                                                <h6>Sistem Mimarisi (Rapor)
-                                                    <div class="mb-2 mr-2 ml-2 badge badge-pill badge-success">
-                                                        Onaylandı
-                                                    </div>
-                                                </h6>
-                                            </div>
-                                            <div class="">
-                                                <h6>Araştırmalar ve Sonuçları (Rapor)
-                                                    <div class="mb-2 mr-2 ml-2 badge badge-pill badge-success">
-                                                        Onaylandı
-                                                    </div>
-                                                </h6>
-                                            </div>
-                                            <div class="">
-                                                <h6>Kötü Rapor (Rapor)
-                                                    <div class="mb-2 mr-2 ml-2 badge badge-pill badge-danger">
-                                                        Reddedildi
-                                                    </div>
-                                                </h6>
-                                            </div>
-                                            <div class="">
-                                                <h6>Görüntü ve Video İşleme (Proje)
-                                                    <div class="mb-2 mr-2 ml-2 badge badge-pill badge-success">
-                                                        Onaylandı
-                                                    </div>
-                                                </h6>
+                                            <div class="position-relative form-group"><label for="exampleText" class="">Gönderimi reddetmeden önce,
+                                                    reddedilme sebebini yazınız.
+                                                    (Onaylanan gönderimler için boş bırakabilirsiniz.)
+                                                </label><textarea name="text" id="exampleText" class="form-control"></textarea></div>
+                                            <div class="row widget-content-wrapper">
+                                                <div class="widget-content-left">
+                                                    <button class="mt-1 ml-5 btn btn-success">Onayla</button>
+                                                </div>
+                                                <div class="widget-content-right">
+                                                    <button class="mt-1 mr-5 btn btn-danger">Reddet</button>
+                                                </div>
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
+
                             </div>
                         </div>
 
@@ -568,22 +601,22 @@ if ($_SESSION['Permisson'] != 'admin') {
                                         <div class="card-body">
                                             <div class="tab-content">
                                                 <div class="tab-pane active show" id="tab-eg7-0" role="tabpanel">
-                                                    <p>Lorem ipsum dolor sit amet</p>
+                                                    <p><?php echo $project['matter'] ?></p>
                                                 </div>
                                                 <div class="tab-pane" id="tab-eg7-1" role="tabpanel">
-                                                    <p>Lorem ipsum dolor sit amet</p>
+                                                    <p><?php echo $project['[content]'] ?></p>
                                                 </div>
                                                 <div class="tab-pane" id="tab-eg7-2" role="tabpanel">
-                                                    <p>Lorem ipsum dolor sit amet</p>
+                                                    <p><?php echo $project['purpose'] ?></p>
                                                 </div>
                                                 <div class="tab-pane" id="tab-eg7-3" role="tabpanel">
-                                                    <p>Lorem ipsum dolor sit amet</p>
+                                                    <p><?php echo $project['materiel'] ?></p>
                                                 </div>
                                                 <div class="tab-pane" id="tab-eg7-4" role="tabpanel">
-                                                    <p>Lorem ipsum dolor sit amet</p>
+                                                    <p><?php echo $project['method'] ?></p>
                                                 </div>
                                                 <div class="tab-pane" id="tab-eg7-5" role="tabpanel">
-                                                    <p>Lorem ipsum dolor sit amet</p>
+                                                    <p><?php echo $project['possibility'] ?></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -594,6 +627,62 @@ if ($_SESSION['Permisson'] != 'admin') {
 
                             <!--Sent Files-->
                             <div class="row">
+
+                                <div class="col-xl-6">
+                                    <div class="col-md-12 main-card mb-3 card widget-content">
+                                        <div class="col-md-12">
+                                            <h5 class="card-title">Onaylanan Belgeler</h5>
+                                            <a href="" style="text-decoration: none; color: black;">
+                                                <h6>Belge 1:</h6>
+                                            </a>
+                                            <a href="" style="text-decoration: none; color: black;">
+                                                <h6>Belge 1:</h6>
+                                            </a>
+                                            <a href="" style="text-decoration: none; color: black;">
+                                                <h6>Belge 1:</h6>
+                                            </a>
+                                            <a href="" style="text-decoration: none; color: black;">
+                                                <h6>Belge 1:</h6>
+                                            </a>
+                                            <a href="" style="text-decoration: none; color: black;">
+                                                <h6>Belge 1:</h6>
+                                            </a>
+                                            <a href="" style="text-decoration: none; color: black;">
+                                                <h6>Belge 1:</h6>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6">
+                                    <div class="col-md-12 main-card mb-3 card widget-content">
+                                        <div class="col-md-12">
+                                            <h5 class="card-title">Reddedilen Belgeler</h5>
+                                            <a href="" style="text-decoration: none; color: black;">
+                                                <h6>Belge 1:</h6>
+                                            </a>
+                                            <a href="" style="text-decoration: none; color: black;">
+                                                <h6>Belge 1:</h6>
+                                            </a>
+                                            <a href="" style="text-decoration: none; color: black;">
+                                                <h6>Belge 1:</h6>
+                                            </a>
+                                            <a href="" style="text-decoration: none; color: black;">
+                                                <h6>Belge 1:</h6>
+                                            </a>
+                                            <a href="" style="text-decoration: none; color: black;">
+                                                <h6>Belge 1:</h6>
+                                            </a>
+                                            <a href="" style="text-decoration: none; color: black;">
+                                                <h6>Belge 1:</h6>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!--Plaguarism??? Table-->
+                            <div class="row">
                                 <div class="col-md-12">
                                     <div class="col-md-12 main-card mb-3 card widget-content">
                                         <div class="col-md-12">
@@ -601,56 +690,63 @@ if ($_SESSION['Permisson'] != 'admin') {
                                             <h7>Proje adına tıklayarak projeyi inceleyebilirsiniz.</h7>
                                             <table class="mb-0 mt-3 table table-hover">
                                                 <thead>
-                                                    <tr>
-                                                        <th>#</th>
-                                                        <th>Öğrenci</th>
-                                                        <th>Proje Başlığı</th>
-                                                        <th>Danışman</th>
-                                                        <th>Konu İntihal Oranı</th>
-                                                        <th>Yöntem İntihal Oranı</th>
-                                                    </tr>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Proje Numarası</th>
+                                                    <th>Proje Başlığı</th>
+                                                    <th>İntihal Oranı</th>
+                                                </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
+                                                <?php
+                                                $curl = curl_init();
+
+                                                curl_setopt_array($curl, array(
+                                                    CURLOPT_URL => 'http://172.105.73.62:5000/plagiarismRate',
+                                                    CURLOPT_RETURNTRANSFER => true,
+                                                    CURLOPT_ENCODING => '',
+                                                    CURLOPT_MAXREDIRS => 10,
+                                                    CURLOPT_TIMEOUT => 0,
+                                                    CURLOPT_FOLLOWLOCATION => true,
+                                                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                                                    CURLOPT_CUSTOMREQUEST => 'POST',
+                                                    CURLOPT_POSTFIELDS => array('mainProjeid' => trim($project["number"])),
+                                                ));
+
+                                                $response = curl_exec($curl);
+                                                curl_close($curl);
+                                                $plagarisms = json_decode($response, true);
+
+                                                foreach ($plagarisms as $key => $value) {
+                                                    foreach ($value as $key2 => $value2) {
+                                                        if ($value2 > 0) {
+                                                            $curl = curl_init();
+
+                                                            curl_setopt_array($curl, array(
+                                                                CURLOPT_URL => 'http://172.105.73.62:5000/projectQuery',
+                                                                CURLOPT_RETURNTRANSFER => true,
+                                                                CURLOPT_ENCODING => '',
+                                                                CURLOPT_MAXREDIRS => 10,
+                                                                CURLOPT_TIMEOUT => 0,
+                                                                CURLOPT_FOLLOWLOCATION => true,
+                                                                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                                                                CURLOPT_CUSTOMREQUEST => 'POST',
+                                                                CURLOPT_POSTFIELDS => array('id' => $key2),
+                                                            ));
+
+                                                            $response = curl_exec($curl);
+                                                            curl_close($curl);
+                                                            $project = json_decode($response, true);
+                                                            echo '<tr>
                                                         <th scope="row">1</th>
-                                                        <td>Ad SOYAD</td>
-                                                        <td><a href="advisor-student-profile.html" style="text-decoration: none; color: black;">Proje Adı</a></td>
-                                                        <td>Danışman Adı</td>
-                                                        <td>%45</td>
-                                                        <td>%22</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Ad SOYAD</td>
-                                                        <td><a href="advisor-student-profile.html" style="text-decoration: none; color: black;">Proje Adı</a></td>
-                                                        <td>Danışman Adı</td>
-                                                        <td>%45</td>
-                                                        <td>%22</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Ad SOYAD</td>
-                                                        <td><a href="advisor-student-profile.html" style="text-decoration: none; color: black;">Proje Adı</a></td>
-                                                        <td>Danışman Adı</td>
-                                                        <td>%45</td>
-                                                        <td>%22</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Ad SOYAD</td>
-                                                        <td><a href="advisor-student-profile.html" style="text-decoration: none; color: black;">Proje Adı</a></td>
-                                                        <td>Danışman Adı</td>
-                                                        <td>%45</td>
-                                                        <td>%22</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Ad SOYAD</td>
-                                                        <td><a href="advisor-student-profile.html" style="text-decoration: none; color: black;">Proje Adı</a></td>
-                                                        <td>Danışman Adı</td>
-                                                        <td>%45</td>
-                                                        <td>%22</td>
-                                                    </tr>
+                                                        <td><a href="advisor-this-project.php?id=' . $key2 . '"style="text-decoration: none; color: black;">' . $key2 . '</a></td>
+                                                        <td><a href="advisor-this-project.php?id=' . $key2 . '"style="text-decoration: none; color: black;">' . $project['headline'] . '</a></td>
+                                                        <td>%' . $value2 . '</td>
+                                                        </tr>';
+                                                        }
+                                                    }
+                                                }
+                                                ?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -660,7 +756,6 @@ if ($_SESSION['Permisson'] != 'admin') {
                             </div>
                         </div>
                     </div>
-                </div>
                 <!--FOOTER-->
                 <div class="app-wrapper-footer">
                     <div class="app-footer">

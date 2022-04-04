@@ -63,10 +63,10 @@ if($_SESSION['Permisson'] != 'admin'){
                             <div class="widget-content-wrapper">
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
-                                        Yönetici Adı
+                                        <?php echo $_SESSION["adminFullName"]?>
                                     </div>
                                     <div class="widget-subheading text-center">
-                                        Ünvan
+                                        <?php echo $_SESSION["title"]?>
                                     </div>
                                 </div>
                             </div>

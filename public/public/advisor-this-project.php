@@ -522,7 +522,7 @@ $project = json_decode($response, true);
                                                         <h6>Anahtar Kelimeler</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6 class="text-dark">kelime1, kelime2, kelime3, kelime4, kelime5</h6>
+                                                        <h6 class="text-dark"><?php echo $project['keyword'] ?></h6>
                                                     </div>
                                                 </div>
                                             </div>
@@ -623,7 +623,7 @@ $project = json_decode($response, true);
 
                             <!--Sent Files-->
                             <div class="row">
-                                
+
                                 <div class="col-xl-6">
                                     <div class="col-md-12 main-card mb-3 card widget-content">
                                         <div class="col-md-12">
@@ -674,7 +674,7 @@ $project = json_decode($response, true);
                                         </div>
                                     </div>
                                 </div>
-                            
+
                             </div>
 
                             <!--Plaguarism??? Table-->

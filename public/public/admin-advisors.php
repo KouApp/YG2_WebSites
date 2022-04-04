@@ -3,6 +3,21 @@ session_start();
 if($_SESSION['Permisson'] != 'admin'){
     echo'<meta http-equiv="refresh" content="0;URL=404.ph">';
 }
+$curl = curl_init();
+curl_setopt_array($curl, array(
+    CURLOPT_URL => 'http://172.105.73.62:5000/advisorListQuery',
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => '',
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => 'POST',
+));
+
+$response = curl_exec($curl);
+curl_close($curl);
+$advisor = json_decode($response, true);
 ?>
 <!doctype html>
 <html lang="en">
@@ -532,42 +547,18 @@ if($_SESSION['Permisson'] != 'admin'){
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td><a href="admin-advisor-profile.php"
-                                                    style="text-decoration: none; color: black;">Önder</a></td>
-                                            <td>YAKUT</td>
-                                            <td>Dr. Öğr. Üyesi</td>
-                                            <td>eposta@gmail.com</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td><a href="admin-advisor-profile.php" style="text-decoration: none; color: black;">Hikmet Hakan</a></td>
-                                            <td>GÜREL</td>
-                                            <td>Prof. Dr.</td>
-                                            <td>eposta@gmail.com</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td><a href="admin-advisor-profile.php" style="text-decoration: none; color: black;">Serdar</a></td>
-                                            <td>SOLAK</td>
-                                            <td>Doç. Dr.</td>
-                                            <td>eposta@gmail.com</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">4</th>
-                                            <td><a href="admin-advisor-profile.php" style="text-decoration: none; color: black;">Halil</a></td>
-                                            <td>YİĞİT</td>
-                                            <td>Doç. Dr.</td>
-                                            <td>eposta@gmail.com</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">5</th>
-                                            <td><a href="admin-advisor-profile.php" style="text-decoration: none; color: black;">Mehmet</a></td>
-                                            <td>YILDIRIM</td>
-                                            <td>Prof. Dr.</td>
-                                            <td>eposta@gmail.com</td>
-                                        </tr>
+                                            <?php
+                                            foreach ($advisor as $key => $value) {
+                                                echo "<tr>";
+                                                echo "<th scope='row'>".($key)."</th>";
+                                                echo '<td><a href="admin-advisor-profile.php" style="text-decoration: none; color: black;">'.$value['name'].'</a></td>';
+                                                echo "<td>".$value['surname']."</td>";
+                                                echo "<td>".$value['title']."</td>";
+                                                echo "<td>".$value['mail']."</td>";
+                                                echo "</tr>";
+                                            }
+
+                                            ?>
                                     </tbody>
                                 </table>
                             </div>

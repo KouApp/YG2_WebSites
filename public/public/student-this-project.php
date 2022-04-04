@@ -464,7 +464,7 @@ $project = json_decode($response, true);
                                                         <h6>Proje Alım Tarihi</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6 class="text-dark"><?php echo $project['headline']?></h6>
+                                                        <h6 class="text-dark"><?php echo $project['instertionDate']?></h6>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -473,7 +473,7 @@ $project = json_decode($response, true);
                                                         <h6>Proje Teslim Tarihi</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6 class="text-dark"><?php echo $project['instertionDate']?></h6>
+                                                        <h6 class="text-dark">Belirsiz</h6>
                                                     </div>
                                                 </div>
                                                 <br>

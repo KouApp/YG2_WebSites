@@ -458,7 +458,6 @@ if ($_SESSION['Permisson'] != 'student') {
                         $studentid = $_SESSION['Id'];
                         $insertiondate = (string)date("d-m-Y H:i:s");
                         $updatedate = (string)date("d-m-Y H:i:s");
-                        echo  count($keywords);
                         if (str_word_count($purpose) < 200 || str_word_count($matter) < 200 || str_word_count($content) < 200 || str_word_count($metariel) < 200 || str_word_count($methodology) < 200 || str_word_count($possibility) < 200 || count($keywords) != 5) {
                             echo '<div class="alert alert-danger" role="alert">
                             <strong>Hata!</strong> Başarısız!

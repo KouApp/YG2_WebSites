@@ -578,7 +578,7 @@ $json = json_decode($response, true);
                                 </div>
                                 <?php
                                 foreach ($projects as $project) {
-                                    echo '<a href="advisor-this-project.php?id='.$project['number'] . '" style="text-decoration: none; color: black;"
+                                    echo '<a href="admin-this-project.php?id='.$project['number'] . '" style="text-decoration: none; color: black;"
                                 class="main-card mb-3 card">
                                 <div class="card card-body">
                                     <h5 class="card-title">' . $project["headline"] . $_SESSION[(string)$project["status"]] . '</h5>

@@ -23,6 +23,12 @@ if(isset($_POST['sendFile'])){
             $data = file_get_contents($path);
             $filePdfbase64 = base64_encode($data);
             echo $filePdfbase64;
+
+            $pdf = fopen ('dosyalar/test.pdf','w');
+            //base 64 deocode
+            $data = base64_decode($filePdfbase64);
+            fwrite ($pdf,$data);
+            fclose ($pdf);
         }
     }
     else {

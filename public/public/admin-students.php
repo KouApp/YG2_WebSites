@@ -563,7 +563,7 @@ $students = json_decode($response, true);
                                     foreach ($students as $key => $value) {
                                         echo '<tr>';
                                         echo '<th scope="row">'.$key.'</th>';
-                                        echo '<td><a href="admin-student-profile.php?id='.$value['studentID'].'">'.$value['name'].'</a></td>';
+                                        echo '<td><a style="text-decoration: none; color: black;" href="admin-student-profile.php?id='.$value['studentID'].'">'.$value['name'].'</a></td>';
                                         echo '<td>'.$value['surname'].'</td>';
                                         echo '<td>'.$value['studentID'].'</td>';
                                         echo '<td>'.$value['advisorID'].'</td>';

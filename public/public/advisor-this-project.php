@@ -663,7 +663,7 @@ $acceptReport = curl_exec($curl);
                             <!--Sent Files-->
                             <div class="row">
                                 <div class="col-xl-12">
-                                    <div class="col-md-12 mb-3 main-card card">
+                                    <div class="col-md-12 mb-3 main-card card widget-content">
                                         <div class="col-md-12">
                                             <h5 class="card-title">Belgeler</h5>
                                             <table class="mb-0 mt-3 table table-hover">

@@ -1,8 +1,43 @@
 <?php
 session_start();
-if($_SESSION['Permisson'] != 'admin'){
-    echo'<meta http-equiv="refresh" content="0;URL=404.ph">';
+if ($_SESSION['Permisson'] != 'admin') {
+    echo '<meta http-equiv="refresh" content="0;URL=404.php">';
 }
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+    CURLOPT_URL => 'http://172.105.73.62:5000/advisorQuery',
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => '',
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => 'POST',
+    CURLOPT_POSTFIELDS => array('id' => $_GET['id']),
+));
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+$json = json_decode($response, true);
+
+$curl = curl_init();
+curl_setopt_array($curl, array(
+    CURLOPT_URL => 'http://172.105.73.62:5000/advisorStudent',
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => '',
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => 'POST',
+    CURLOPT_POSTFIELDS => array('no' => $_SESSION['Id']),
+));
+
+$response = curl_exec($curl);
+curl_close($curl);
+$students = json_decode($response, true);
 ?>
 <!doctype html>
 <html lang="en">
@@ -520,50 +555,52 @@ if($_SESSION['Permisson'] != 'admin'){
                         <div class="col-xl-4">
                             <div class="col-md-12 main-card mb-3 card">
                                 <div class="card-body">
-                                    <h5 class="card-title">DANIŞMAN BİLGİLERİ</h5>
                                     <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-6">
                                             <div class="widget-content ">
 
-                                                <div class="widget-content-wrapper row">
+                                                <div class="widget-content-wrapper row mr-5">
                                                     <div class="widget-content-left">
                                                         <h6>İsim:</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6>Önder YAKUT</h6>
+                                                        <h6><?php print $json["name"] ?></h6>
                                                     </div>
                                                 </div>
                                                 <br>
-                                                <div class="widget-content-wrapper row">
+                                                <div class="widget-content-wrapper row mr-5">
+                                                    <div class="widget-content-left">
+                                                        <h6>Soyisim:</h6>
+                                                    </div>
+                                                    <div class="widget-content-right">
+                                                        <h6><?php print $json["surname"] ?></h6>
+                                                    </div>
+                                                </div>
+                                                </li>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="widget-content">
+
+                                                <div class="widget-content-wrapper row mr-5">
                                                     <div class="widget-content-left">
                                                         <h6>Ünvan:</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6>Dr. Öğr. Üyesi</h6>
+                                                        <h6><?php print $json["title"] ?></h6>
                                                     </div>
                                                 </div>
-                                                </li>
                                                 <br>
-                                                <div class="widget-content-wrapper row">
+                                                <div class="widget-content-wrapper row mr-5">
                                                     <div class="widget-content-left">
                                                         <h6>E-posta:</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6>eposta@gmail.com</h6>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="widget-content-wrapper row">
-                                                    <div class="widget-content-left">
-                                                        <h6>Telefon:</h6>
-                                                    </div>
-                                                    <div class="widget-content-right">
-                                                        <h6>0532 597 68 98</h6>
+                                                        <h6><?php print $json["mail"] ?></h6>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -585,98 +622,26 @@ if($_SESSION['Permisson'] != 'admin'){
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td><a href="admin-student-profile.php"
+                                        <?php
+                                        //List student in table with use for loop
+                                        /*<th scope="row">1</th>
+                                                <td><a href="advisor-student-profile.php"
                                                         style="text-decoration: none; color: black;">Sirac</a></td>
                                                 <td>ARAPOĞLU</td>
                                                 <td>211307097</td>
                                                 <td>eposta@gmail.com</td>
-                                                <td>0553 305 41 99</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td><a href="admin-student-profile.php" style="text-decoration: none; color: black;">Abdullah
-                                                        Ali</a>
-                                                </td>
-                                                <td>GÜN</td>
-                                                <td>211307025</td>
-                                                <td>eposta@gmail.com</td>
-                                                <td>0553 305 41 99</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td><a href="admin-student-profile.php"
-                                                        style="text-decoration: none; color: black;">Yasin</a></td>
-                                                <td>ŞAHİN</td>
-                                                <td>211307034</td>
-                                                <td>eposta@gmail.com</td>
-                                                <td>0553 305 41 99</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">4</th>
-                                                <td><a href="admin-student-profile.php" style="text-decoration: none; color: black;">Emre</a>
-                                                </td>
-                                                <td>ÇETİNDEMİR</td>
-                                                <td>211307036</td>
-                                                <td>eposta@gmail.com</td>
-                                                <td>0553 305 41 99</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">5</th>
-                                                <td><a href="admin-student-profile.php"
-                                                        style="text-decoration: none; color: black;">Merve</a></td>
-                                                <td>TEKİN</td>
-                                                <td>211307045</td>
-                                                <td>eposta@gmail.com</td>
-                                                <td>0553 305 41 99</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">6</th>
-                                                <td><a href="admin-student-profile.php"
-                                                        style="text-decoration: none; color: black;">Harun</a></td>
-                                                <td>CAN</td>
-                                                <td>211307049</td>
-                                                <td>eposta@gmail.com</td>
-                                                <td>0553 305 41 99</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">7</th>
-                                                <td><a href="admin-student-profile.php"
-                                                        style="text-decoration: none; color: black;">Meryem</a>
-                                                </td>
-                                                <td>YILMAZ</td>
-                                                <td>211307057</td>
-                                                <td>eposta@gmail.com</td>
-                                                <td>0553 305 41 99</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">8</th>
-                                                <td><a href="admin-student-profile.php" style="text-decoration: none; color: black;">Sıla</a>
-                                                </td>
-                                                <td>KARA</td>
-                                                <td>211307071</td>
-                                                <td>eposta@gmail.com</td>
-                                                <td>0553 305 41 99</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">9</th>
-                                                <td><a href="admin-student-profile.php"
-                                                        style="text-decoration: none; color: black;">Metin</a></td>
-                                                <td>ÖZTÜRK</td>
-                                                <td>211307079</td>
-                                                <td>eposta@gmail.com</td>
-                                                <td>0553 305 41 99</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">10</th>
-                                                <td><a href="admin-student-profile.php" style="text-decoration: none; color: black;">Rıza</a>
-                                                </td>
-                                                <td>BOSTANCI</td>
-                                                <td>211307087</td>
-                                                <td>eposta@gmail.com</td>
-                                                <td>0553 305 41 99</td>
-                                            </tr>
+                                                <td>0553 305 41 99</td>*/
+                                        for ($i = 1; $i <= count($students); $i++) {
+                                            echo '<tr>';
+                                            echo '<th scope="row">' . ($i) . '</th>';
+                                            echo '<td><a href="admin-student-profile.php?id='.$students[$i]['studentID'] . '" style="text-decoration: none; color: black;">' . $students[$i]['name'] . '</a></td>';
+                                            echo '<td>' . $students[$i]['surname'] . '</td>';
+                                            echo '<td>' . $students[$i]['studentID'] . '</td>';
+                                            echo '<td>' . $students[$i]['mail'] . '</td>';
+                                            echo '<td>' . $students[$i]['phoneNumber'] . '</td>';
+                                            echo '</tr>';
+                                        }
+                                        ?>
                                         </tbody>
                                     </table>
                                 </div>

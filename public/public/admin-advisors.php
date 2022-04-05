@@ -551,7 +551,7 @@ $advisor = json_decode($response, true);
                                             foreach ($advisor as $key => $value) {
                                                 echo "<tr>";
                                                 echo "<th scope='row'>".($key)."</th>";
-                                                echo '<td><a href="admin-advisor-profile.php" style="text-decoration: none; color: black;">'.$value['name'].'</a></td>';
+                                                echo '<td><a href="admin-advisor-profile.php?id='.$value['registrationID'].'" style="text-decoration: none; color: black;">'.$value['name'].'</a></td>';
                                                 echo "<td>".$value['surname']."</td>";
                                                 echo "<td>".$value['title']."</td>";
                                                 echo "<td>".$value['mail']."</td>";

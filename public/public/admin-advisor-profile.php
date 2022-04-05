@@ -552,7 +552,7 @@ $students = json_decode($response, true);
                 <div class="app-main__inner">
                     <!--PAGE CONTENT-->
                     <div class="row">
-                        <div class="col-xl-4">
+                        <div class="col-xl-5">
                             <div class="col-md-12 main-card mb-3 card">
                                 <div class="card-body">
                                     <div class="row">
@@ -582,7 +582,7 @@ $students = json_decode($response, true);
                                         <div class="col-md-6">
                                             <div class="widget-content">
 
-                                                <div class="widget-content-wrapper row mr-5">
+                                                <div class="widget-content-wrapper row">
                                                     <div class="widget-content-left">
                                                         <h6>Ünvan:</h6>
                                                     </div>
@@ -591,7 +591,7 @@ $students = json_decode($response, true);
                                                     </div>
                                                 </div>
                                                 <br>
-                                                <div class="widget-content-wrapper row mr-5">
+                                                <div class="widget-content-wrapper row">
                                                     <div class="widget-content-left">
                                                         <h6>E-posta:</h6>
                                                     </div>
@@ -605,7 +605,7 @@ $students = json_decode($response, true);
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-8">
+                        <div class="col-lg-7">
                             <div class="main-card mb-3 card">
                                 <div class="card-body">
                                     <h5 class="card-title">DANIŞMANIN TÜM ÖĞRENCİLERİ</h5>

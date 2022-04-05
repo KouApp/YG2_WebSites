@@ -470,7 +470,7 @@ $json = json_decode($response, true);
                                                         <h6>Cep Telefonu:</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6><?php print $json["class"] ?></h6>
+                                                        <h6><?php print $json["phoneNumber"] ?></h6>
                                                     </div>
                                                 </div>
                                                 <br>

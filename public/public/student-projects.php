@@ -441,7 +441,7 @@ if ($_SESSION['Permisson'] != 'student') {
                         $projects = json_decode($response, true);
                         ?>
                         <!--All Projects-->
-                        <div class="col-md-12 col-lg-3">
+                        <div class="col-md-12 col-lg-4">
                             <div class="text-center">
                                 <h4><b>Bütün Projeler</b></h4>
                             </div>
@@ -472,7 +472,7 @@ if ($_SESSION['Permisson'] != 'student') {
 
                         </div>
                         <!--Notes-->
-                        <div class="col-md-12 col-lg-9">
+                        <div class="col-md-12 col-lg-8">
                             <div class="text-center">
                                 <h4><b>Notlar</b></h4>
                             </div>

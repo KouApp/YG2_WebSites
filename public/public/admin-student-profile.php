@@ -510,7 +510,7 @@ $json = json_decode($response, true);
                                                         <h6>Danışman:</h6>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <h6><?php print $json["advisorID"] ?></h6>
+                                                        <h6><?php print $json["advname"] . " " . $json["advsurname"] ?></h6>
                                                     </div>
                                                 </div>
                                                 <br>
@@ -578,7 +578,7 @@ $json = json_decode($response, true);
                                 </div>
                                 <?php
                                 foreach ($projects as $project) {
-                                    echo '<a href="admin-this-project.php?id='.$project['number'] . '" style="text-decoration: none; color: black;"
+                                    echo '<a href="admin-this-project.php?id=' . $project['number'] . '" style="text-decoration: none; color: black;"
                                 class="main-card mb-3 card">
                                 <div class="card card-body">
                                     <h5 class="card-title">' . $project["headline"] . '';

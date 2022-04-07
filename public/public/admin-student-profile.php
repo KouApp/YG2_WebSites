@@ -581,7 +581,19 @@ $json = json_decode($response, true);
                                     echo '<a href="admin-this-project.php?id='.$project['number'] . '" style="text-decoration: none; color: black;"
                                 class="main-card mb-3 card">
                                 <div class="card card-body">
-                                    <h5 class="card-title">' . $project["headline"] . $_SESSION[(string)$project["status"]] . '</h5>
+                                    <h5 class="card-title">' . $project["headline"] . '';
+                                    if ($project['status'] == 1) {
+                                        echo '<div class="ml-1 badge badge-pill badge-warning">GÖNDERİLDİ</div>';
+                                    } else if ($project['status'] == 4) {
+                                        echo '<div class="ml-1 badge badge-pill badge-info">KABUL EDİLDİ</div>';
+                                    } else if ($project['status'] == 5) {
+                                        echo '<div class="ml-1 badge badge-pill badge-danger">RED EDİLDİ</div>';
+                                    } else if ($project['status'] == 7) {
+                                        echo '<div class="ml-1 badge badge-pill badge-success">TAMAMLANDI</div>';
+                                    } else if ($project['status'] == 0) {
+                                        echo '<div class="ml-1 badge badge-pill badge-alternate">TEST</div>';
+                                    }
+                                    echo '</h5>
                                     <br>
                                     <div class="col-md-12">
                                         <div class="row">

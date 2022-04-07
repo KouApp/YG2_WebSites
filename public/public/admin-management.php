@@ -448,8 +448,14 @@ if ($_SESSION['Permisson'] != 'admin') {
                                                             echo '<h6 class="card-subtitle ml-2">Error Local'.$_FILES['base64']['error'].'</h6>';
                                                         } else {
                                                             $dosya = $_FILES['base64']['tmp_name'];
-                                                            copy($dosya, 'dosyalar/' . $_FILES['base64']['name']);
+                                                            //fwrite($dosya, 'dosyalar/' . $_FILES['base64']['name']);
                                                             $path = 'dosyalar/'. $_FILES['base64']['name'];
+                                                            if (move_uploaded_file($dosya, $path)) {
+                                                                //print 'Dosya başarıyla yüklendi.' w strong
+                                                                echo '<h6 class="card-subtitle ml-2">Dosya başarıyla yüklendi.</h6>';
+                                                            } else {
+                                                                echo '<h6 class="card-subtitle ml-2">Dosya yüklenemedi.</h6>';
+                                                            }
                                                             $data = file_get_contents($path);
                                                             $file2 = base64_encode($data);
                                                             $curl = curl_init();
@@ -469,7 +475,7 @@ if ($_SESSION['Permisson'] != 'admin') {
                                                             $response = curl_exec($curl);
                                                             curl_close($curl);
                                                             echo '<div class="alert alert-success" role="alert">
-                                                            <strong>Başarılı!</strong> Öğrenci eklendi.
+                                                            <strong>Response!</strong> '.$response.'
                                                             </div>';
                                                         }
                                                     }
@@ -502,9 +508,15 @@ if ($_SESSION['Permisson'] != 'admin') {
                                                         if ($hata != 0) {
                                                             echo '<h6 class="card-subtitle ml-2">Error Local</h6>';
                                                         } else {
-                                                            $dosya = $_FILES['file2']['tmp_name'];
-                                                            copy($dosya, 'dosyalar/' . $_FILES['file2']['name']);
-                                                            $path = 'dosyalar/'. $_FILES['file2']['name'];
+                                                            $dosya = $_FILES['base64']['tmp_name'];
+                                                            //fwrite($dosya, 'dosyalar/' . $_FILES['base64']['name']);
+                                                            $path = 'dosyalar/'. $_FILES['base64']['name'];
+                                                            if (move_uploaded_file($dosya, $path)) {
+                                                                //print 'Dosya başarıyla yüklendi.' w strong
+                                                                echo '<h6 class="card-subtitle ml-2">Dosya başarıyla yüklendi.</h6>';
+                                                            } else {
+                                                                echo '<h6 class="card-subtitle ml-2">Dosya yüklenemedi.</h6>';
+                                                            }
                                                             $data = file_get_contents($path);
                                                             $file2 = base64_encode($data);
                                                             $curl = curl_init();

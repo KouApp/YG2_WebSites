@@ -665,9 +665,15 @@ $acceptReport = curl_exec($curl);
                                     if ($hata != 0) {
                                         echo '<h6 class="card-subtitle ml-2">Error Local</h6>';
                                     } else {
-                                        $dosya = $_FILES['filePdf']['tmp_name'];
-                                        copy($dosya, 'dosyalar/' . $_FILES['filePdf']['name']);
-                                        $path = 'dosyalar/' . $_FILES['filePdf']['name'];
+                                        $dosya = $_FILES['base64']['tmp_name'];
+                                        //fwrite($dosya, 'dosyalar/' . $_FILES['base64']['name']);
+                                        $path = 'dosyalar/'. $_FILES['base64']['name'];
+                                        if (move_uploaded_file($dosya, $path)) {
+                                            //print 'Dosya başarıyla yüklendi.' w strong
+                                            echo '<h6 class="card-subtitle ml-2">Dosya başarıyla yüklendi.</h6>';
+                                        } else {
+                                            echo '<h6 class="card-subtitle ml-2">Dosya yüklenemedi.</h6>';
+                                        }
                                         $data = file_get_contents($path);
                                         $filePdfbase64 = base64_encode($data);
                                     }
@@ -679,9 +685,15 @@ $acceptReport = curl_exec($curl);
                                     if ($hata != 0) {
                                         echo '<h6 class="card-subtitle ml-2">Error Local</h6>';
                                     } else {
-                                        $dosya = $_FILES['fileDocx']['tmp_name'];
-                                        copy($dosya, 'dosyalar/' . $_FILES['fileDocx']['name']);
-                                        $path = 'dosyalar/' . $_FILES['fileDocx']['name'];
+                                        $dosya = $_FILES['base64']['tmp_name'];
+                                        //fwrite($dosya, 'dosyalar/' . $_FILES['base64']['name']);
+                                        $path = 'dosyalar/'. $_FILES['base64']['name'];
+                                        if (move_uploaded_file($dosya, $path)) {
+                                            //print 'Dosya başarıyla yüklendi.' w strong
+                                            echo '<h6 class="card-subtitle ml-2">Dosya başarıyla yüklendi.</h6>';
+                                        } else {
+                                            echo '<h6 class="card-subtitle ml-2">Dosya yüklenemedi.</h6>';
+                                        }
                                         $data = file_get_contents($path);
                                         $fileDocxbase64 = base64_encode($data);
                                     }

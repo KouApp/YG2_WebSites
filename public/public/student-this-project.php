@@ -687,12 +687,13 @@ $acceptReport = curl_exec($curl);
                                     } else {
                                         $dosya = $_FILES['base64']['tmp_name'];
                                         //fwrite($dosya, 'dosyalar/' . $_FILES['base64']['name']);
-                                        $path = 'dosyalar/' . $_FILES['base64']['name'];
+                                        $path = 'dosyalar/' . $_FILES['fileDocx']['name'];
+                                        
                                         if (move_uploaded_file($dosya, $path)) {
                                             //print 'Dosya başarıyla yüklendi.' w strong
                                             echo '<h6 class="card-subtitle ml-2">Dosya başarıyla yüklendi.</h6>';
                                         } else {
-                                            echo '<h6 class="card-subtitle ml-2">Dosya yüklenemedi.</h6>';
+                                             echo '<h6 class="card-subtitle ml-2">Dosya yüklenemedi.</h6>';
                                         }
                                         $data = file_get_contents($path);
                                         $fileDocxbase64 = base64_encode($data);
@@ -845,16 +846,7 @@ $acceptReport = curl_exec($curl);
                                                         echo '<td>' . $report["status"] . '</td>';
                                                         echo '<td>' . $report["description"] . '</td>';
                                                         echo '<td>' . $report["insertionDate"] . '</td>';
-                                                        if ($project['status'] == '4' && $report['status'] != 4 && $report['status'] != 5) {
-                                                            echo '
-                                                        <td><textarea name="explainText" class="form-control"></textarea></td>
-
-                                                        <td><input class="mt-1 ml-5 btn btn-success" type="submit" name="raporOnay" value="O"></td>
-
-                                                        <td><input class="mt-1 mr-5 btn btn-danger" type="submit" name="raporRed" value="X"></td>
-
-                                                        ';
-                                                        }
+                                                        
                                                         echo '</form>';
 
                                                         echo '</tr>';

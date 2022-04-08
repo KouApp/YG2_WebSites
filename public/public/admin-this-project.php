@@ -618,16 +618,7 @@ $project = json_decode($response, true);
                                                         echo '<td>' . $report["status"] . '</td>';
                                                         echo '<td>' . $report["description"] . '</td>';
                                                         echo '<td>' . $report["insertionDate"] . '</td>';
-                                                        if ($project['status'] == '4' && $report['status'] != 4 && $report['status'] != 5) {
-                                                            echo '
-                                                        <td><textarea name="explainText" class="form-control"></textarea></td>
-
-                                                        <td><input class="mt-1 ml-5 btn btn-success" type="submit" name="raporOnay" value="O"></td>
-
-                                                        <td><input class="mt-1 mr-5 btn btn-danger" type="submit" name="raporRed" value="X"></td>
-
-                                                        ';
-                                                        }
+                                                        
                                                         echo '</form>';
 
                                                         echo '</tr>';

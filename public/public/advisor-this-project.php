@@ -24,7 +24,7 @@ curl_setopt_array($curl, array(
 $response = curl_exec($curl);
 curl_close($curl);
 $project = json_decode($response, true);
-
+$curl = curl_init();
 curl_setopt_array($curl, array(
     CURLOPT_URL => 'http://172.105.73.62:5000/projectCounterQuery',
     CURLOPT_RETURNTRANSFER => true,

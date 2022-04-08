@@ -454,7 +454,7 @@ $project = json_decode($response, true);
                     <!--PAGE CONTENT-->
                     <div class="row">
                         <!--FIRST COLUMN-->
-                        <div class="col-md-4">
+                        <div class="col-md-5">
                             <!--Project Details-->
                             <div class="row">
                                 <div class="col-xl-12">
@@ -535,6 +535,189 @@ $project = json_decode($response, true);
                                 </div>
 
                             </div>
+                            <!--Files-->
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="col-md-12 mb-3 main-card card widget-content">
+                                        <div class="col-md-12">
+                                            <h5 class="card-title">Belgeler</h5>
+                                            <table class="mb-0 mt-3 table table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>id</th>
+                                                        <th>R/T</th>
+                                                        <th>PDF</th>
+                                                        <th>DOC</th>
+                                                        <th>Durum</th>
+                                                        <th>Açıklama</th>
+                                                        <th>Tarih</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                    $curl = curl_init();
+
+                                                    curl_setopt_array($curl, array(
+                                                        CURLOPT_URL => 'http://172.105.73.62:5000/reportsQuery',
+                                                        CURLOPT_RETURNTRANSFER => true,
+                                                        CURLOPT_ENCODING => '',
+                                                        CURLOPT_MAXREDIRS => 10,
+                                                        CURLOPT_TIMEOUT => 0,
+                                                        CURLOPT_FOLLOWLOCATION => true,
+                                                        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                                                        CURLOPT_CUSTOMREQUEST => 'POST',
+                                                        CURLOPT_POSTFIELDS => array('projeno' => trim($project["number"])),
+                                                    ));
+
+                                                    $response = curl_exec($curl);
+                                                    curl_close($curl);
+                                                    $reports = json_decode($response, true);
+                                                    $rstatus = 0;
+                                                    if (isset($_POST['raporOnay'])) {
+                                                        $rstatus = 4;
+                                                    } else if (isset($_POST['raporRed'])) {
+                                                        $rstatus = 5;
+                                                    }
+                                                    if ($rstatus != 0) {
+                                                        $curl = curl_init();
+
+
+
+                                                        curl_setopt_array($curl, array(
+                                                            CURLOPT_URL => 'http://172.105.73.62:5000/reportsStatusUpdate',
+                                                            CURLOPT_RETURNTRANSFER => true,
+                                                            CURLOPT_ENCODING => '',
+                                                            CURLOPT_MAXREDIRS => 10,
+                                                            CURLOPT_TIMEOUT => 0,
+                                                            CURLOPT_FOLLOWLOCATION => true,
+                                                            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                                                            CURLOPT_CUSTOMREQUEST => 'POST',
+                                                            CURLOPT_POSTFIELDS => array(
+                                                                'id' => $_POST['raporId'],
+                                                                'new_status' => $rstatus,
+                                                                'description' => $_POST['explainText']
+                                                            ),
+                                                        ));
+
+                                                        $response = curl_exec($curl);
+                                                        curl_close($curl);
+                                                    }
+                                                    foreach ($reports as $report) {
+
+                                                        $pdf = fopen('dosyalar/rapor-' . $report["id"] . '.pdf', 'w');
+                                                        $data = base64_decode($report["pdfPath"]);
+                                                        fwrite($pdf, $data);
+                                                        fclose($pdf);
+
+                                                        echo '<tr>';
+                                                        echo '<form name="advisorThisProject1' . $report["id"] . '" method="post" action="advisor-this-project.php?id=' . $project['number'] . '">';
+                                                        echo '<td><input type="text" style = "width: 0%" name="raporId" value="' . $report["id"] . '">' . $report["id"] . '</td>';
+                                                        echo '<td>Rapor</td>';
+                                                        echo '<td><a href="dosyalar/rapor-' . $report["id"] . '.pdf" target="_blank">PDF</a></td>';
+                                                        echo '<td><a href="dosyalar/rapor-' . $report["id"] . '.pdf" target="_blank">DOC</a></td>';
+                                                        echo '<td>' . $report["status"] . '</td>';
+                                                        echo '<td>' . $report["description"] . '</td>';
+                                                        echo '<td>' . $report["insertionDate"] . '</td>';
+                                                        if ($project['status'] == '4' && $report['status'] != 4 && $report['status'] != 5) {
+                                                            echo '
+                                                        <td><textarea name="explainText" class="form-control"></textarea></td>
+
+                                                        <td><input class="mt-1 ml-5 btn btn-success" type="submit" name="raporOnay" value="O"></td>
+
+                                                        <td><input class="mt-1 mr-5 btn btn-danger" type="submit" name="raporRed" value="X"></td>
+
+                                                        ';
+                                                        }
+                                                        echo '</form>';
+
+                                                        echo '</tr>';
+                                                    }
+                                                    $tstatus = 0;
+                                                    if (isset($_POST['raporOnay'])) {
+                                                        $tstatus = 4;
+                                                    } else if (isset($_POST['raporRed'])) {
+                                                        $tstatus = 5;
+                                                    }
+                                                    if ($tstatus != 0) {
+                                                        $curl = curl_init();
+
+                                                        curl_setopt_array($curl, array(
+                                                            CURLOPT_URL => 'http://172.105.73.62:5000/dissertationStatusUpdate',
+                                                            CURLOPT_RETURNTRANSFER => true,
+                                                            CURLOPT_ENCODING => '',
+                                                            CURLOPT_MAXREDIRS => 10,
+                                                            CURLOPT_TIMEOUT => 0,
+                                                            CURLOPT_FOLLOWLOCATION => true,
+                                                            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                                                            CURLOPT_CUSTOMREQUEST => 'POST',
+                                                            CURLOPT_POSTFIELDS => array(
+                                                                'id' => $_POST['tezId'],
+                                                                'new_status' => $tstatus,
+                                                                'description' => $_POST['explainText']
+                                                            ),
+                                                        ));
+
+                                                        $response = curl_exec($curl);
+                                                        curl_close($curl);
+                                                        echo $response;
+                                                    }
+
+                                                    $curl = curl_init();
+
+                                                    curl_setopt_array($curl, array(
+                                                        CURLOPT_URL => 'http://172.105.73.62:5000/dissertationQuery',
+                                                        CURLOPT_RETURNTRANSFER => true,
+                                                        CURLOPT_ENCODING => '',
+                                                        CURLOPT_MAXREDIRS => 10,
+                                                        CURLOPT_TIMEOUT => 0,
+                                                        CURLOPT_FOLLOWLOCATION => true,
+                                                        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                                                        CURLOPT_CUSTOMREQUEST => 'POST',
+                                                        CURLOPT_POSTFIELDS => array('projeno' => trim($project["number"])),
+                                                    ));
+
+                                                    $response = curl_exec($curl);
+                                                    curl_close($curl);
+                                                    $dissertationQuery = json_decode($response, true);
+                                                    //if dissertation exists or not null or empty
+                                                    if (!empty($dissertationQuery)) {
+                                                        $pdf = fopen('dosyalar/Tez-' . $dissertationQuery["id"] . '.pdf', 'w');
+                                                        $data = base64_decode($dissertationQuery["pdfPath"]);
+                                                        fwrite($pdf, $data);
+                                                        fclose($pdf);
+
+                                                        echo '<tr>';
+                                                        echo '<form name="advisorThisProject1" method="post" action="advisor-this-project.php?id=' . $project['number'] . '">';
+                                                        echo '<td><input type="text" style = "visibility:hidden; width: 0%" name="tezId" value="' . $dissertationQuery["id"] . '" disabled>' . $dissertationQuery["id"] . '</td>';
+                                                        echo '<td>Rapor</td>';
+                                                        echo '<td><a href="dosyalar/rapor-' . $dissertationQuery["id"] . '.pdf" target="_blank">PDF</a></td>';
+                                                        echo '<td><a href="dosyalar/rapor-' . $dissertationQuery["id"] . '.pdf" target="_blank">DOC</a></td>';
+                                                        echo '<td>' . $dissertationQuery["status"] . '</td>';
+                                                        echo '<td>' . $dissertationQuery["description"] . '</td>';
+                                                        echo '<td>' . $dissertationQuery["insertionDate"] . '</td>';
+                                                        if ($project['status'] == '4') {
+                                                            echo '
+                                                        <td><textarea name="explainText" class="form-control"></textarea></td>
+
+                                                        <td><input class="mt-1 ml-5 btn btn-success" type="submit" name="tezOnay" value="O"></td>
+
+                                                        <td><input class="mt-1 mr-5 btn btn-danger" type="submit" name="tezRed" value="X"></td>
+
+                                                        ';
+                                                        }
+                                                        echo '</form>';
+
+                                                        echo '</tr>';
+                                                    }
+
+                                                    ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                             <!--Accept and Decline-->
                             <div class="row">
                                 <div class="col-md-12">
@@ -582,7 +765,7 @@ $project = json_decode($response, true);
                         </div>
 
                         <!--SECOND COLUMN-->
-                        <div class="col-md-8">
+                        <div class="col-md-7">
                             <!--Project Subject and Materials-->
                             <div class="row">
                                 <div class="col-md-12">
@@ -690,63 +873,63 @@ $project = json_decode($response, true);
                                             <h7>Proje adına tıklayarak projeyi inceleyebilirsiniz.</h7>
                                             <table class="mb-0 mt-3 table table-hover">
                                                 <thead>
-                                                <tr>
-                                                    <th>#</th>
-                                                    <th>Proje Numarası</th>
-                                                    <th>Proje Başlığı</th>
-                                                    <th>İntihal Oranı</th>
-                                                </tr>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Proje Numarası</th>
+                                                        <th>Proje Başlığı</th>
+                                                        <th>İntihal Oranı</th>
+                                                    </tr>
                                                 </thead>
                                                 <tbody>
-                                                <?php
-                                                $curl = curl_init();
+                                                    <?php
+                                                    $curl = curl_init();
 
-                                                curl_setopt_array($curl, array(
-                                                    CURLOPT_URL => 'http://172.105.73.62:5000/plagiarismRate',
-                                                    CURLOPT_RETURNTRANSFER => true,
-                                                    CURLOPT_ENCODING => '',
-                                                    CURLOPT_MAXREDIRS => 10,
-                                                    CURLOPT_TIMEOUT => 0,
-                                                    CURLOPT_FOLLOWLOCATION => true,
-                                                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                                                    CURLOPT_CUSTOMREQUEST => 'POST',
-                                                    CURLOPT_POSTFIELDS => array('mainProjeid' => trim($project["number"])),
-                                                ));
+                                                    curl_setopt_array($curl, array(
+                                                        CURLOPT_URL => 'http://172.105.73.62:5000/plagiarismRate',
+                                                        CURLOPT_RETURNTRANSFER => true,
+                                                        CURLOPT_ENCODING => '',
+                                                        CURLOPT_MAXREDIRS => 10,
+                                                        CURLOPT_TIMEOUT => 0,
+                                                        CURLOPT_FOLLOWLOCATION => true,
+                                                        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                                                        CURLOPT_CUSTOMREQUEST => 'POST',
+                                                        CURLOPT_POSTFIELDS => array('mainProjeid' => trim($project["number"])),
+                                                    ));
 
-                                                $response = curl_exec($curl);
-                                                curl_close($curl);
-                                                $plagarisms = json_decode($response, true);
+                                                    $response = curl_exec($curl);
+                                                    curl_close($curl);
+                                                    $plagarisms = json_decode($response, true);
 
-                                                foreach ($plagarisms as $key => $value) {
-                                                    foreach ($value as $key2 => $value2) {
-                                                        if ($value2 > 0) {
-                                                            $curl = curl_init();
+                                                    foreach ($plagarisms as $key => $value) {
+                                                        foreach ($value as $key2 => $value2) {
+                                                            if ($value2 > 0) {
+                                                                $curl = curl_init();
 
-                                                            curl_setopt_array($curl, array(
-                                                                CURLOPT_URL => 'http://172.105.73.62:5000/projectQuery',
-                                                                CURLOPT_RETURNTRANSFER => true,
-                                                                CURLOPT_ENCODING => '',
-                                                                CURLOPT_MAXREDIRS => 10,
-                                                                CURLOPT_TIMEOUT => 0,
-                                                                CURLOPT_FOLLOWLOCATION => true,
-                                                                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                                                                CURLOPT_CUSTOMREQUEST => 'POST',
-                                                                CURLOPT_POSTFIELDS => array('id' => $key2),
-                                                            ));
+                                                                curl_setopt_array($curl, array(
+                                                                    CURLOPT_URL => 'http://172.105.73.62:5000/projectQuery',
+                                                                    CURLOPT_RETURNTRANSFER => true,
+                                                                    CURLOPT_ENCODING => '',
+                                                                    CURLOPT_MAXREDIRS => 10,
+                                                                    CURLOPT_TIMEOUT => 0,
+                                                                    CURLOPT_FOLLOWLOCATION => true,
+                                                                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                                                                    CURLOPT_CUSTOMREQUEST => 'POST',
+                                                                    CURLOPT_POSTFIELDS => array('id' => $key2),
+                                                                ));
 
-                                                            $response = curl_exec($curl);
-                                                            curl_close($curl);
-                                                            $project = json_decode($response, true);
-                                                            echo '<tr>
+                                                                $response = curl_exec($curl);
+                                                                curl_close($curl);
+                                                                $project = json_decode($response, true);
+                                                                echo '<tr>
                                                         <th scope="row">1</th>
                                                         <td><a href="advisor-this-project.php?id=' . $key2 . '"style="text-decoration: none; color: black;">' . $key2 . '</a></td>
                                                         <td><a href="advisor-this-project.php?id=' . $key2 . '"style="text-decoration: none; color: black;">' . $project['headline'] . '</a></td>
                                                         <td>%' . $value2 . '</td>
                                                         </tr>';
+                                                            }
                                                         }
                                                     }
-                                                }
-                                                ?>
+                                                    ?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -756,27 +939,27 @@ $project = json_decode($response, true);
                             </div>
                         </div>
                     </div>
-                <!--FOOTER-->
-                <div class="app-wrapper-footer">
-                    <div class="app-footer">
-                        <div class="app-footer__inner">
-                            <div class="app-footer-left">
-                                <ul class="nav">
-                                    <li class="nav-item">
-                                        <h6>Bizimle <b>projetakipkou@gmail.com</b> adresi üzerinden iletişime
-                                            geçebilirsiniz.
-                                        </h6>
-                                    </li>
-                                </ul>
+                    <!--FOOTER-->
+                    <div class="app-wrapper-footer">
+                        <div class="app-footer">
+                            <div class="app-footer__inner">
+                                <div class="app-footer-left">
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            <h6>Bizimle <b>projetakipkou@gmail.com</b> adresi üzerinden iletişime
+                                                geçebilirsiniz.
+                                            </h6>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
             </div>
-            <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
         </div>
-    </div>
-    <script type="text/javascript" src="./assets/scripts/main.js"></script>
+        <script type="text/javascript" src="./assets/scripts/main.js"></script>
 </body>
 
 </html>
